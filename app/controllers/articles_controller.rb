@@ -38,7 +38,7 @@ class ArticlesController < ApplicationController
     if auth_through_article
       @user = @article.user
       @article.destroy
-      flash[:success] = "Your article titled \"#{@article.title}\ was deleted."
+      flash[:success] = "Your article titled \"#{@article.title}\" was deleted."
       redirect_to user_path(@user)
     else
       auth_fail("delete other people's articles", article_path)
@@ -48,7 +48,7 @@ class ArticlesController < ApplicationController
 private
 
   def article_params
-    params.require(:article).permit(:title, :content, :image)
+    params.require(:article).permit(:first_name, :last_name, :email, :password, :image)
   end
 
   def set_article
