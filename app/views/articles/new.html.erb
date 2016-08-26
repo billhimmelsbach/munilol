@@ -1,0 +1,10 @@
+<br></br>
+Create new article!
+<br></br>
+<%= bootstrap_form_for Article.new do |f| %>
+  <%= f.text_field :title, label_class: "Title" %>
+  <%= f.text_field :content, label_class: "Content" %>
+  <%= f.file_field :image, label_class: "Image Url" %>
+  <br>
+  <%= f.submit "Create new article" %>
+<% end %>
