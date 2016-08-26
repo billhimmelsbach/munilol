@@ -5,6 +5,8 @@ class CreateArticles < ActiveRecord::Migration
       t.string :content
       t.string :image
       t.integer :vote_total
+      t.belongs_to :muni, index: true
+      t.belongs_to :user, index: true
 
       t.timestamps null: false
     end

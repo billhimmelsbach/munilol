@@ -21,15 +21,25 @@ ActiveRecord::Schema.define(version: 20160825234003) do
     t.string   "content"
     t.string   "image"
     t.integer  "vote_total"
+    t.integer  "muni_id"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_index "articles", ["muni_id"], name: "index_articles_on_muni_id", using: :btree
+  add_index "articles", ["user_id"], name: "index_articles_on_user_id", using: :btree
+
   create_table "comments", force: :cascade do |t|
     t.integer  "vote"
+    t.integer  "user_id"
+    t.integer  "article_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "comments", ["article_id"], name: "index_comments_on_article_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "munis", force: :cascade do |t|
     t.string   "name"
