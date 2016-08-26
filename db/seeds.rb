@@ -11,21 +11,21 @@ USERS = [
     last_name: "Castilla",
     email: "JustinCastilla@WDI30.com",
     password_digest:  "",
-    photo: "https://cdn0.vox-cdn.com/images/verge/default-avatar.v9899025.gif"
+    image: "https://cdn0.vox-cdn.com/images/verge/default-avatar.v9899025.gif"
   },
   {
     first_name: "Ben",
     last_name: "Manning",
     email: "BenManning@WDI30.com",
     password_digest:  "",
-    photo: "https://cdn0.vox-cdn.com/images/verge/default-avatar.v9899025.gif"
+    image: "https://cdn0.vox-cdn.com/images/verge/default-avatar.v9899025.gif"
   },
   {
     first_name: "Melissa",
     last_name: "Carlson",
     email: "MelissaCarlson@WDI30.com",
     password_digest:  "",
-    photo: "https://cdn0.vox-cdn.com/images/verge/default-avatar.v9899025.gif"
+    image: "https://cdn0.vox-cdn.com/images/verge/default-avatar.v9899025.gif"
   }
 ]
 
