@@ -8,7 +8,28 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    @article = Article.find_by_id(params[:id])
     set_article
+  end
+
+  def new
+    @article = Article.new
+    render :new
+  end
+
+  def create
+    # @muni = article_params.muni_id
+    @article = Article.new(article_params)
+    @article.user_id = session[:user_id]
+    @muni = Muni.find(@article.muni_id)
+    if @article.save
+      @muni.articles.push(@article)
+      flash[:success] = "Your article titled \"#{@article.title}\" was successfully created"
+      redirect_to article_path(@article)
+    else
+      flash[:notice] = "Cannot create your post: #{@article.errors.full_messages.join(', ')}."
+      redirect_to new_article_path
+    end
   end
 
   def edit
@@ -48,7 +69,7 @@ class ArticlesController < ApplicationController
 private
 
   def article_params
-    params.require(:article).permit(:first_name, :last_name, :email, :password, :image)
+    params.require(:article).permit(:title, :content, :image, :muni_id)
   end
 
   def set_article
