@@ -4,9 +4,12 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
   include SessionsHelper
+<<<<<<< HEAD
 
   def not_found
     render :not_found
   end
 
+=======
+>>>>>>> master
 end
