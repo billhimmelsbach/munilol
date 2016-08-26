@@ -47,10 +47,8 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find_by_id(params[:id])
     if auth_route
-      articles = @user.articles
-      comments = @user.comments
-      articles.destroy
-      comments.destroy
+      Comment.delete_all(:user => @user.id)
+      Article.delete_all(:user => @user.id)
       @user.destroy
       flash[:success] = "Your account has been deactivated."
       redirect_to root_path
