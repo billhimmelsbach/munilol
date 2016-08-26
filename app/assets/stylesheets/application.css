@@ -12,6 +12,19 @@ html, body{
   height: 4em;
 }
 
+.navbar-brand>img {
+   padding: 0px;
+   height: 40px;
+   width: 140px;
+}
+.navbar {
+  height: 70px;
+}
+.navbar-nav {
+  margin-top: 10px;
+  padding-right: 40px;
+}
+
 
 
 
