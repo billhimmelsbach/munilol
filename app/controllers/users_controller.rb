@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by_id(params[:id])
     # @user = User.friendly.find(params[:id].to_s.downcase)
-    @articles = Post.where(user_id: params[:id])
+    @articles = Article.where(user_id: params[:id])
     render :show
   end
 
