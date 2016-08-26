@@ -8,6 +8,24 @@
 </head>
 <body>
 
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="col-xs-12">
+      <div class="navbar-header col-xs-2">
+        <a href="/" class="navbar-brand"><img src="http://i.imgur.com/t2eYHwW.png"></a>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+          <li><%= link_to "Profile", user_path(current_user) %></li>
+          <li><%= link_to "Log Out", logout_path %></li>
+        <% else %>
+          <li><%= link_to "Sign up", new_user_path %></li>
+          <li><%= link_to "Log In", new_session_path %></li>
+        <% end %>
+        <br>
+      </ul>
+    </div>
+  </nav>
+
 <%= yield %>
 
 </body>
