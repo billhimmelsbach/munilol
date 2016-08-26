@@ -1,10 +1,10 @@
 class ArticlesController < ApplicationController
-
+  include AuthHelper
 #TODO should I remove the contextual reasons why a user isn't able to do an action on a route?
 
-  def splash
+  def index
     @articles = Article.all
-    render :splash
+    render :index
   end
 
   def show
@@ -12,7 +12,7 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    if auth_route(@user)
+    if auth_route
       render :edit
     else
       auth_fail("edit other people's articles!", article_path)
