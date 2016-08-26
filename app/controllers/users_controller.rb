@@ -48,11 +48,12 @@ class UsersController < ApplicationController
     set_user
     if auth_route
       @user.destroy
-      flash[:success] = "Your article titled \"#{@article.title}\" was deleted."
+      flash[:success] = "Your account has been ."
       redirect_to root_path
     else
       auth_fail("delete other people's articles", article_path)
     end
+  end
 
   private
 
