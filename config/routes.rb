@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get "/users/:id", to: "users#show", as: "user"
   get "/users/:id/edit", to: "users#edit", as: "edit_user"
   patch "/users/:id", to: "users#update"
-  delete "/users/:id", to: "users#destroy", as: "delete_user"
+  delete "/users/:id", to: "users#destroy", as: "destroy_user"
 
   get "/login", to: "sessions#new", as: "new_session"
   get "/logout", to: "sessions#destroy"
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   get "/articles/:id", to: "articles#show", as: "article"
   get "/articles/:id/edit", to: "articles#edit", as: "edit_article"
   patch "/articles/:article_id", to: "articles#update"
-  delete "/articles/:id", to: "articles#destroy", as: "delete_article"
+  delete "/articles/:id", to: "articles#destroy", as: "destroy_article"
 
   patch "/comments/:id", to: "comments#update"
 
