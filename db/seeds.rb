@@ -1,32 +1,32 @@
 USERS = [
-{
-  first_name: "Nathan",
-  last_name: "Allen",
-  email: "NathanAllen@WDI30.com",
-  password_digest:  "",
-  image: "https://cdn0.vox-cdn.com/images/verge/default-avatar.v9899025.gif",
-},
-{
-  first_name: "Justin",
-  last_name: "Castilla",
-  email: "JustinCastilla@WDI30.com",
-  password_digest:  "",
-  photo: "https://cdn0.vox-cdn.com/images/verge/default-avatar.v9899025.gif",
-},
-{
-  first_name: "Ben",
-  last_name: "Manning",
-  email: "BenManning@WDI30.com",
-  password_digest:  "",
-  photo: "https://cdn0.vox-cdn.com/images/verge/default-avatar.v9899025.gif",
-},
-{
-  first_name: "Melissa",
-  last_name: "Carlson",
-  email: "MelissaCarlson@WDI30.com",
-  password_digest:  "",
-  photo: "https://cdn0.vox-cdn.com/images/verge/default-avatar.v9899025.gif",
-}
+  {
+    first_name: "Nathan",
+    last_name: "Allen",
+    email: "NathanAllen@WDI30.com",
+    password_digest:  "",
+    image: "https://cdn0.vox-cdn.com/images/verge/default-avatar.v9899025.gif"
+  },
+  {
+    first_name: "Justin",
+    last_name: "Castilla",
+    email: "JustinCastilla@WDI30.com",
+    password_digest:  "",
+    photo: "https://cdn0.vox-cdn.com/images/verge/default-avatar.v9899025.gif"
+  },
+  {
+    first_name: "Ben",
+    last_name: "Manning",
+    email: "BenManning@WDI30.com",
+    password_digest:  "",
+    photo: "https://cdn0.vox-cdn.com/images/verge/default-avatar.v9899025.gif"
+  },
+  {
+    first_name: "Melissa",
+    last_name: "Carlson",
+    email: "MelissaCarlson@WDI30.com",
+    password_digest:  "",
+    photo: "https://cdn0.vox-cdn.com/images/verge/default-avatar.v9899025.gif"
+  }
 ]
 
 MUNIS = [
@@ -70,3 +70,7 @@ ARTICLES = [
     image: "http://www.munidiaries.com/wp-content/uploads/2016/02/skater.jpg"
   }
 ]
+
+User.create(USERS)
+Muni.create(MUNIS)
+Article.create(ARTICLES)
