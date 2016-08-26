@@ -1,0 +1,2 @@
+class MunisController < ApplicationController
+end
