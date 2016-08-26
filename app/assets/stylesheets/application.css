@@ -6,6 +6,7 @@
  * ...
  *
  *= require bootstrap-3.3.6.min
+ *= require rails_bootstrap_forms
  *= require_tree .
  *= require_self
  */
