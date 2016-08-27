@@ -52,10 +52,13 @@
         </div>
       </nav>
     </header>
-
-    <main>
-      <%= yield %>
-    </main>
+    <div class ="row">
+      <div class = "col-xs-12">
+        <main>
+          <%= yield %>
+        </main>
+      </div>
+    </div>
 
     <footer>
       <p>Learn more about the <%= link_to "team!", about_path %></p>
