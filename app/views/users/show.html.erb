@@ -21,8 +21,12 @@
     </div>
   </div>
 </div>
-<% @articles.each do |f| %>
-  <li> <%= f.title %> </li>
-  <li> <%= f.content %> </li>
-  <li> <%= image_tag(f.image) %> </li>
-<% end %>
+<div class = "info">
+  <% @articles.each do |f| %>
+  <%= f.title %>
+  <%= f.content %>
+  <div class = "articleimage">
+    <%= image_tag(f.image) %>
+    <% end %>
+  </div>
+</div>
