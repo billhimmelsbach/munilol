@@ -16,7 +16,7 @@
             <a href="/" class="navbar-brand">MUNILOL</a>
           </div>
           <div class="navbar-header col-xs-6">
-            <select class="js-example-basic-single" style="width: 30%">
+            <select class="js-example-basic-single" style="width: 40%">
               <% @munis.each do |muni| %>
                 <option></option>
                 <option value="<%= muni_path(muni.id) %>"><%= muni.name %></option>
@@ -40,6 +40,7 @@
           </div>
           <ul class="nav navbar-nav navbar-right">
             <% if current_user %>
+              <li><%= link_to "Hello " + current_user.first_name + "!", user_path(current_user)%> </li>
               <li><%= link_to "Profile", user_path(current_user) %></li>
               <li><%= link_to "Log Out", logout_path %></li>
             <% else %>
