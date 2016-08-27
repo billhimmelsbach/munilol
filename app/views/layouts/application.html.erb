@@ -19,7 +19,7 @@
             <select class="js-example-basic-single" style="width: 30%">
               <% @munis.each do |muni| %>
                 <option></option>
-                <option value="http://google.com"><%= muni.name %></option>
+                <option value="<%= muni_path(muni.id) %>"><%= muni.name %></option>
               <% end %>
             </select>
           </div>
