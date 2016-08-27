@@ -1,4 +1,4 @@
 Munis!
-<% @munis.each do |f| %>
-  <li> <%= f.content %> </li>
+<% @muni.articles do |article| %>
+  <li><%= article.image %> </li>
 <% end %>

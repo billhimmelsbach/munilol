@@ -5,6 +5,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
 
+  before_filter :set_munis
+
+  def set_munis
+    @munis ||= Muni.all
+  end
+
   def not_found
     render :not_found
   end
