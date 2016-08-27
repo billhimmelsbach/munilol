@@ -1,1 +1,32 @@
-Welcome, <%= @user.first_name %>
+<div class="row">
+  <div class="col-xs-10 col-xs-offset-1">
+    <div class="col-xs-3">
+      <div class="row">
+        <img src="<%= @user.image%>" class="product_img img-responsive img-circle">
+      </div>
+    <br>
+    <div class="row">
+      <h3><%=  @user.first_name %> <%= @user.last_name %> </h3>
+      <h4>Date Joined: <%= @user.created_at.localtime.strftime("%B #{@user.created_at.day.ordinalize}, %Y") %> </h4>
+      <br>
+      <div>
+        <% if current_user != nil && current_user.id == @user.id %>
+        <%= button_to "Edit Your Profile", edit_user_path(@user), method: :get, :class=>"ruby-link btn btn-info btn-primary btn-md" %>
+        <button class="ruby-link btn-danger btn-primary btn-md">
+          <%= link_to "Deactivate Account", destroy_user_path(@user), method: :delete,  :class=>"ruby-link"%>
+        </button>
+        <% end %>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class = "info">
+  <% @articles.each do |f| %>
+  <%= f.title %>
+  <%= f.content %>
+  <div class = "articleimage">
+    <%= image_tag(f.image) %>
+    <% end %>
+  </div>
+</div>

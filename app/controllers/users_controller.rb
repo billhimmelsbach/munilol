@@ -45,13 +45,15 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    set_user
+    @user = User.find_by_id(params[:id])
     if auth_route
+      Comment.delete_all(:user => @user.id)
+      Article.delete_all(:user => @user.id)
       @user.destroy
-      flash[:success] = "Your account has been ."
+      flash[:success] = "Your account has been deactivated."
       redirect_to root_path
     else
-      auth_fail("delete other people's articles", article_path)
+      auth_fail("Your account could not be deactivated.", user_path(@user))
     end
   end
 
