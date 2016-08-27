@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get "/logout", to: "sessions#destroy"
   post "/sessions", to: "sessions#create", as: "create_session"
 
+  get "/about", to: "about#show", as: "about"
+
   get "/munis/:id", to: "munis#show", as: "muni"
 
   get "/articles/new", to: "articles#new", as: "new_article"
