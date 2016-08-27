@@ -12,8 +12,15 @@
     <header>
       <nav class="navbar navbar-default navbar-fixed-top">
         <div class="col-xs-12">
-          <div class="navbar-header col-xs-2">
+          <div class="navbar-header col-xs-3">
             <a href="/" class="navbar-brand">MUNILOL</a>
+            <div class="navbar-header col-sm-5">
+              <% if current_user %>
+                <%= button_to "New Article", new_article_path, :class => "btn blue-grey lighten-3", method: :get %>
+              <% else %>
+                <%= button_to "New Article", new_session_path, :class => "btn blue-grey lighten-3", method: :get %>
+              <% end %>
+            </div>
           </div>
           <div class="navbar-header col-xs-6">
             <select class="js-example-basic-single" style="width: 40%">
@@ -38,6 +45,7 @@
               });
             </script>
           </div>
+          <div class="navbar-header col-sm-9">
           <ul class="nav navbar-nav navbar-right">
             <% if current_user %>
               <li><%= link_to "Hello " + current_user.first_name + "!", user_path(current_user)%> </li>
@@ -49,6 +57,7 @@
             <% end %>
             <br>
           </ul>
+        </div>
         </div>
       </nav>
     </header>
