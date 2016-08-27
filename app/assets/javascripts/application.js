@@ -14,3 +14,32 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+function redirect(goto){
+  if (goto !== '') {
+      window.location = goto;
+  }
+}
+//
+// var selectEl = document.getElementById('redirectSelect');
+//
+// selectEl.onchange = function(){
+//     var goto = this.value;
+//     redirect(goto);
+//
+// };
+
+
+$(document).ready(function() {
+  console.log("ready");
+
+  $("select").select2({
+    placeholder: "See your Muni Route",
+  });
+
+  $("select").change(function() {
+    var goto = this.value;
+    console.log(goto);
+    redirect(goto);
+  });
+
+});

@@ -5,6 +5,8 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
   </head>
   <body>
     <header>
@@ -12,6 +14,14 @@
         <div class="col-xs-12">
           <div class="navbar-header col-xs-2">
             <a href="/" class="navbar-brand">MUNILOL</a>
+          </div>
+          <div class="navbar-header col-xs-6">
+            <select class="js-example-basic-single" style="width: 30%">
+              <% @munis.each do |muni| %>
+                <option></option>
+                <option value="http://google.com"><%= muni.name %></option>
+              <% end %>
+            </select>
           </div>
           <ul class="nav navbar-nav navbar-right">
             <% if current_user %>
