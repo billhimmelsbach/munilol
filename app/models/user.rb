@@ -13,6 +13,13 @@ class User < ActiveRecord::Base
   # validates :first_name, length: { in: 2..30}, presence: true
   # validates :last_name, length: { in: 2..30}, presence: true
 
+
+  private
+
+  def set_default_image
+    self.image ||= "https://cdn0.vox-cdn.com/images/verge/default-avatar.v9899025.gif"
+  end
+
   def self.confirm(params)
     @user = User.where("email ILIKE ?", params[:email]).first
     @user.try(:authenticate, params[:password])
