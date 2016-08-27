@@ -10,8 +10,10 @@
   <%= f.url_field :image, placeholder: 'Image Url' %>
   <br>
   <div class = "CreateButton">
-  <%= f.submit "Sign Up" %>
+  <%= f.submit "Sign Up" %><br></br>
+  Already have an account? Please <%= link_to "log in!", new_session_path %>
 <% end %>
+<br></br>
 </div>
 </div>
 </div>
