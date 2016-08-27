@@ -1,4 +1,19 @@
 <h1>Hello! Welcome to Munilol</h1>
-<% @articles.each do |f| %>
-  <li> <%= f.content %> </li>
-<% end %>
+<!-- <% @articles.each do |f| %>
+  <li><%= image_tag(f.image) %></li>
+<% end %> -->
+
+<div class= "col-xs-12 container-fluid">
+  <% @articles.in_groups_of(3, false).each do |article_array|%>
+    <div class="row article-row">
+      <% article_array.each do |article| %>
+        <div class="card card-inverse col-xs-4" style="background-image: url('<%=article.image %>')">
+          <div class="card-img-overlay">
+            <h4 class="card-title splash-article-text"><%= link_to "#{article.title}", "/articles/#{article.id}" %></h4>
+          </div>
+        </div>  
+      <% end %>
+    </div>
+  <% end %>
+  <br />
+</div>
