@@ -1,3 +1,11 @@
-<%= @article.title %>
-<%= @article.content %>
-<%= image_tag(@article.image) %>
+<div class = "col-xs-12">
+  <h1 class="text-center"> <%= @article.title %> </h1>
+  <div class="row">
+    <div class="img-container col-xs-10 col-xs-offset-1">
+      <img class="img-responsive" src="<%= @article.image %>">
+    </div>
+  </div>
+  <div class="row">
+    <h4><%= @article.content %></h4>
+  </div>
+</div>
