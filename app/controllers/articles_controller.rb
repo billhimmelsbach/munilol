@@ -24,6 +24,9 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     @article.user_id = session[:user_id]
     @muni = Muni.find(@article.muni_id)
+    if @article.image == ""
+      @article.image = "https://upload.wikimedia.org/wikipedia/en/thumb/b/b2/SFMuni_Worm.svg/1280px-SFMuni_Worm.svg.png"
+    end
     if @article.save
       @muni.articles.push(@article)
       flash[:success] = "Your article titled \"#{@article.title}\" was successfully created"

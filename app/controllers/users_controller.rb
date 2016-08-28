@@ -8,6 +8,9 @@ class UsersController < ApplicationController
 
   def create
     set_user
+    if @user.image == ""
+      @user.image ="https://cdn0.vox-cdn.com/images/verge/default-avatar.v9899025.gif"
+    end
     if @user.save
       login(@user)
       flash[:notice] = "User account created! Welcome to Munilol"
