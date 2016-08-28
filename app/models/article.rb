@@ -5,13 +5,14 @@ class Article < ActiveRecord::Base
   belongs_to :user
   has_many :comments
 
-  after_update do
+  before_create do
+    p "XXXXXXXXXX"
     set_default_image
   end
 
-  # def set_default_image
-  # self.image ||= "DEFAULT_ARTICLE_URL"
-  # end
+  def set_default_image
+    self.image ||= "https://upload.wikimedia.org/wikipedia/en/thumb/b/b2/SFMuni_Worm.svg/1280px-SFMuni_Worm.svg.png" if self.image=""
+  end
 
   # validates :title, length: {in: 2..200}, presence: true
 end
