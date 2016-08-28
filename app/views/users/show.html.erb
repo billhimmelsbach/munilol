@@ -11,10 +11,8 @@
       <br>
       <div>
         <% if current_user != nil && current_user.id == @user.id %>
-        <%= button_to "Edit Your Profile", edit_user_path(@user), method: :get, :class=>"ruby-link btn btn-info btn-primary btn-md" %>
-        <button class="ruby-link btn-danger btn-primary btn-md">
-          <%= link_to "Deactivate Account", destroy_user_path(@user), method: :delete,  :class=>"ruby-link"%>
-        </button>
+          <%= button_to "Edit Profile", edit_user_path(@user), method: :get, :class=>"ruby-link btn btn-info btn-primary btn-md" %>
+          <%= button_to "Delete Profile", destroy_user_path(@user), method: :delete, :class=>"ruby-link btn btn-info btn-danger btn-md" %>
         <% end %>
       </div>
       </div>

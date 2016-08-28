@@ -11,9 +11,7 @@
       <div>
         <% if current_user != nil && current_user.id == @article.user.id %>
           <%= button_to "Edit Article", edit_article_path(@article), method: :get, :class=>"ruby-link btn btn-info btn-primary btn-md" %>
-          <button class="ruby-link btn-danger btn-primary btn-md">
-            <%= link_to "Delete Article", destroy_article_path(@article), method: :delete,  :class=>"ruby-link"%>
-          </button>
+          <%= button_to "Delete Article", destroy_article_path(@article), method: :delete, :class=>"ruby-link btn btn-info btn-danger btn-md" %>
         <% end %>
       </div>
       <div class="panel-footer text-center">

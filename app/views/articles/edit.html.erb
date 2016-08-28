@@ -9,7 +9,8 @@
       <%= f.collection_select :muni_id, Muni.order(:name),:id,:name%>
       <br>
       <div class = "EditButton">
-        <%= f.submit "Edit article" %>
+        <%= f.submit "Edit Article" %>
+        <%= button_to "Cancel", article_path, method: :get, :class=>"ruby-link btn btn-info btn-default btn-md" %>
       </div>
     <% end %>
   </div>
