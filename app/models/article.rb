@@ -4,7 +4,6 @@ class Article < ActiveRecord::Base
   belongs_to :muni
   belongs_to :user
   has_many :comments
-  
 
   # def set_default_image
   # self.image ||= "DEFAULT_ARTICLE_URL"

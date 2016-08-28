@@ -4,6 +4,7 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all
+    @articles = @articles.order("created_at desc")
     @munis = Muni.all
     render :index
   end
