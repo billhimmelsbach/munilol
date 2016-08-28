@@ -50,7 +50,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find_by_id(params[:id])
-    if auth_route
+    if auth_route(@user)
       Comment.delete_all(:user => @user.id)
       Article.delete_all(:user => @user.id)
       @user.destroy
