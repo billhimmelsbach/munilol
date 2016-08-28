@@ -1,7 +1,7 @@
 module AuthHelper
 
-  def auth_route
-    current_user != nil && current_user.id == @user.id
+  def auth_route(user)
+    current_user != nil && current_user.id == user.id
   end
 
   def auth_fail(reason_for_failure, redirect_path)
