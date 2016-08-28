@@ -2,7 +2,12 @@ class User < ActiveRecord::Base
   #TODO set default user picture
   has_secure_password
 
-
+  validates :email, uniqueness: true, length: { in: 2..150}, presence: true
+  validates :first_name, length: { in: 2..50}, presence: true
+  validates :last_name, length: { in: 2..75}, presence: true
+  # validates :image_url, format: {with: /\.(png|jpg)\Z/i}
+  
+  EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   # before_create do
   #   set_default_image
   # end
@@ -14,9 +19,6 @@ class User < ActiveRecord::Base
   has_many :munis, :through => :articles
   has_many :comments, :through => :articles
 
-  # validates :email, uniqueness: true
-  # validates :first_name, length: { in: 2..30}, presence: true
-  # validates :last_name, length: { in: 2..30}, presence: true
 
   private
 
