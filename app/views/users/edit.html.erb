@@ -11,9 +11,9 @@
       <br>
       <div class = "CreateButton">
         <%= f.submit "Save Changes" %>
-        <%= button_to "Cancel", user_path, method: :get, :class=>"ruby-link btn btn-info btn-default btn-md" %>
       </div>
     <% end %>
+    <%= button_to "Cancel", :back, method: :get, :class=>"ruby-link btn btn-info btn-default btn-md" %>
     <br></br>
   </div>
 </div>
