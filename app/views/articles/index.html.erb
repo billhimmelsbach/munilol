@@ -1,15 +1,6 @@
 <%= flash_messages %>
 <div class= "col-xs-12 container-fluid">
   <% @articles.in_groups_of(3, false).each do |article_array|%>
-    <!-- <script>
-      console.log("party");
-      $('.image-index').click( function(event) {
-        console.log("testy");
-        console.log($(this.dataset.http));
-        var goto = $(this.dataset.http);
-        // window.location = goto;
-      });
-    </script> -->
     <div class="image-index row article-row">
       <% article_array.each do |article| %>
         <%= link_to article_path(article) do %>
