@@ -2,7 +2,11 @@ class CommentsController < ApplicationController
   include AuthHelper
 
   def update
-    @comment = Comment.find_by_id(params[:id])
+    @comment = Comment.where(:article_id=>params[:id]).where(:user_id=>current_user.id)[0]
+    p "WEEEEEEE"
+    p @comment
+    p @comment.user.id
+    p current_user.id
     if auth_route(@comment.user)
       if @comment.update(comment_params)
         # flash[:success] = "Your profile was successfully updated"

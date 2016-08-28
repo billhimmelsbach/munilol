@@ -13,9 +13,12 @@ class ArticlesController < ApplicationController
     @vote_total = Article.first.comments.sum(:vote)
     @article = Article.find_by_id(params[:id])
     @comment = Comment.where(:article_id=>params[:id]).where(:user_id=>current_user.id)[0]
-    p "WUUUUUUUT"
+    @comment = Comment.new if @comment.nil?
+    @comment.user_id = current_user.id
+    @comment.article_id = @article.id
+    @comment.save
+    p "COMMENT AFTER CREATION"
     p @comment
-    p @comment.vote
   end
 
   def new
