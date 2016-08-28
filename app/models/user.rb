@@ -3,6 +3,10 @@ class User < ActiveRecord::Base
   has_secure_password
 
 
+  # before_create do
+  #   set_default_image
+  # end
+
   # extend FriendlyId
   # friendly_id :first_name, use: [:slugged, :finders]
 
@@ -16,9 +20,9 @@ class User < ActiveRecord::Base
 
   private
 
-  def set_default_image
-    self.image = "https://cdn0.vox-cdn.com/images/verge/default-avatar.v9899025.gif" if self.image=""
-  end
+  # def set_default_image
+  #   self.image = "https://cdn0.vox-cdn.com/images/verge/default-avatar.v9899025.gif" if self.image=""
+  # end
 
   def self.confirm(params)
     @user = User.where("email ILIKE ?", params[:email]).first
