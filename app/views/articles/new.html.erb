@@ -6,7 +6,7 @@
   <%= f.text_field :title, placeholder: 'Title' %>
   <%= f.text_area :content, placeholder: 'Content' %>
   <%= f.url_field :image, placeholder: 'Image Url' %>
-  <%= f.number_field :muni_id, placeholder: 'Muni Line' %>
+  <%= f.collection_select :muni_id, Muni.order(:name),:id,:name%>
   <br>
   <div class = "CreateButton">
   <%= f.submit "Create new article" %>
