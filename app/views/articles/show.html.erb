@@ -20,7 +20,8 @@
       <div>
         <%= @comment.vote %>
         <%= form_for @comment, url: update_comment_path  do |f| %>
-          <%= f.text_field :vote %>
+          <%= f.hidden_field :vote, :value => 1 %>
+          <%= f.submit "Upvote"%>
         <% end %>
 
 
