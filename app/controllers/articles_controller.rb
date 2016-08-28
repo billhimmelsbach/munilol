@@ -10,8 +10,8 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @vote_total = Article.first.comments.sum(:vote)
     @article = Article.find_by_id(params[:id])
+    @vote_total = @article.comments.sum(:vote)
     @comment = Comment.where(:article_id=>params[:id]).where(:user_id=>current_user.id)[0]
     @comment = Comment.new if @comment.nil?
     @comment.user_id = current_user.id
