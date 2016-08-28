@@ -271,7 +271,7 @@ COMMENTS = [
     article_id: 1
   },
   {
-    vote: 0,
+    vote: -1,
     user_id: 3,
     article_id: 1
   },

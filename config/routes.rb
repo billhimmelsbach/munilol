@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   patch "/articles/:id", to: "articles#update"
   delete "/articles/:id", to: "articles#destroy", as: "destroy_article"
 
-  patch "/comments/:id", to: "comments#update"
+  patch "/comments/:id", to: "comments#update", as: "update_comment"
 
   get "*unmatched_route", to: "application#not_found"
 end
