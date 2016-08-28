@@ -22,6 +22,7 @@ class UsersController < ApplicationController
     @user = User.find_by_id(params[:id])
     # @user = User.friendly.find(params[:id].to_s.downcase)
     @articles = Article.where(user_id: params[:id])
+    @articles = @user.articles.order("created_at desc")
     render :show
   end
 
