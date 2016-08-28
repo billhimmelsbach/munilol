@@ -40,7 +40,7 @@ class ArticlesController < ApplicationController
 
   def update
     set_article
-    if auth_through_article
+    if auth_route(@article.user)
       if @article.update(article_params)
         flash[:success] = "#{@article.title} successfully updated"
         redirect_to article_path
@@ -54,7 +54,7 @@ class ArticlesController < ApplicationController
 
   def destroy
     set_article
-    if auth_through_article
+    if auth_route(@article.user)
       @user = @article.user
       @article.destroy
       flash[:success] = "Your article titled \"#{@article.title}\" was deleted."
@@ -71,7 +71,7 @@ private
   end
 
   def set_article
-    @article = Article.find(params[:id])
+    @article = Article.find_by_id(params[:id])
   end
 
 end
