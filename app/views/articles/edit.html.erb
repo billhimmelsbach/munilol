@@ -1,4 +1,4 @@
-<h2><strong>Create new article</strong></h2>
+<h2><strong>Edit article</strong></h2>
 <br></br>
 <div class = "col-md-4 col-md-offset-4">
   <div class = "NewArticle">
@@ -8,10 +8,10 @@
       <%= f.url_field :image, placeholder: 'Image Url' %>
       <%= f.collection_select :muni_id, Muni.order(:name),:id,:name%>
       <br>
-      <div class = "CreateButton">
-        <%= f.submit "Create new article" %>
+      <div class = "EditButton">
+        <%= f.submit "Edit Article" %>
+        <%= button_to "Cancel", article_path, method: :get, :class=>"ruby-link btn btn-info btn-default btn-md" %>
       </div>
     <% end %>
-    <br></br>
   </div>
 </div>

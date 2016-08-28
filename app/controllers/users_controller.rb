@@ -8,6 +8,9 @@ class UsersController < ApplicationController
 
   def create
     set_user
+    if @user.image == ""
+      @user.image ="https://cdn0.vox-cdn.com/images/verge/default-avatar.v9899025.gif"
+    end
     if @user.save
       login(@user)
       flash[:notice] = "User account created! Welcome to Munilol"
@@ -22,17 +25,18 @@ class UsersController < ApplicationController
     @user = User.find_by_id(params[:id])
     # @user = User.friendly.find(params[:id].to_s.downcase)
     @articles = Article.where(user_id: params[:id])
+    @articles = @user.articles.order("created_at desc")
     render :show
   end
 
   def edit
     @user = User.find_by_id(params[:id])
-    auth_fail("edit other people's user information!", @user) if !auth_route
+    auth_fail("edit other people's user information!", @user) if !auth_route(@user)
   end
 
   def update
     @user = User.find_by_id(params[:id])
-    if auth_route
+    if auth_route(@user)
       if @user.update(user_params)
         flash[:success] = "Your profile was successfully updated"
         redirect_to @user

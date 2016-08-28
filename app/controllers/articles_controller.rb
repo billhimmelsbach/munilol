@@ -4,6 +4,7 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all
+    @articles = @articles.order("created_at desc")
     @munis = Muni.all
     render :index
   end
@@ -24,6 +25,9 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     @article.user_id = session[:user_id]
     @muni = Muni.find(@article.muni_id)
+    if @article.image == ""
+      @article.image = "https://upload.wikimedia.org/wikipedia/en/thumb/b/b2/SFMuni_Worm.svg/1280px-SFMuni_Worm.svg.png"
+    end
     if @article.save
       @muni.articles.push(@article)
       flash[:success] = "Your article titled \"#{@article.title}\" was successfully created"
@@ -35,16 +39,13 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    if auth_route
-      render :edit
-    else
-      auth_fail("edit other people's articles!", article_path)
-    end
+    @article = Article.find_by_id(params[:id])
+    auth_fail("edit other people's article information!", @article) if !auth_route(@article.user)
   end
 
   def update
     set_article
-    if auth_through_article
+    if auth_route(@article.user)
       if @article.update(article_params)
         flash[:success] = "#{@article.title} successfully updated"
         redirect_to article_path
@@ -58,7 +59,7 @@ class ArticlesController < ApplicationController
 
   def destroy
     set_article
-    if auth_through_article
+    if auth_route(@article.user)
       @user = @article.user
       @article.destroy
       flash[:success] = "Your article titled \"#{@article.title}\" was deleted."
@@ -75,7 +76,7 @@ private
   end
 
   def set_article
-    @article = Article.find(params[:id])
+    @article = Article.find_by_id(params[:id])
   end
 
 end

@@ -1,8 +1,7 @@
-
 <h1 class="text-center"> <%=@muni.name%> </h1>
 <br>
 <div class= "col-xs-12 container-fluid">
-  <% @muni.articles.in_groups_of(3, false).each do |article_array|%>
+  <% @articles.in_groups_of(3, false).each do |article_array|%>
     <div class="row article-row">
       <% article_array.each do |article| %>
         <div class="card card-inverse col-xs-4" style="background-image: url('<%=article.image %>')">
@@ -14,4 +13,5 @@
     </div>
   <% end %>
   <br />
+</div>
 </div>
