@@ -3,11 +3,10 @@ class CommentsController < ApplicationController
 
   def update
     @comment = Comment.find_by_id(params[:id])
-    @user = current_user
-    if auth_route(@user)
+    if auth_route(@comment.user)
       if @comment.update(comment_params)
         # flash[:success] = "Your profile was successfully updated"
-        redirect_to @comment.article
+        redirect_to :back
       else
         render root_path
       end
