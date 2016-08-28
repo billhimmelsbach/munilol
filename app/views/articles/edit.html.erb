@@ -1,0 +1,16 @@
+<h2><strong>Edit article</strong></h2>
+<br></br>
+<div class = "col-md-4 col-md-offset-4">
+  <div class = "NewArticle">
+    <%= bootstrap_form_for @article do |f| %>
+      <%= f.text_field :title, placeholder: 'Title' %>
+      <%= f.text_area :content, placeholder: 'Content' %>
+      <%= f.url_field :image, placeholder: 'Image Url' %>
+      <%= f.collection_select :muni_id, Muni.order(:name),:id,:name%>
+      <br>
+      <div class = "EditButton">
+        <%= f.submit "Edit article" %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -27,12 +27,12 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find_by_id(params[:id])
-    auth_fail("edit other people's user information!", @user) if !auth_route
+    auth_fail("edit other people's user information!", @user) if !auth_route(@user)
   end
 
   def update
     @user = User.find_by_id(params[:id])
-    if auth_route
+    if auth_route(@user)
       if @user.update(user_params)
         flash[:success] = "Your profile was successfully updated"
         redirect_to @user

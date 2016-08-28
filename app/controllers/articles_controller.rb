@@ -34,11 +34,8 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    if auth_route
-      render :edit
-    else
-      auth_fail("edit other people's articles!", article_path)
-    end
+    @article = Article.find_by_id(params[:id])
+    auth_fail("edit other people's article information!", @article) if !auth_route(@article.user)
   end
 
   def update

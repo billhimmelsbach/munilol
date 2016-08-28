@@ -1,16 +1,21 @@
 <div class="row form-group">
-        <div class="col-xs-10 col-md-10 col-xs-offset-1">
-            <div class="panel panel-default">
-                <div class="panel-image">
-                    <img src="<%= @article.image %>" class="img-responsive panel-image-preview" />
-                </div>
-                <div class="panel-body">
-                    <h4><%= @article.title %></h4>
-                    <p><%= @article.content %></p>
-                </div>
-                <div class="panel-footer text-center">
-                  <a href="#facebook"><span class="fa fa-facebook"></span></a>
-                  <a href="#twitter"><span class="fa fa-twitter"></span></a>
-                </div>
-            </div>
-        </div>
+  <div class="col-xs-10 col-md-10 col-xs-offset-1">
+    <div class="panel panel-default">
+      <div class="panel-image">
+        <img src="<%= @article.image %>" class="img-responsive panel-image-preview" />
+      </div>
+      <div class="panel-body">
+        <h4><%= @article.title %></h4>
+        <p><%= @article.content %></p>
+      </div>
+      <div>
+        <% if current_user != nil && current_user.id == @article.user.id %>
+          <%= button_to "Edit Your Article", edit_article_path(@article), method: :get, :class=>"ruby-link btn btn-info btn-primary btn-md" %>
+        <% end %>
+      </div>
+      <div class="panel-footer text-center">
+        <a href="#facebook"><span class="fa fa-facebook"></span></a>
+        <a href="#twitter"><span class="fa fa-twitter"></span></a>
+      </div>
+    </div>
+  </div>
