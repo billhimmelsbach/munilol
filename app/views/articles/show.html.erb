@@ -18,19 +18,18 @@
   <div class="col-xs-1">
     <div class="row">
       <div>
-        V_curr:<%= @comment.vote %>
-        <%= form_for @comment, url: update_comment_path  do |f| %>
-          <%= f.hidden_field :vote, :value => 1 %>
-          <%= f.submit :type => :image, :class => 'img-responsive', :src => "https://d30y9cdsu7xlg0.cloudfront.net/png/390383-200.png"%>
+        <% if current_user != nil %>
+          V_curr:<%= @comment.vote %>
+          <%= form_for @comment, url: update_comment_path  do |f| %>
+            <%= f.hidden_field :vote, :value => 1 %>
+            <%= f.submit :type => :image, :class => 'img-responsive', :src => "https://d30y9cdsu7xlg0.cloudfront.net/png/390383-200.png"%>
+          <% end %>
+          <h1 class="vote-total"> V_tot:<%= @vote_total %> </h1>
+          <%= form_for @comment, url: update_comment_path  do |f| %>
+            <%= f.hidden_field :vote, :value => -1 %>
+            <%= f.submit :type => :image, :class => 'img-responsive', :src => "http://i.imgur.com/na8W8zJ.png"%>
+          <% end %>
         <% end %>
-        <h1 class="vote-total"> V_tot:<%= @vote_total %> </h1>
-        <%= form_for @comment, url: update_comment_path  do |f| %>
-          <%= f.hidden_field :vote, :value => -1 %>
-          <%= f.submit :type => :image, :class => 'img-responsive', :src => "http://i.imgur.com/na8W8zJ.png"%>
-        <% end %>
-
-
-
       </div>
     </div>
 </div>
