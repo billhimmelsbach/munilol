@@ -49,3 +49,7 @@
 h2 {
   text-align: center;
 }
+
+.vote-total {
+  font-size: 2vw
+}
