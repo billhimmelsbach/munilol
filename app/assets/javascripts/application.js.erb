@@ -20,10 +20,14 @@
 // $(document).on('page:change', function(event) {
 //   // idempotent function
 // });
-
-
-
-$(document).on('ready', function(event) {
+// function displayAlert
+var api_called = 0;
+$(document).on('ready', function(){
+  console.log("go!");
+  if (api_called == 1) {
+    console.log("eject");
+    return;
+  }
   $.ajax({url: "http://api.511.org/transit/servicealerts?format=json&api_key=<%= ENV['511_KEY'] %>", success: function(result){
       console.log("works!");
       result._entity.forEach(function(entity) {
@@ -31,12 +35,23 @@ $(document).on('ready', function(event) {
           console.log(entity._alert._description_text._translation[0]._text);
           alert = entity._alert._description_text._translation[0]._text;
           $("#alert_message").append(alert);
+          api_called++
         }
-        // console.log(entity._alert._informed_entity[0]._agency_id);
-        // console.log(entity._alert._description_text._translation[0]._text);
       });
    }});
 });
+// $(document).on('turbolinks:load', function(){
+//   $.ajax({url: "http://api.511.org/transit/servicealerts?format=json&api_key=<%= ENV['511_KEY'] %>", success: function(result){
+//       console.log("works!");
+//       result._entity.forEach(function(entity) {
+//         if (entity._alert._informed_entity[0]._agency_id == "MA") {
+//           console.log(entity._alert._description_text._translation[0]._text);
+//           alert = entity._alert._description_text._translation[0]._text;
+//           $("#alert_message").append(alert);
+//         }
+//       });
+//    }});
+// });
 
 // function redirect(goto){
 //   if (goto !== '') {

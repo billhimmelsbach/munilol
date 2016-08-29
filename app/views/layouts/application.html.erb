@@ -51,9 +51,9 @@
             <ul class="nav navbar-nav v-align pull-right">
               <li>
                 <% if current_user %>
-                  <%= link_to "New Article", new_article_path, :class => "btn blue-grey lighten-3", method: :get %>
+                  <%= link_to "New Article", new_article_path, :class => "btn blue-grey lighten-3" %>
                 <% else %>
-                  <%= link_to "New Article", new_session_path, :class => "btn blue-grey lighten-3", method: :get %>
+                  <%= link_to "New Article", new_session_path, :class => "btn blue-grey lighten-3" %>
                 <% end %>
               </li>
               <% if current_user %>
