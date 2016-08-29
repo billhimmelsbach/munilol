@@ -10,8 +10,8 @@
       <br>
       <div class = "EditButton">
         <%= f.submit "Edit Article" %>
-        <%= button_to "Cancel", article_path, method: :get, :class=>"ruby-link btn btn-info btn-default btn-md" %>
       </div>
     <% end %>
+    <%= button_to "Cancel", :back, method: :get, :class=>"ruby-link btn btn-info btn-default btn-md" %>
   </div>
 </div>
