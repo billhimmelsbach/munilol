@@ -1,4 +1,6 @@
 defaults: &defaults
+  public_key: ENV['PUBLIC_KEY'] # replace it with your public key
+  private_key: ENV['PRIVATE_KEY'] # replace it with your private key
 
   # instances of widget initialized for you on page load
   live: true
@@ -15,8 +17,6 @@ defaults: &defaults
   # deletes file or group after model object is deleted
   delete_after_destroy: true
 
-  images_only: true
-
   # Avaliable options are listed at https://uploadcare.com/documentation/widget/#advanced-configuration
   # please note, that for options marker as Global: N/A - there is no practical meaning
   # of putting this option here, as it will not have any effect.
@@ -26,10 +26,10 @@ defaults: &defaults
   # preview_step: false # true or false
 
   # for clearable option (allows user to remove uploaded file from widget) use:
-  clearable: true # true or false
+  # clearable: false # true or false
 
   # for setting tabs use tabs option:
-  tabs: "url file facebook" # etc
+  # tabs: "url file facebook" # etc
   # read more here: https://uploadcare.com/documentation/widget/#tabs
   #
   #   Full list of tabs:
