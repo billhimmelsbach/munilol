@@ -24,8 +24,8 @@
               <a href="/" class="navbar-brand"><img class = "img-responsive" src="https://i.imgur.com/vNJfnFE.png"></a>
             </div>
           </div>
-          <div class="navbar-header col-xs-4" style="vertical-align: middle">
-            <select class="js-example-basic-single" style="width: 40%">
+          <div class="navbar-header col-xs-4" style="vertical-align: middle; margin-top: 12px;">
+            <select class="js-example-basic-single" style="width: 40%;">
               <% @munis.each do |muni| %>
                 <option></option>
                 <option value="<%= muni_path(muni.id) %>"><%= muni.name %></option>
@@ -68,15 +68,13 @@
         </div>
       </nav>
     </header>
-    <div class ="row">
-      <div class = "col-xs-12">
-        <main>
-          <h1 id = "alert_message" style= "color:red;"> </h1>
+    <main>
+      <div class ="row">
+        <div class = "col-xs-12">
           <%= yield %>
-        </main>
+        </div>
       </div>
-    </div>
-
+    </main>
     <footer>
       <p>Learn more about the <%= link_to "team!", about_path %></p>
     </footer>
