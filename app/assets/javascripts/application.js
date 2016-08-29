@@ -17,6 +17,14 @@
 //= require turbolinks
 //= require_tree .
 
+// $(document).on('page:change', function(event) {
+//   // idempotent function
+// });
+
+
+$(document).on('ready page:load', function(event) {
+  console.log("test!");
+});
 
 // function redirect(goto){
 //   if (goto !== '') {
