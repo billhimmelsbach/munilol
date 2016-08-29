@@ -7,6 +7,7 @@
       <%= f.text_area :content, placeholder: 'Content' %>
       <%= f.url_field :image, placeholder: 'Image Url' %>
       <%= f.collection_select :muni_id, Muni.order(:name),:id,:name%>
+      <%= f.uploadcare_uploader :image, :data => {:images_only => true}%>
       <br>
       <div class = "EditButton">
         <%= f.submit "Edit Article" %>
