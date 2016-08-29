@@ -17,6 +17,26 @@
 //= require turbolinks
 //= require_tree .
 
+// $(document).on('page:change', function(event) {
+//   // idempotent function
+// });
+
+
+
+$(document).on('ready', function(event) {
+  $.ajax({url: "http://api.511.org/transit/servicealerts?format=json&api_key=<%= ENV['511_KEY'] %>", success: function(result){
+      console.log("works!");
+      result._entity.forEach(function(entity) {
+        if (entity._alert._informed_entity[0]._agency_id == "MA") {
+          console.log(entity._alert._description_text._translation[0]._text);
+          alert = entity._alert._description_text._translation[0]._text;
+          $("#alert_message").append(alert);
+        }
+        // console.log(entity._alert._informed_entity[0]._agency_id);
+        // console.log(entity._alert._description_text._translation[0]._text);
+      });
+   }});
+});
 
 // function redirect(goto){
 //   if (goto !== '') {
