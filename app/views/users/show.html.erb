@@ -9,7 +9,7 @@
       <br>
       <div class="row user-info">
         <h3><%=  @user.first_name %> <%= @user.last_name %> </h3>
-        <h4>Date Joined: <%= @user.created_at.localtime.strftime("%B #{@user.created_at.day.ordinalize}, %Y") %> </h4>
+        <h4 style="text-align:left;">Date Joined: <%= @user.created_at.localtime.strftime("%B #{@user.created_at.day.ordinalize}, %Y") %> </h4>
         <br>
         <div>
           <% if current_user != nil && current_user.id == @user.id %>
@@ -45,15 +45,15 @@
         <div class="buttonrow">
           <% if current_user != nil && current_user.id == @user.id %>
           <%= link_to "Edit Article", edit_article_path, method: :get, :class=>"ruby-link btn btn-info btn-primary btn-md inline" %>
-          <button class="ruby-link btn btn-danger inline btn-primary btn-md inline" type="button" data-toggle="collapse" data-target="#delete<%= article.id %>" aria-expanded="false" aria-controls="collapseExample">Delete Article</button><br>
+          <button class="ruby-link btn btn-danger inline btn-primary btn-md inline" type="button" data-toggle="collapse" data-target="#deletearticle<%= article.id %>" aria-expanded="false" aria-controls="collapseExample">Delete Article</button><br>
           <div class = "row">
-            <div class="collapse" id="delete<%= article.id %>"><br>
+            <div class="collapse" id="deletearticle<%= article.id %>"><br>
               <div class="well col-xs-6 col-xs-offset-3">
                 <h5 class="inline"> Are you sure you want to delete your article? </h5>
                 <button class="ruby-link btn-danger btn-primary btn-sm inline">
                   <%= link_to "Delete Article", destroy_article_path(article), method: :delete, :class=>"ruby-link"%>
                 </button>
-                <button class = "btn-success btn-primary btn-sm inline" data-toggle="collapse" data-target="#deletearticle" aria-expanded="false" aria-controls="collapseExample">
+                <button class = "btn-success btn-primary btn-sm inline" data-toggle="collapse" data-target="#deletearticle<%= article.id %>" aria-expanded="false" aria-controls="collapseExample">
                   Cancel
                 </button>
                 <% end %>
