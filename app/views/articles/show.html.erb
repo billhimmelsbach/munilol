@@ -30,6 +30,7 @@
           <% end %><br>
           <div class="panel-footer text-center">
             <%= social_share_button_tag("#{@article.title}") %>
+            <%= social_share_button_tag("#{@article.title}", :image => "https://munilol.herokuapp.com/#{article_path(@article)}", desc: "#{@article.title}") %>
 
             <!-- <a href="#facebook"><span class="fa fa-facebook"></span></a>
             <a href="#twitter"><span class="fa fa-twitter"></span></a> -->
