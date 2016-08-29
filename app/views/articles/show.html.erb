@@ -1,5 +1,4 @@
 <%= flash_messages %>
-<div class="row form-group">
   <div class="col-xs-10 col-md-10 col-xs-offset-1">
       <div class="panel panel-default">
           <div class="panel-image">
@@ -9,6 +8,25 @@
               <h4><%= @article.title %></h4>
               <p><%= @article.content %></p>
           </div>
+          <% if current_user != nil && current_user.id == @article.user.id %>
+          <div class="buttonrow">
+            <%= link_to "Edit Article", edit_article_path, method: :get, :class=>"ruby-link btn btn-info btn-primary btn-md inline" %>
+            <button class="ruby-link btn btn-danger inline btn-primary btn-md inline" type="button" data-toggle="collapse" data-target="#delete" aria-expanded="false" aria-controls="collapseExample">Delete Article</button><br>
+            <div class = "row">
+              <div class="collapse" id="delete"><br>
+                <div class="well col-xs-6 col-xs-offset-3">
+                  <h5 class="inline"> Are you sure you want to delete your article? </h5>
+                  <button class="ruby-link btn-danger btn-primary btn-sm inline">
+                    <%= link_to "Delete Article", destroy_article_path, method: :delete, :class=>"ruby-link"%>
+                  </button>
+                  <button class = "btn-success btn-primary btn-sm inline" data-toggle="collapse" data-target="#delete" aria-expanded="false" aria-controls="collapseExample">
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% end %><br>
           <div class="panel-footer text-center">
             <a href="#facebook"><span class="fa fa-facebook"></span></a>
             <a href="#twitter"><span class="fa fa-twitter"></span></a>
