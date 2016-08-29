@@ -1,17 +1,17 @@
-<h1 class="text-center"> <%=@muni.name%> </h1>
-<br>
+<h1 class="text-center"> <%=@muni.name%> </h1><br>
 <div class= "col-xs-12 container-fluid">
-  <% @articles.in_groups_of(3, false).each do |article_array|%>
-    <div class="row article-row">
+  <% article_sort_by_vote(@articles).in_groups_of(3, false).each do |article_array|%>
+    <div class="image-index row article-row">
       <% article_array.each do |article| %>
-        <div class="card card-inverse col-xs-4" style="background-image: url('<%=article.image %>')">
-          <div class="card-img-overlay">
-            <h4 class="card-title splash-article-text"><%= link_to "#{article.title}", "/articles/#{article.id}" %></h4>
+        <%= link_to article_path(article) do %>
+          <div class="card card-inverse col-xs-4 image-index" style="background-image: url('<%=article.image %>')">
+            <div class="card-img-overlay">
+              <h4 class="card-title splash-article-text"></h4>
+            </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
     </div>
   <% end %>
   <br />
-</div>
 </div>
