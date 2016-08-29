@@ -1,5 +1,8 @@
 class Article < ActiveRecord::Base
   #TODO add default article code
+
+  has_uploadcare_file :file
+
   validates :title, length: {in: 2..75}, presence: true
   validates :content, length: {in: 2..2000}, presence: true
   validates :image, presence: true
@@ -7,5 +10,6 @@ class Article < ActiveRecord::Base
   belongs_to :muni
   belongs_to :user
   has_many :comments
-  
+
+
 end
