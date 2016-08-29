@@ -5,7 +5,8 @@
               <img src="<%= @article.image %>" class="img-responsive panel-image-preview" />
           </div>
           <div class="panel-body">
-              <h4><%= @article.title %></h4>
+              <h4 class="text-center"><%= @article.title %></h4>
+              <p><%= link_to @article.muni.name, muni_path(@article.muni), method: :get %></p>
               <p><%= @article.content %></p>
           </div>
           <% if current_user != nil && current_user.id == @article.user.id %>

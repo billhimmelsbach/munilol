@@ -255,7 +255,7 @@ ARTICLES = [
     content: "We’ve seen this type of heroics activity before. You know the saying: If Marty McFly can do it …",
     image: "http://www.munidiaries.com/wp-content/uploads/2016/02/skater.jpg",
     user_id: 1,
-    muni_id: 1,
+    muni_id: 2,
   }
 ]
 
