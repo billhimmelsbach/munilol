@@ -1,6 +1,6 @@
 defaults: &defaults
-  public_key: <%= ENV['PUBLIC_KEY'] %>
-  private_key: <%= ENV['PRIVATE_KEY'] %>
+  public_key: "<%= ENV['PUBLIC_KEY'] %>"
+  private_key: "<%= ENV['PRIVATE_KEY'] %>"
 
 development:
   <<: *defaults
