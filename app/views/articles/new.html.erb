@@ -8,12 +8,11 @@
       <%= f.text_area :content, placeholder: 'Content' %>
       <%= f.collection_select :muni_id, Muni.order(:name),:id,:name%>
       <%= f.uploadcare_uploader :file, :data => {:images_only => true}%>
-
-
+      <br><br>
       <div class = "CreateButton">
         <%= f.submit "Create new article" %>
       </div>
     <% end %>
-    <br></br>
+    <br>
   </div>
 </div>
