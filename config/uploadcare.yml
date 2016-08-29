@@ -1,0 +1,13 @@
+defaults: &defaults
+  public_key: "demopublickey"
+  private_key: "demoprivatekey"
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+  autostore: false
+
+production:
+  <<: *defaults
