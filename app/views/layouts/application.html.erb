@@ -69,10 +69,23 @@
   </footer>
   <div id="footer">
     <div class="col-xs-12 navbar-inverse navbar-fixed-bottom bottom-nav-div">
+
       <div class="row" id="bottomNav">
-        <div class="col-xs-4 text-center"><a href="new_article_path"><i class="glyphicons glyphicons-plus"></i><br>Link</a></div>
+          <% if current_user %>
+            <div class="col-xs-4 text-center"><%= link_to "New Article", new_article_path, :class => "btn blue-grey lighten-3" %><br><i class="glyphicons glyphicons-plus"></i></div>
+          <% else %>
+            <div class="col-xs-4 text-center"><%= link_to "New Article", new_session_path, :class => "btn blue-grey lighten-3" %><i class="glyphicons glyphicons-left"></i><br>Link</div>
+          <% end %>
+        <% if current_user %>
+          <div class="col-xs-4 text-center"><%= link_to current_user.first_name + "\'s Profile", user_path(current_user)%> </div>
+          <div class="col-xs-4 text-center"><%= link_to "Log Out", logout_path %></div>
+        <% else %>
+          <div class="col-xs-4 text-center"><%= link_to "Sign up", new_user_path %></div>
+          <div class="col-xs-4 text-center"><%= link_to "Log In", new_session_path %></div>
+        <% end %>
+        <!-- <div class="col-xs-4 text-center"><%= link_to "New Article", new_article_path, :class => "btn blue-grey lighten-3" %><i class="glyphicons glyphicons-plus"></i><br>Link</div>
         <div class="col-xs-4 text-center"><a href="#"><i class="glyphicon glyphicon-circle-arrow-down"></i><br>Link</a></div>
-        <div class="col-xs-4 text-center"><a href="#"><i class="glyphicon glyphicon-circle-arrow-right"></i><br>Link</a></div>
+        <div class="col-xs-4 text-center"><a href="#"><i class="glyphicon glyphicon-circle-arrow-right"></i><br>Link</a></div> -->
       </div>
     </div>
   </div>
