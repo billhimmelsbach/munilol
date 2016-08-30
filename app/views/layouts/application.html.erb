@@ -8,6 +8,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
   <%= include_uploadcare_widget_from_cdn version: "2.9.0", min: true %>
   <script>
   UPLOADCARE_LOCALE = "en";
@@ -24,8 +25,8 @@
             <a href="/" class="navbar-brand"><img class = "img-responsive" src="https://i.imgur.com/4X0lgTb.png"></a>
           </div>
         </div>
-        <div class="navbar-header col-xs-4" style="vertical-align: middle; margin-top: 12px;">
-          <select class="js-example-basic-single" style="width: 40%;">
+        <div class="navbar-header col-xs-4" style="margin-top: 12px; text-align: right;">
+          <select class="js-example-basic-single" style="width: 50%;">
             <% @munis.each do |muni| %>
             <option></option>
             <option value="<%= muni_path(muni.id) %>"><%= muni.name %></option>
@@ -48,7 +49,7 @@
           </script>
         </div>
         <div class="col-xs-4">
-          <ul class="nav navbar-nav v-align pull-right">
+          <ul class="nav navbar-nav v-align">
             <li>
               <% if current_user %>
               <%= link_to "New Article", new_article_path, :class => "btn blue-grey lighten-3" %>

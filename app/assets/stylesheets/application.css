@@ -19,14 +19,14 @@
    font-size: 14px;
    text-align: center;
    position: static;
-   color: #FFFFFF;
-
  }
+
  html, body{
    height: 100%;
    padding-top: 60px;
-   background-color: #364252 !important;
+
  }
+
  .footer, .push {
    height: 4em;
  }
@@ -128,4 +128,13 @@ h2 {
 
 .navbar {
   background-color: #bc132a;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Roboto Condensed', sans-serif;
 }
