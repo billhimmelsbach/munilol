@@ -10,6 +10,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" />
   <%= include_uploadcare_widget_from_cdn version: "2.9.0", min: true %>
   <script>
   UPLOADCARE_LOCALE = "en";
@@ -65,13 +66,41 @@
   <footer class="text-center">
     <p>Learn more about the <%= link_to "team!", about_path %></p>
   </footer>
-  <div id="footer">
-    <div class="col-xs-12 navbar-inverse navbar-fixed-bottom bottom-nav-div">
-      <div class="row" id="bottomNav">
-        <div class="col-xs-4 text-center"><a href="new_article_path"><i class="glyphicons glyphicons-plus"></i><br>Link</a></div>
-        <div class="col-xs-4 text-center"><a href="#"><i class="glyphicon glyphicon-circle-arrow-down"></i><br>Link</a></div>
-        <div class="col-xs-4 text-center"><a href="#"><i class="glyphicon glyphicon-circle-arrow-right"></i><br>Link</a></div>
-      </div>
+  <div class="col-xs-12 navbar navbar-fixed-bottom bottom-nav-div">
+    <div class="row" id="bottomNav">
+      <% if current_user %>
+        <div class="col-xs-4 text-center">
+          <%= link_to new_article_path do %><br>
+            <i class="glyphicon glyphicon-plus"></i>
+          <% end %>
+        </div>
+        <div class="col-xs-4 text-center">
+          <%= link_to user_path(current_user) do %><br>
+            <i class="glyphicon glyphicon-user"></i>
+          <% end %>
+        </div>
+        <div class="col-xs-4 text-center">
+          <%= link_to logout_path do %><br>
+            <i class="glyphicon glyphicon-log-out"></i>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="col-xs-4 text-center">
+          <%= link_to new_session_path do %><br>
+            <i class="glyphicon glyphicon-plus"></i>
+          <% end %>
+        </div>
+        <div class="col-xs-4 text-center">
+          <%= link_to new_user_path do %><br>
+            <i class="glyphicon glyphicon-off"></i>
+          <% end %>
+        </div>
+        <div class="col-xs-4 text-center">
+          <%= link_to new_session_path do %><br>
+            <i class="glyphicon glyphicon-log-in"></i>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 </body>
