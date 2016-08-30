@@ -46,10 +46,16 @@ $(document).on('turbolinks:load', function(){
   var $upvote = $('.up-vote').closest('form');
   var $downvote = $('.down-vote').closest('form');
   var voteTotal = +($('.vote-total').text());
-  var voteIncrement = 1
-  if (($( ".vote-total" ).data( "vote" )) == (1 || -1)) {
-    voteIncrement = 2
+  var voteIncrement = 1;
+  if (($( ".vote-total" ).data( "vote" )) == 1) {
+    voteTotal--;
   }
+  if (($( ".vote-total" ).data( "vote" )) == -1) {
+    voteTotal++;
+  }
+  // if (($( ".vote-total" ).data( "vote" )) == (1 || -1)) {
+  //   voteIncrement = 2
+  // }
 
   var onUpVote = function() {
     console.log('ajax:success! UP');
