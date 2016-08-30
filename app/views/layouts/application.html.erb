@@ -32,21 +32,6 @@
             <option value="<%= muni_path(muni.id) %>"><%= muni.name %></option>
             <% end %>
           </select>
-          <script>
-          function redirect(goto){
-            if (goto !== '') {
-              window.location = goto;
-            }
-          }
-          $("select").select2({
-            placeholder: "See your Muni Route",
-          });
-          $("select").change(function() {
-            var goto = this.value;
-            console.log(goto);
-            redirect(goto);
-          });
-          </script>
         </div>
         <div class="col-xs-4">
           <ul class="nav navbar-nav v-align">

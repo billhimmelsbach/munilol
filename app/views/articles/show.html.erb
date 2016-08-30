@@ -39,18 +39,18 @@
 <div class="col-xs-1">
   <div class="row">
     <div>
-      <% if current_user != nil %>
-      V_curr:<%= @comment.vote %>
-      <%= form_for @comment, url: update_comment_path  do |f| %>
-      <%= f.hidden_field :vote, :value => 1 %>
-      <%= f.submit :type => :image, :class => 'img-responsive', :src => "https://d30y9cdsu7xlg0.cloudfront.net/png/390383-200.png"%>
+    <br><br><br>
+    <% if current_user != nil %>
+      <%= form_for @comment, url: update_comment_path, :remote => true do |f| %>
+        <%= f.hidden_field :vote, :value => 1 %>
+        <%= f.submit :type => :image, :class => "#{"grayed " if @comment.vote <= 0}up-vote img-responsive", :src => "https://i.imgur.com/QHTUl49.png"%>
       <% end %>
-      <h1 class="vote-total"> V_tot:<%= @vote_total %> </h1>
-      <%= form_for @comment, url: update_comment_path  do |f| %>
-      <%= f.hidden_field :vote, :value => -1 %>
-      <%= f.submit :type => :image, :class => 'img-responsive', :src => "http://i.imgur.com/na8W8zJ.png"%>
+    <h1 class="vote-total text-center" data-vote="<%= @comment.vote %>"><%= @vote_total %></h1>
+      <%= form_for @comment, url: update_comment_path, :remote => true  do |f| %>
+        <%= f.hidden_field :vote, :value => -1 %>
+        <%= f.submit :type => :image, :class => "#{"grayed " if @comment.vote >= 0}down-vote img-responsive", :src => "https://i.imgur.com/NPKsG2K.png"%>
       <% end %>
-      <% end %>
+    <% end %>
     </div>
   </div>
 </div>
@@ -62,8 +62,8 @@
       </div>
       <div class="modal-body">
         <img class="modal-img img-responsive" <img src="<%= @article.image %>">
-    </div>
+      </div>
     </div>
   </div>
 </div>
-</div>
+<!-- </div> -->

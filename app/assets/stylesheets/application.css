@@ -138,3 +138,13 @@ h5,
 h6 {
   font-family: 'Roboto Condensed', sans-serif;
 }
+
+.grayed {
+    -webkit-filter: grayscale(100%);
+    -webkit-transition: .3s ease-in-out;
+    -moz-filter: grayscale(100%);
+    -moz-transition: .3s ease-in-out;
+    -o-filter: grayscale(100%);
+    -o-transition: .3s ease-in-out;
+  opacity: 0.4;
+}

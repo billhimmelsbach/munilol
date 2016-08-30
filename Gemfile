@@ -14,7 +14,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-gem 'dotenv-rails', :require => 'dotenv/rails-now', :groups => [:development, :test]
+gem 'dotenv-rails'
 
 gem 'uploadcare-rails'
 
