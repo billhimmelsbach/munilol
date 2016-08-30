@@ -22,12 +22,7 @@
 // });
 // function displayAlert
 var api_called = 0;
-$(document).on('ready', function(){
-  console.log("go!");
-  if (api_called == 1) {
-    console.log("eject");
-    return;
-  }
+var alert = function() {
   $.ajax({url: "http://api.511.org/transit/servicealerts?format=json&api_key=<%= ENV['511_KEY'] %>", success: function(result){
       console.log("works!");
       result._entity.forEach(function(entity) {
@@ -35,12 +30,78 @@ $(document).on('ready', function(){
           console.log(entity._alert._description_text._translation[0]._text);
           alert = entity._alert._description_text._translation[0]._text;
           $("#alert_message").append(alert);
-          api_called++
+          api_called++;
         }
       });
-   }});
+  }});
+}
+$(document).on('ready', function(){
+  console.log("go!");
+  if (api_called == 0) {
+    console.log("eject");
+    alert();
+  }
 });
-// $(document).on('turbolinks:load', function(){
+$(document).on('turbolinks:load', function(){
+  var $upvote = $('.up-vote').closest('form');
+  var $downvote = $('.down-vote').closest('form');
+  var voteTotal = +($('.vote-total').text());
+  var voteIncrement = 1;
+  if (($( ".vote-total" ).data( "vote" )) == 1) {
+    voteTotal--;
+  }
+  if (($( ".vote-total" ).data( "vote" )) == -1) {
+    voteTotal++;
+  }
+  // if (($( ".vote-total" ).data( "vote" )) == (1 || -1)) {
+  //   voteIncrement = 2
+  // }
+
+  var onUpVote = function() {
+    console.log('ajax:success! UP');
+    $upvote.off();
+    $('.up-vote').removeClass('grayed');
+    $('.down-vote').addClass('grayed');
+    console.log(voteTotal);
+    $('.vote-total').text(voteTotal+voteIncrement);
+    $downvote.on('ajax:success', onDownVote)
+  }
+  var onDownVote = function() {
+    console.log('ajax:success! DOWN');
+    $downvote.off();
+    $('.down-vote').removeClass('grayed');
+    $('.up-vote').addClass('grayed');
+    $upvote.on('ajax:success', onUpVote);
+    console.log(voteTotal);
+    $('.vote-total').text(voteTotal-voteIncrement);
+  }
+
+  $upvote.on('ajax:success', onUpVote);
+  $downvote.on('ajax:success', onDownVote);
+  if ($( ".vote-total" ).data( "vote" )==1) {
+    console.log("CURRENT UPVOTE");
+    $upvote.off();
+  }
+  if ($( ".vote-total" ).data( "vote" )==-1) {
+    console.log("CURRENT DOWNVOTE");
+    $downvote.off();
+  }
+
+  console.log("TURBO");
+  function redirect(goto){
+    if (goto !== '') {
+      window.location = goto;
+    }
+  }
+  $("select").select2({
+    placeholder: "See your Muni Route",
+  });
+  $("select").change(function() {
+    var goto = this.value;
+    console.log(goto);
+    redirect(goto);
+  });
+});
 //   $.ajax({url: "http://api.511.org/transit/servicealerts?format=json&api_key=<%= ENV['511_KEY'] %>", success: function(result){
 //       console.log("works!");
 //       result._entity.forEach(function(entity) {

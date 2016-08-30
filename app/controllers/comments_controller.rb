@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
     if auth_route(@comment.user)
       if @comment.update(comment_params)
         # flash[:success] = "Your profile was successfully updated"
-        redirect_to :back
+        render json: @comment
       else
         render root_path
       end
