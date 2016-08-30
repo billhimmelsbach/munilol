@@ -195,14 +195,17 @@ h6 {
         font-size:20pt;
         float:none;
     }
-    #bottomNav {
+    /*#bottomNav {
     	padding:10px;
-    }
+    }*/
+
     #bottomNav a {
         font-size:24pt;
         color:#ddd;
         text-decoration:none;
+        width: 100%;
     }
+
     #bottomNav a:hover {
         color:#fff;
     }
@@ -222,7 +225,8 @@ h6 {
   display:none;
   display: none;
   visibility: visible;
-  padding: 25px;
+  padding-bottom: 15px;
+  position: absolute;
 }
 
 .index-container {
@@ -231,12 +235,6 @@ h6 {
 
 .flash-message-container {
   padding-top: 30px;
-}
-
-.vertically-align-force {
-  position: relative;
-  top: 50%;
-  transform: translateY(+50%);
 }
 
 .vertically-align-force {
