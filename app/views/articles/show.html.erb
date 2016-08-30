@@ -55,12 +55,12 @@
       V_curr:<%= @comment.vote %>
       <%= form_for @comment, url: update_comment_path, :remote => true do |f| %>
       <%= f.hidden_field :vote, :value => 1 %>
-      <%= f.submit :type => :image, :class => 'img-responsive', :src => "https://d30y9cdsu7xlg0.cloudfront.net/png/390383-200.png"%>
+      <%= f.submit :type => :image, :class => 'up-vote img-responsive', :src => "https://d30y9cdsu7xlg0.cloudfront.net/png/390383-200.png"%>
       <% end %>
       <h1 class="vote-total"> V_tot:<%= @vote_total %> </h1>
       <%= form_for @comment, url: update_comment_path, :remote => true  do |f| %>
       <%= f.hidden_field :vote, :value => -1 %>
-      <%= f.submit :type => :image, :class => 'img-responsive', :src => "http://i.imgur.com/na8W8zJ.png"%>
+      <%= f.submit :type => :image, :class => 'down-vote img-responsive', :src => "http://i.imgur.com/na8W8zJ.png"%>
       <% end %>
       <% end %>
     </div>

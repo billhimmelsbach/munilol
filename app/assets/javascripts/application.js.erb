@@ -43,9 +43,22 @@ $(document).on('ready', function(){
   }
 });
 $(document).on('turbolinks:load', function(){
-  $(document).on('ajax:success', function() {
-    console.log('ajax:success!')
-  });
+  var $upvote = $('.up-vote').closest('form');
+  var $downvote = $('.down-vote').closest('form');
+  var onUpVote = function() {
+    console.log('ajax:success! UP');
+    $upvote.off();
+    $downvote.on('ajax:success', onDownVote)
+  }
+  var onDownVote = function() {
+    console.log('ajax:success! DOWN');
+    $downvote.off();
+    $upvote.on('ajax:success', onUpVote);
+  }
+
+  $upvote.on('ajax:success', onUpVote);
+  $downvote.on('ajax:success', onDownVote);
+
   console.log("TURBO");
   function redirect(goto){
     if (goto !== '') {
