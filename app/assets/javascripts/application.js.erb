@@ -43,6 +43,9 @@ $(document).on('ready', function(){
   }
 });
 $(document).on('turbolinks:load', function(){
+  $(document).on('ajax:success', function() {
+    console.log('ajax:success!')
+  });
   console.log("TURBO");
   function redirect(goto){
     if (goto !== '') {
