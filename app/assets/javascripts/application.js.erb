@@ -46,6 +46,10 @@ $(document).on('turbolinks:load', function(){
   var $upvote = $('.up-vote').closest('form');
   var $downvote = $('.down-vote').closest('form');
   var voteTotal = +($('.vote-total').text());
+  var voteIncrement = 1
+  if (($( ".vote-total" ).data( "vote" )) == (1 || -1)) {
+    voteIncrement = 2
+  }
 
   var onUpVote = function() {
     console.log('ajax:success! UP');
@@ -53,7 +57,7 @@ $(document).on('turbolinks:load', function(){
     $('.up-vote').removeClass('grayed');
     $('.down-vote').addClass('grayed');
     console.log(voteTotal);
-    $('.vote-total').text(voteTotal+1);
+    $('.vote-total').text(voteTotal+voteIncrement);
     $downvote.on('ajax:success', onDownVote)
   }
   var onDownVote = function() {
@@ -63,11 +67,19 @@ $(document).on('turbolinks:load', function(){
     $('.up-vote').addClass('grayed');
     $upvote.on('ajax:success', onUpVote);
     console.log(voteTotal);
-    $('.vote-total').text(voteTotal-1);
+    $('.vote-total').text(voteTotal-voteIncrement);
   }
 
   $upvote.on('ajax:success', onUpVote);
   $downvote.on('ajax:success', onDownVote);
+  if ($( ".vote-total" ).data( "vote" )==1) {
+    console.log("CURRENT UPVOTE");
+    $upvote.off();
+  }
+  if ($( ".vote-total" ).data( "vote" )==-1) {
+    console.log("CURRENT DOWNVOTE");
+    $downvote.off();
+  }
 
   console.log("TURBO");
   function redirect(goto){

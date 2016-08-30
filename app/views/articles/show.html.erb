@@ -40,23 +40,12 @@
   <div class="row">
     <div>
     <br><br><br>
-    <%= form_for @comment, url: update_comment_path, :remote => true do |f| %>
-      <div class="field">
-        <%= f.number_field :vote, class: "form-control" %>
-        <%= f.hidden_field :id, :value => @comment.id %>
-        <%= f.hidden_field :user_id, :value => current_user.id %>
-      </div>
-      <div class="actions">
-        <%= f.submit "Leave Comment" %>
-      </div>
-    <% end %>
     <% if current_user != nil %>
-      V_curr:<%= @comment.vote %>
       <%= form_for @comment, url: update_comment_path, :remote => true do |f| %>
         <%= f.hidden_field :vote, :value => 1 %>
         <%= f.submit :type => :image, :class => "#{"grayed " if @comment.vote <= 0}up-vote img-responsive", :src => "https://i.imgur.com/QHTUl49.png"%>
       <% end %>
-    <h1 class="vote-total text-center"><%= @vote_total %></h1>
+    <h1 class="vote-total text-center" data-vote="<%= @comment.vote %>"><%= @vote_total %></h1>
       <%= form_for @comment, url: update_comment_path, :remote => true  do |f| %>
         <%= f.hidden_field :vote, :value => -1 %>
         <%= f.submit :type => :image, :class => "#{"grayed " if @comment.vote >= 0}down-vote img-responsive", :src => "https://i.imgur.com/NPKsG2K.png"%>
