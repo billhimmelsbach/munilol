@@ -20,10 +20,13 @@
    text-align: center;
    position: static;
  }
+
  html, body{
    height: 100%;
    padding-top: 60px;
+
  }
+
  .footer, .push {
    height: 4em;
  }
@@ -34,6 +37,12 @@
     height: 40px;
     width: 140px;
  }
+
+
+.navbar a {
+  color: #FFFFFF !important;
+}
+
  main {
    margin-top: -5.5%;
  }
@@ -115,4 +124,17 @@ h2 {
     .navbar.navbar-inverse .nav-collapse.in.slide-down {
         transform: translate(0px,0px);
     }
+}
+
+.navbar {
+  background-color: #bc132a;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Roboto Condensed', sans-serif;
 }

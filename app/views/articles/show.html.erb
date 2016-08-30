@@ -1,56 +1,69 @@
-<%= flash_messages %>
-  <div class="col-xs-10 col-md-10 col-xs-offset-1">
-      <div class="panel panel-default">
-          <div class="panel-image">
-              <img src="<%= @article.image %>" class="img-responsive panel-image-preview" />
+<%= flash_messages %><br>
+<div class="col-xs-10 col-md-10 col-xs-offset-1">
+  <div class="panel panel-default">
+    <div class="panel-image"><br>
+      <img class="img-responsive" <img src="<%= @article.image %>" data-toggle="modal" data-target="#myModal" style="width:auto; height:350px; margin: 0 auto;" >
+    </div>
+    <div class="panel-body">
+      <h4 class="text-center"><%= @article.title %></h4>
+      <p><%= link_to @article.muni.name, muni_path(@article.muni), method: :get %></p>
+      <p><%= @article.content %></p>
+    </div>
+    <% if current_user != nil && current_user.id == @article.user.id %>
+    <div class="buttonrow">
+      <%= link_to "Edit Article", edit_article_path, method: :get, :class=>"ruby-link btn btn-info btn-primary btn-md inline" %>
+      <button class="ruby-link btn btn-danger inline btn-primary btn-md inline" type="button" data-toggle="collapse" data-target="#delete" aria-expanded="false" aria-controls="collapseExample">Delete Article</button><br>
+      <div class = "row">
+        <div class="collapse" id="delete"><br>
+          <div class="well col-xs-6 col-xs-offset-3">
+            <h5 class="inline"> Are you sure you want to delete your article? </h5>
+            <button class="ruby-link btn-danger btn-primary btn-sm inline">
+              <%= link_to "Delete Article", destroy_article_path, method: :delete, :class=>"ruby-link"%>
+            </button>
+            <button class = "btn-success btn-primary btn-sm inline" data-toggle="collapse" data-target="#delete" aria-expanded="false" aria-controls="collapseExample">
+              Cancel
+            </button>
           </div>
-          <div class="panel-body">
-              <h4 class="text-center"><%= @article.title %></h4>
-              <p><%= link_to @article.muni.name, muni_path(@article.muni), method: :get %></p>
-              <p><%= @article.content %></p>
-          </div>
-          <% if current_user != nil && current_user.id == @article.user.id %>
-          <div class="buttonrow">
-            <%= link_to "Edit Article", edit_article_path, method: :get, :class=>"ruby-link btn btn-info btn-primary btn-md inline" %>
-            <button class="ruby-link btn btn-danger inline btn-primary btn-md inline" type="button" data-toggle="collapse" data-target="#delete" aria-expanded="false" aria-controls="collapseExample">Delete Article</button><br>
-            <div class = "row">
-              <div class="collapse" id="delete"><br>
-                <div class="well col-xs-6 col-xs-offset-3">
-                  <h5 class="inline"> Are you sure you want to delete your article? </h5>
-                  <button class="ruby-link btn-danger btn-primary btn-sm inline">
-                    <%= link_to "Delete Article", destroy_article_path, method: :delete, :class=>"ruby-link"%>
-                  </button>
-                  <button class = "btn-success btn-primary btn-sm inline" data-toggle="collapse" data-target="#delete" aria-expanded="false" aria-controls="collapseExample">
-                    Cancel
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <% end %><br>
-          <div class="panel-footer text-center">
-            <%= social_share_button_tag(@article.title, :image => "https://munilol.herokuapp.com/#{article_path(@article)}", desc: "#{@article.title}") %>
-
-            <!-- <a href="#facebook"><span class="fa fa-facebook"></span></a>
-            <a href="#twitter"><span class="fa fa-twitter"></span></a> -->
-          </div>
-      </div>
-  </div>
-  <div class="col-xs-1">
-    <div class="row">
-      <div>
-        <% if current_user != nil %>
-          V_curr:<%= @comment.vote %>
-          <%= form_for @comment, url: update_comment_path  do |f| %>
-            <%= f.hidden_field :vote, :value => 1 %>
-            <%= f.submit :type => :image, :class => 'img-responsive', :src => "https://d30y9cdsu7xlg0.cloudfront.net/png/390383-200.png"%>
-          <% end %>
-          <h1 class="vote-total"> V_tot:<%= @vote_total %> </h1>
-          <%= form_for @comment, url: update_comment_path  do |f| %>
-            <%= f.hidden_field :vote, :value => -1 %>
-            <%= f.submit :type => :image, :class => 'img-responsive', :src => "http://i.imgur.com/na8W8zJ.png"%>
-          <% end %>
-        <% end %>
+        </div>
       </div>
     </div>
+    <% end %><br>
+    <div class="panel-footer text-center">
+      <%= social_share_button_tag(@article.title, :image => "https://munilol.herokuapp.com/#{article_path(@article)}", desc: "#{@article.title}") %>
+
+      <!-- <a href="#facebook"><span class="fa fa-facebook"></span></a>
+      <a href="#twitter"><span class="fa fa-twitter"></span></a> -->
+    </div>
+  </div>
+</div>
+<div class="col-xs-1">
+  <div class="row">
+    <div>
+      <% if current_user != nil %>
+      V_curr:<%= @comment.vote %>
+      <%= form_for @comment, url: update_comment_path  do |f| %>
+      <%= f.hidden_field :vote, :value => 1 %>
+      <%= f.submit :type => :image, :class => 'img-responsive', :src => "https://d30y9cdsu7xlg0.cloudfront.net/png/390383-200.png"%>
+      <% end %>
+      <h1 class="vote-total"> V_tot:<%= @vote_total %> </h1>
+      <%= form_for @comment, url: update_comment_path  do |f| %>
+      <%= f.hidden_field :vote, :value => -1 %>
+      <%= f.submit :type => :image, :class => 'img-responsive', :src => "http://i.imgur.com/na8W8zJ.png"%>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      </div>
+      <div class="modal-body">
+        <img class="modal-img img-responsive" <img src="<%= @article.image %>">
+    </div>
+    </div>
+  </div>
+</div>
 </div>
