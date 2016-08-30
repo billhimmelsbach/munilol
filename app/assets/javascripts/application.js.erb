@@ -22,12 +22,7 @@
 // });
 // function displayAlert
 var api_called = 0;
-$(document).on('ready', function(){
-  console.log("go!");
-  if (api_called == 1) {
-    console.log("eject");
-    return;
-  }
+var alert = function() {
   $.ajax({url: "http://api.511.org/transit/servicealerts?format=json&api_key=<%= ENV['511_KEY'] %>", success: function(result){
       console.log("works!");
       result._entity.forEach(function(entity) {
@@ -38,7 +33,14 @@ $(document).on('ready', function(){
           api_called++;
         }
       });
-   }});
+  }});
+}
+$(document).on('ready', function(){
+  console.log("go!");
+  if (api_called == 0) {
+    console.log("eject");
+    alert();
+  }
 });
 $(document).on('turbolinks:load', function(){
   console.log("TURBO");
