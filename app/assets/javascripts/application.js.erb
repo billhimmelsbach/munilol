@@ -22,6 +22,7 @@
 // });
 // function displayAlert
 var api_called = 0;
+var voteTotal = +($('.vote-total').text());
 var alert = function() {
   $.ajax({url: "http://api.511.org/transit/servicealerts?format=json&api_key=<%= ENV['511_KEY'] %>", success: function(result){
       console.log("works!");
@@ -45,15 +46,22 @@ $(document).on('ready', function(){
 $(document).on('turbolinks:load', function(){
   var $upvote = $('.up-vote').closest('form');
   var $downvote = $('.down-vote').closest('form');
+
   var onUpVote = function() {
     console.log('ajax:success! UP');
     $upvote.off();
+    $('.up-vote').removeClass('grayed');
+    $('.down-vote').addClass('grayed');
+    $('.vote-total').text(voteTotal+1);
     $downvote.on('ajax:success', onDownVote)
   }
   var onDownVote = function() {
     console.log('ajax:success! DOWN');
     $downvote.off();
+    $('.down-vote').removeClass('grayed');
+    $('.up-vote').addClass('grayed');
     $upvote.on('ajax:success', onUpVote);
+    $('.vote-total').text(voteTotal-1);
   }
 
   $upvote.on('ajax:success', onUpVote);
