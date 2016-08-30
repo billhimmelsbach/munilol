@@ -153,7 +153,7 @@ h6 {
   visibility: hidden !important;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 770px) {
     .nav-div {
         display:none;
     }
