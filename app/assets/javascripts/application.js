@@ -35,7 +35,7 @@ $(document).on('ready', function(){
           console.log(entity._alert._description_text._translation[0]._text);
           alert = entity._alert._description_text._translation[0]._text;
           $("#alert_message").append(alert);
-          api_called++
+          api_called++;
         }
       });
    }});
