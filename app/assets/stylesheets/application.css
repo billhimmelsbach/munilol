@@ -148,3 +148,17 @@ h6 {
     -o-transition: .3s ease-in-out;
   opacity: 0.4;
 }
+
+.hidden-xs {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+@media (max-width: 767px) {
+    .nav-div {
+        display:none;
+    }
+    html {
+      margin-top: -100px
+    }
+}
