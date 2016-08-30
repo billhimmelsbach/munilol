@@ -247,3 +247,9 @@ h6 {
 .flash-message-container {
   padding-top: 30px;
 }
+
+.vertically-align-force {
+  position: relative;
+  top: 50%;
+  transform: translateY(+50%);
+}
