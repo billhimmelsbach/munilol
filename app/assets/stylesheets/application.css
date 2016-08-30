@@ -14,11 +14,8 @@
    left: 0;
    bottom: 0;
    height: 40px;
-   min-width: 1060px;
    width: 100%;
    font-size: 14px;
-   text-align: center;
-   position: static;
  }
 
  html, body{
@@ -161,4 +158,12 @@ h6 {
     html {
       margin-top: -100px
     }
+    .bottom-nav-div {
+      display: block !important;
+      visibility: visible !important;
+    }
+}
+
+.bottom-nav-div {
+  display:none;
 }
