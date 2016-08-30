@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Munilol</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -66,8 +67,14 @@
   <footer class="text-center">
     <p>Learn more about the <%= link_to "team!", about_path %></p>
   </footer>
-  <div class = "bottom-nav-div">
-    <h1> TESTTEST </h1>
+  <div id="footer">
+    <div class="col-xs-12 navbar-inverse navbar-fixed-bottom bottom-nav-div">
+      <div class="row" id="bottomNav">
+        <div class="col-xs-4 text-center"><a href="new_article_path"><i class="glyphicons glyphicons-plus"></i><br>Link</a></div>
+        <div class="col-xs-4 text-center"><a href="#"><i class="glyphicon glyphicon-circle-arrow-down"></i><br>Link</a></div>
+        <div class="col-xs-4 text-center"><a href="#"><i class="glyphicon glyphicon-circle-arrow-right"></i><br>Link</a></div>
+      </div>
+    </div>
   </div>
 </body>
 </html>
