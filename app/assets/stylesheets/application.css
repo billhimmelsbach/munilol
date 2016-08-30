@@ -19,10 +19,13 @@
    font-size: 14px;
    text-align: center;
    position: static;
+   color: #FFFFFF;
+
  }
  html, body{
    height: 100%;
    padding-top: 60px;
+   background-color: #364252 !important;
  }
  .footer, .push {
    height: 4em;
@@ -34,6 +37,12 @@
     height: 40px;
     width: 140px;
  }
+
+
+.navbar a {
+  color: #FFFFFF !important;
+}
+
  main {
    margin-top: -5.5%;
  }
@@ -115,4 +124,8 @@ h2 {
     .navbar.navbar-inverse .nav-collapse.in.slide-down {
         transform: translate(0px,0px);
     }
+}
+
+.navbar {
+  background-color: #bc132a;
 }

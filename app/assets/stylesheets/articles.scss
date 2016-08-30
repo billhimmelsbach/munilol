@@ -4,6 +4,7 @@
 html, body{
   height: 100%;
   padding-top: 60px;
+
 }
 
 .card-inverse {
@@ -70,4 +71,30 @@ p {
 
 .buttonrow {
   text-align: center;
+}
+
+.portfolio .thumbnail {
+    position: relative;
+}
+
+.portfolio .thumbnail:hover {
+    cursor: pointer;
+}
+
+.portfolio .caption {
+    bottom: 0;
+    position: absolute;
+}
+
+.portfolio .btn {
+    opacity: 0.75;
+}
+
+.modal-dialog {
+  width: 100%;
+  height: 100%;
+}
+
+.img-responsive {
+  margin: 0 auto;
 }
