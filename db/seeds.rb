@@ -26,7 +26,51 @@ USERS = [
     email: "MelissaCarlson@WDI30.com",
     password: "test",
     image: "https://cdn0.vox-cdn.com/images/verge/default-avatar.v9899025.gif"
-  }
+  },
+  {
+    first_name: "Bill",
+    last_name: "Himmelsbach",
+    email: "BillHimmelsbach@WDI30.com",
+    password: "test",
+    image: "https://cdn0.vox-cdn.com/images/verge/default-avatar.v9899025.gif"
+  },
+  {
+    first_name: "Daniel",
+    last_name: "Oh",
+    email: "DanielOh@WDI30.com",
+    password: "test",
+    image: "https://cdn0.vox-cdn.com/images/verge/default-avatar.v9899025.gif"
+  },
+  {
+    first_name: "David",
+    last_name: "Kim",
+    email: "DavidKim@WDI30.com",
+    password: "test",
+    image: "https://cdn0.vox-cdn.com/images/verge/default-avatar.v9899025.gif"
+  },
+  {
+    first_name: "John",
+    last_name: "Smith",
+    email: "JohnSmith@WDI30.com",
+    password: "test",
+    image: "https://cdn0.vox-cdn.com/images/verge/default-avatar.v9899025.gif"
+  },
+  {
+    first_name: "Jane",
+    last_name: "Smith",
+    email: "JaneSmith@WDI30.com",
+    password: "test",
+    image: "https://cdn0.vox-cdn.com/images/verge/default-avatar.v9899025.gif"
+  },
+  {
+    first_name: "Bob",
+    last_name: "Ross",
+    email: "BobRoss@WDI30.com",
+    password: "test",
+    image: "https://cdn0.vox-cdn.com/images/verge/default-avatar.v9899025.gif"
+  },
+
+
 ]
 
 MUNIS = [
@@ -248,15 +292,93 @@ ARTICLES = [
     content: "The management at the apartment building at Post and Leavenworth has gone above and beyond in keeping their block nice and not-too-smelly, extending even to the Muni stop in front of the building. But when the Muni stop poop bandit hits your block, it’s just all too much. Here is their PSA sign that doubles as a cry for help.",
     image: "http://www.munidiaries.com/wp-content/uploads/2016/05/muni-poop-cleaning.jpg",
     user_id: 3,
-    muni_id: 1,
+    muni_id: 2,
   },
   {
     title: "Skater eschews pushing, hitches a ride ‘on’ Muni",
     content: "We’ve seen this type of heroics activity before. You know the saying: If Marty McFly can do it …",
     image: "http://www.munidiaries.com/wp-content/uploads/2016/02/skater.jpg",
+    user_id: 4,
+    muni_id: 1,
+  },
+  {
+    title: "Sick of Muni ads? Make your own!",
+    content: "Are you sensitive about the consumer culture we live in? Desensitized from ad-overload? What are you gonna do about it? Yeah, you?",
+    image: "http://www.munidiaries.com/wp-content/uploads/2016/01/DIY_Muni_ad.jpg",
+    user_id: 1,
+    muni_id: 1,
+  },
+  {
+    title: "Party hat departs passed-out tech bro on the L-Taraval",
+    content: "We’ve all been there. One, two, seven too many. Reasons to celebrate. No reason whatsoever to be doing what we did.  Few of us escaped with party hats, though. And of those, even fewer ended up on the L-Taraval recently, de-party-hatted. Friend and Muni Diaries Live veteran Katie was there, thankfully: “This tech bro had too much to drink at the office and his lil party hat fell off on the L yesterday”",
+    image: "http://www.munidiaries.com/wp-content/uploads/2015/10/party_hat.jpg",
+    user_id: 1,
+    muni_id: 1,
+  },
+  {
+    title: "Muni shelter’s inspirational message?",
+    content: "While we cannot exactly condone the message herein, we think we like the meaning behind it? Like, maybe, “shoot pool, not schools,” would work, also, better, too, right?",
+    image: "http://www.munidiaries.com/wp-content/uploads/2015/10/heroin_not_schools.jpg",
     user_id: 1,
     muni_id: 2,
+  },
+  {
+    title: "Salad Days on Muni",
+    content: "Sure, you’re not supposed to eat or drink on Muni. But who says you can’t prepare your meals?",
+    image: "http://www.munidiaries.com/wp-content/uploads/2015/08/salad.jpg",
+    user_id: 8,
+    muni_id: 6,
+  },
+  {
+    title: "London: Peak Multitasking on Transit Achieved",
+    content: "I will resist the urge to simply WTF this one. I will resist the urge to simply WTF this one. I will resist the urge to simply WTF this one. I will resist the urge to simply WTF this one.",
+    image: "http://www.munidiaries.com/wp-content/uploads/2015/08/london_WTF.jpg",
+    user_id: 9,
+    muni_id: 5,
+  },
+  {
+    title: "When all else fails on Muni",
+    content: "Rider Leigh let us know about this crafty fellow passenger she encountered on Muni Metro recently. Shoe. That’s Australian for cup holder.",
+    image: "http://www.munidiaries.com/wp-content/uploads/2015/04/fosters_shoe.jpg",
+    user_id: 10,
+    muni_id: 1,
+  },
+  {
+    title: "Public transit mayo eater inspires vomit",
+    content: "Just when I thought I had seen it all.  Quick story: Mayonnaise is disgusting. It is acceptable only in tuna and chicken salad. It is certain not acceptable to eat that barfotastic crap straight from the jar. To say nothing of doing this on Muni.",
+    image: "http://www.munidiaries.com/wp-content/uploads/2014/02/mayo.jpg",
+    user_id: 1,
+    muni_id: 2,
+  },
+  {
+    title: "Multiple Muni riders spotted actually wearing Miley Cryus",
+    content: "Because U.S.A.! I mean, why else? First, the above actually happened. “Miley Cyrus Leggings = Today’s #SFMuni #FashionStatement” Then, not to be outdone, the following did indeed occur.",
+    image: "http://www.munidiaries.com/wp-content/uploads/2014/07/miley2.jpg",
+    user_id: 2,
+    muni_id: 3,
+  },
+  {
+    title: "No one ever said ‘No Cooking on Muni’",
+    content: "And there you have it, folks. Someone straight making some goddam toast on a Muni LRV. Never mind that SFMTA says it’s dangerous.",
+    image: "http://www.munidiaries.com/wp-content/uploads/2014/05/toast.jpg",
+    user_id: 3,
+    muni_id: 5,
+  },
+  {
+    title: "Get comfortable on Muni, please",
+    content: "This isn’t quite like bringing your own chair on Muni, but it’s like a weird second cousin in the “Make Yourself at Home, Why Dontcha?” department.",
+    image: "http://www.munidiaries.com/wp-content/uploads/2014/04/lounge.jpg",
+    user_id: 1,
+    muni_id: 1,
+  },
+  {
+    title: "Are these chickens the best-behaved Muni passengers?",
+    content: "You hear a lot about chickens on Muni. Live ones. Dead ones. Embryonic ones. Seems we as a society are advancing, though. Seen above and below, examples of civilized chickens on Muni, traveling in plastic bags and keeping to themselves.",
+    image: "http://www.munidiaries.com/wp-content/uploads/2014/04/chicken1.jpg",
+    user_id: 3,
+    muni_id: 8,
   }
+
 ]
 
 COMMENTS = [
