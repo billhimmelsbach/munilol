@@ -40,7 +40,9 @@ $(document).on('ready', function(){
       });
    }});
 });
-// $(document).on('turbolinks:load', function(){
+$(document).on('turbolinks:load', function(){
+  console.log("woooo");
+});
 //   $.ajax({url: "http://api.511.org/transit/servicealerts?format=json&api_key=<%= ENV['511_KEY'] %>", success: function(result){
 //       console.log("works!");
 //       result._entity.forEach(function(entity) {
