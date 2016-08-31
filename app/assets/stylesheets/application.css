@@ -57,6 +57,15 @@
   text-align: center;
 }
 
+.CancelButton {
+  text-align: center;
+  margin-top: 3%;
+}
+
+.EditButton {
+  text-align: center;
+}
+
 h2 {
   text-align: center;
 }
