@@ -36,3 +36,17 @@ p {
 h4 {
   text-align: center;
 }
+
+.userbutton {
+  margin: 10px;
+}
+
+.glyphicon {
+  font-size:24pt
+}
+
+@media only screen and (max-width: 770px) {
+  i {
+    display: block !important;
+  }
+}
