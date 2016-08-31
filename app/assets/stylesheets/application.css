@@ -256,3 +256,9 @@ h6 {
   top: 50%;
   transform: translateY(-50%);
 }
+
+.ProfilePhoto {
+  width: 20vw;
+  height: auto;
+  margin: 0 auto;
+}
