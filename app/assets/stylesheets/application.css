@@ -169,7 +169,7 @@ h6 {
     html {
       margin-top: -100px
     }
-    .bottom-nav-div, .show-mobile {
+    .bottom-nav-div {
       display: block !important;
       visibility: visible !important;
     }
@@ -212,8 +212,8 @@ h6 {
         font-size:20pt;
         float:none;
     }
-    #bottomNav {
-    	padding:10px;
+
+    .glyphicon {
     }
     #bottomNav a {
         font-size:24pt;
@@ -238,11 +238,10 @@ h6 {
     }
 }
 
-.bottom-nav-div, .show-mobile {
-  display:none;
+.bottom-nav-div {
   display: none;
   visibility: visible;
-  padding: 25px;
+  padding-bottom: 5vh;
 }
 
 .index-container {
