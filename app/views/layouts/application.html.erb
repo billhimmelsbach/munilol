@@ -25,7 +25,7 @@
         <nav class="navbar navbar-default navbar-fixed-top">
           <div class="col-xs-12 navbar-header" style="padding-left:-10px">
             <div class="col-xs-3 pull-left">
-              <a href="/" class="navbar-brand"><img class = "img-responsive show-mobile" src="https://i.imgur.com/4X0lgTb.png"></a>
+              <a href="/" class="navbar-brand"><img class = "img-responsive" src="https://i.imgur.com/4X0lgTb.png"></a>
             </div>
             <div class="col-xs-9 pull-right">
               <ul class="nav navbar-nav v-align pull-right">
@@ -43,8 +43,22 @@
                   <% else %>
                   <%= link_to "New Article", new_session_path, :class => "pull-right btn blue-grey lighten-3" %>
                   <% end %>
-                  <% if current_user %>
-                  <% else %>
+                </li>
+                <% if current_user %>
+                <ul class="nav navbar-nav">
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <%= current_user.first_name %> <%= current_user.last_name %> <span class="glyphicon glyphicon-user pull-right"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><%= link_to current_user.first_name + "\'s Profile", user_path(current_user)%></li>
+                      <li class="divider"></li>
+                      <li><%= link_to "Profile Settings", edit_user_path(current_user) %></li>
+                      <li class="divider"></li>
+                      <li><%= link_to "Log Out", logout_path %></li>
+                    </ul>
+                       </li>
+                     </ul>
+                   </ul>
+                <% else %>
                   <li><%= link_to "Sign up", new_user_path %></li>
                   <li><%= link_to "Log In", new_session_path %></li>
                 <% end %>
@@ -52,23 +66,6 @@
           </div>
         </nav>
       </header>
-      <div class="row">
-        <% if current_user %>
-        <ul class="nav navbar-nav">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <%= current_user.full_name %> <span class="glyphicon glyphicon-user pull-right"></span></a>
-            <ul class="dropdown-menu">
-              <li><%= link_to current_user.first_name + "\'s Profile", user_path(current_user)%></li>
-              <li class="divider"></li>
-              <li><%= link_to "Profile Settings", edit_user_path(current_user) %></li>
-              <li class="divider"></li>
-              <li><%= link_to "Log Out", logout_path %></li>
-            </ul>
-               </li>
-             </ul>
-           </ul>
-           <% end %>
-        </div>
     </div>
     <main>
       <div class ="row">

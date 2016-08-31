@@ -161,6 +161,9 @@ h6 {
   visibility: hidden !important;
 }
 
+.profilerow {
+  display: none;
+}
 @media only screen and (max-width: 770px) {
     .nav-div {
         display:none;
@@ -168,7 +171,7 @@ h6 {
     html {
       margin-top: -100px
     }
-    .bottom-nav-div, .show-mobile {
+    .bottom-nav-div, .show-mobile, .profilerow {
       display: block !important;
       visibility: visible !important;
 
@@ -215,6 +218,13 @@ h6 {
 
     .glyphicon {
     }
+
+    /*.navbar-absolute {
+        position: absolute;
+        margin: 0;
+        padding-right: 40px;
+    }*/
+
     #bottomNav a {
         font-size:15pt;
         color:#ddd;
@@ -294,5 +304,6 @@ h6 {
     position: absolute;
     top: -12px;
     right: 14px;
-    z-index: 9;
+    z-index: 10;
+
 }
