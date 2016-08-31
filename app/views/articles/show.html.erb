@@ -4,10 +4,12 @@
     <div class = "col-xs-12">
       <div class ="col-md-8 col-xs-9 col-md-offset-2 col-xs-offset-0">
         <div class="panel-image"><br>
+          <br>
           <img class="img-responsive" <img src="<%= @article.image %>" data-toggle="modal" data-target="#myModal" style="width:auto; height:350px; margin: 0 auto; margin-top: -20px" >
         </div>
       </div>
       <div class="col-xs-3 col-sm-2 col-lg-1" style="height:50vh">
+        <br>
           <div class="vertically-align-force">
             <% if current_user != nil %>
             <%= form_for @comment, url: update_comment_path, :remote => true do |f| %>
