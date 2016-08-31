@@ -25,28 +25,28 @@ USERS = [
     last_name: "Carlson",
     email: "MelissaCarlson@WDI30.com",
     password: "test",
-    image: "https://ucarecdn.com/1386c488-f2db-4b63-959f-32656a7e35c6/"
+    image: "https://ucarecdn.com/a8f6040c-ad4a-408b-858c-dbb6b2198ecb/"
   },
   {
     first_name: "Bill",
     last_name: "Himmelsbach",
     email: "BillHimmelsbach@WDI30.com",
     password: "test",
-    image: "https://ucarecdn.com/1386c488-f2db-4b63-959f-32656a7e35c6/"
+    image: "https://ucarecdn.com/41f452c8-6397-430a-8515-98e621f1b914/"
   },
   {
     first_name: "Daniel",
     last_name: "Oh",
     email: "DanielOh@WDI30.com",
     password: "test",
-    image: "https://ucarecdn.com/1386c488-f2db-4b63-959f-32656a7e35c6/"
+    image: "https://ucarecdn.com/2da7a630-4469-4ce3-be51-b38cc3d2f6d3/"
   },
   {
     first_name: "David",
     last_name: "Kim",
     email: "DavidKim@WDI30.com",
     password: "test",
-    image: "https://ucarecdn.com/1386c488-f2db-4b63-959f-32656a7e35c6/"
+    image: "https://ucarecdn.com/8ecdb3da-528b-4984-a530-9e4862e362d7/"
   },
   {
     first_name: "John",
