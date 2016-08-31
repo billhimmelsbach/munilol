@@ -28,6 +28,7 @@
     <div class="panel-body">
       <h4 class="text-center"><%= @article.title %></h4>
       <p><%= link_to @article.muni.name, muni_path(@article.muni), method: :get %></p>
+      <p>posted <%= time_ago_in_words(@article.created_at) %> ago</p>
       <p><%= @article.content %></p>
     </div>
     <% if current_user != nil && current_user.id == @article.user.id %>
