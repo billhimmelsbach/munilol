@@ -10,7 +10,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find_by_id(params[:id])
+    @article = Article.find(params[:id])
     @vote_total = @article.comments.sum(:vote)
     return if current_user.nil?
     @comment = Comment.where(:article_id=>params[:id]).where(:user_id=>current_user.id)[0]
@@ -41,7 +41,7 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    @article = Article.find_by_id(params[:id])
+    @article = Article.find(params[:id])
     auth_fail("edit other people's article information!", @article) if !auth_route(@article.user)
   end
 
@@ -78,7 +78,7 @@ private
   end
 
   def set_article
-    @article = Article.find_by_id(params[:id])
+    @article = Article.find(params[:id])
   end
 
 end

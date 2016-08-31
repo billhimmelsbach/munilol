@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160825234003) do
+ActiveRecord::Schema.define(version: 20160831155858) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,9 +25,11 @@ ActiveRecord::Schema.define(version: 20160825234003) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "slug"
   end
 
   add_index "articles", ["muni_id"], name: "index_articles_on_muni_id", using: :btree
+  add_index "articles", ["slug"], name: "index_articles_on_slug", unique: true, using: :btree
   add_index "articles", ["user_id"], name: "index_articles_on_user_id", using: :btree
 
   create_table "comments", force: :cascade do |t|
@@ -46,7 +48,10 @@ ActiveRecord::Schema.define(version: 20160825234003) do
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "slug"
   end
+
+  add_index "munis", ["slug"], name: "index_munis_on_slug", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
@@ -54,8 +59,12 @@ ActiveRecord::Schema.define(version: 20160825234003) do
     t.string   "email"
     t.string   "password_digest"
     t.string   "image"
+    t.string   "full_name"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "slug"
   end
+
+  add_index "users", ["slug"], name: "index_users_on_slug", unique: true, using: :btree
 
 end

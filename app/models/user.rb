@@ -20,10 +20,14 @@ class User < ActiveRecord::Base
 
   before_save :default_values
 
+  extend FriendlyId
+  friendly_id :full_name, use: [:slugged, :finders]
+
   private
 
   def default_values
     self.image = "https://ucarecdn.com/1386c488-f2db-4b63-959f-32656a7e35c6/" if self.image == ""
+    self.full_name = "#{self.first_name + self.last_name}"
   end
 
 
