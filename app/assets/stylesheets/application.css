@@ -23,7 +23,6 @@
  html, body{
    height: 100%;
    padding-top: 60px;
-
  }
 
  .footer, .push {
@@ -169,9 +168,10 @@ h6 {
     html {
       margin-top: -100px
     }
-    .bottom-nav-div {
+    .bottom-nav-div, .show-mobile {
       display: block !important;
       visibility: visible !important;
+
     }
     html,
     body {
@@ -216,7 +216,7 @@ h6 {
     .glyphicon {
     }
     #bottomNav a {
-        font-size:24pt;
+        font-size:15pt;
         color:#ddd;
         text-decoration:none;
     }
@@ -238,7 +238,7 @@ h6 {
     }
 }
 
-.bottom-nav-div {
+.bottom-nav-div, .show-mobile {
   display: none;
   visibility: visible;
   padding-bottom: 5vh;
