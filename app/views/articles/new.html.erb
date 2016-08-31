@@ -7,7 +7,7 @@
       <%= f.text_field :title, placeholder: 'Title' %>
       <%= f.text_area :content, placeholder: 'Content' %>
       <%= f.collection_select :muni_id, Muni.order(:name),:id,:name%><br>
-      <%= f.uploadcare_uploader :image, :data => {:images_only => true}%>
+      <%= f.uploadcare_uploader :image, :data => {:images_only => true, :image_shrink => "1000x1000", :clearable => true }%>
       <br></br>
       <div class = "CreateButton">
         <%= f.submit "Create new article" %>
