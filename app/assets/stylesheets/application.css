@@ -200,10 +200,10 @@ h6 {
     }*/
 
     #bottomNav a {
-        font-size:24pt;
-        color:#ddd;
-        text-decoration:none;
-        width: 100%;
+      font-size:24pt;
+      color:#ddd;
+      text-decoration:none;
+      width: 100%;
     }
 
     #bottomNav a:hover {
@@ -226,7 +226,6 @@ h6 {
   display: none;
   visibility: visible;
   padding-bottom: 15px;
-  position: absolute;
 }
 
 .index-container {
