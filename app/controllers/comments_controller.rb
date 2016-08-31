@@ -12,11 +12,11 @@ class CommentsController < ApplicationController
         # flash[:success] = "Your profile was successfully updated"
         render json: @comment
       else
+        flash[:notice] = "Cannot create your comment: #{@comments.errors.full_messages.join(', ')}."
         render root_path
       end
     else
-      auth_fail("You can't update this comment!", @user)
-      redirect_to @comment.article
+      auth_fail("You can't update this comment!", @comment.article)
     end
   end
 

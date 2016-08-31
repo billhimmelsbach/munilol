@@ -108,7 +108,7 @@ $(document).on('turbolinks:load', function(){
   $("select").select2({
     placeholder: "See your Muni Route",
   });
-  $("select").change(function() {
+  $(".select-navbar").change(function() {
     var goto = this.value;
     console.log(goto);
     redirect(goto);

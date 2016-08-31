@@ -30,7 +30,7 @@
             <div class="col-xs-9 pull-right">
               <ul class="nav navbar-nav v-align pull-right">
                 <li style="margin-top: 12px;">
-                  <select class="js-example-basic-single" style="width: 100%;">
+                  <select class="select-navbar js-example-basic-single" style="width: 100%;">
                     <% @munis.each do |muni| %>
                     <option></option>
                     <option value="<%= muni_path(muni.id) %>"><%= muni.name %></option>
