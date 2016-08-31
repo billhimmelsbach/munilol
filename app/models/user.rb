@@ -5,8 +5,7 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true, length: { in: 2..150}, presence: true
   validates :first_name, length: { in: 2..50}, presence: true
   validates :last_name, length: { in: 2..75}, presence: true
-  # validates :image_url, format: {with: /\.(png|jpg)\Z/i}
-  
+
   EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   # before_create do
   #   set_default_image
@@ -19,12 +18,14 @@ class User < ActiveRecord::Base
   has_many :munis, :through => :articles
   has_many :comments, :through => :articles
 
+  before_save :default_values
 
   private
 
-  # def set_default_image
-  #   self.image = "https://cdn0.vox-cdn.com/images/verge/default-avatar.v9899025.gif" if self.image=""
-  # end
+  def default_values
+    self.image = "https://ucarecdn.com/1386c488-f2db-4b63-959f-32656a7e35c6/" if self.image == ""
+  end
+
 
   def self.confirm(params)
     @user = User.where("email ILIKE ?", params[:email]).first

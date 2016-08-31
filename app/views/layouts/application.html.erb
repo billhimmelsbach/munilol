@@ -14,7 +14,7 @@
   <%= include_uploadcare_widget_from_cdn version: "2.9.0", min: true %>
   <script>
   UPLOADCARE_LOCALE = "en";
-  UPLOADCARE_TABS = "file url facebook gdrive dropbox instagram evernote flickr skydrive";
+  UPLOADCARE_TABS = "file url camera facebook gdrive dropbox instagram flickr skydrive";
   UPLOADCARE_PUBLIC_KEY = "e6aad8d63e7e221b9e3f";
   </script>
 </head>
@@ -30,7 +30,7 @@
             <div class="col-xs-9 pull-right">
               <ul class="nav navbar-nav v-align pull-right">
                 <li style="margin-top: 12px;">
-                  <select class="js-example-basic-single" style="width: 100%;">
+                  <select class="select-navbar js-example-basic-single" style="width: 100%;">
                     <% @munis.each do |muni| %>
                     <option></option>
                     <option value="<%= muni_path(muni.id) %>"><%= muni.name %></option>
