@@ -9,7 +9,7 @@
         <%= f.text_field :last_name, placeholder: 'Last Name' %>
         <%= f.email_field :email, placeholder: 'Email' %>
         <%= f.password_field :password, placeholder: 'Password' %><br>
-        <%= f.uploadcare_uploader :image, :data => {:images_only => true, :crop => "500x500 minimum", :image_shrink => "500x500" } %>
+        <%= f.uploadcare_uploader :image, :data => {:images_only => true, :crop => "500x500 minimum", :image_shrink => "500x500", :clearable => true } %>
         <br></br>
         <div class="CreateButton">
             <%= f.submit "Save Changes" %>

@@ -8,9 +8,6 @@ class UsersController < ApplicationController
 
   def create
     set_user
-    if @user.image == ""
-      @user.image ="https://ucarecdn.com/1386c488-f2db-4b63-959f-32656a7e35c6/"
-    end
     if @user.save
       login(@user)
       flash[:notice] = "User account created! Welcome to Munilol"
