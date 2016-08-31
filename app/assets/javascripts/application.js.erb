@@ -25,7 +25,7 @@
 var alert_message;
 var api_called = 0;
 var alert = function() {
-  $.ajax({url: "http://api.511.org/transit/servicealerts?format=json&api_key=<%= ENV['511_KEY'] %>", success: function(result){
+  $.ajax({url: "https://api.511.org/transit/servicealerts?format=json&api_key=<%= ENV['511_KEY'] %>", success: function(result){
       console.log("works!");
       result._entity.forEach(function(entity) {
         if (entity._alert._informed_entity[0]._agency_id == "MA") {
