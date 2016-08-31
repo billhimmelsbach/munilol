@@ -2,26 +2,22 @@ class User < ActiveRecord::Base
   #TODO set default user picture
   has_secure_password
 
+  extend FriendlyId
+  friendly_id :full_name, use: [:slugged, :finders]
+
+
+
   validates :email, uniqueness: true, length: { in: 2..150}, presence: true
   validates :first_name, length: { in: 2..50}, presence: true
   validates :last_name, length: { in: 2..75}, presence: true
 
   EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  # before_create do
-  #   set_default_image
-  # end
-
-  # extend FriendlyId
-  # friendly_id :first_name, use: [:slugged, :finders]
 
   has_many :articles
   has_many :munis, :through => :articles
   has_many :comments, :through => :articles
 
   before_save :default_values
-
-  extend FriendlyId
-  friendly_id :full_name, use: [:slugged, :finders]
 
   private
 
