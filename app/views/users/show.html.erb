@@ -16,6 +16,9 @@
     <div class="row userbuttons">
       <%= link_to "Edit Profile", edit_user_path(@user), method: :get, :class=>"ruby-link btn btn-info btn-primary btn-md inline" %>
       <button class="ruby-link btn btn-danger inline btn-primary btn-md inline" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Deactivate Account</button>
+      <%= link_to logout_path do %><br>
+        <i class="glyphicon glyphicon-log-out"></i>
+      <% end %>
     </div>
     <div class="row">
       <div class="collapse" id="collapseExample">

@@ -74,9 +74,9 @@
       <div class="row" id="bottomNav">
         <% if current_user %>
           <div class="col-xs-3 text-center">
-            <a href="data-rel=back"><br>
+            <%= link_to :back do %><br>
               <i class="glyphicon glyphicon-chevron-left"></i>
-            </a>
+            <% end %>
           </div>
           <div class="col-xs-3 text-center">
             <%= link_to root_path do %><br>

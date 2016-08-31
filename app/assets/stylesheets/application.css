@@ -253,3 +253,7 @@ h6 {
   top: 50%;
   transform: translateY(+50%);
 }
+
+.text-center {
+  margin-top:-15px;
+}
