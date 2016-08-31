@@ -242,5 +242,5 @@ h6 {
 .vertically-align-force {
   position: relative;
   top: 50%;
-  transform: translateY(+50%);
+  transform: translateY(-50%);
 }
