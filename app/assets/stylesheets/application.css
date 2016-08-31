@@ -71,7 +71,7 @@ h2 {
 }
 
 .vote-total {
-  font-size: 2vw
+  font-size: 10vh
 }
 
 /*.navbar-brand { position: relative; z-index: 2; }
@@ -162,7 +162,7 @@ h6 {
   visibility: hidden !important;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 770px) {
     .nav-div {
         display:none;
     }
@@ -223,7 +223,10 @@ h6 {
       height:auto !important;
     }
     .flash-message-container {
-      padding-top: 0px !important;
+      padding: 5px !important;
+    }
+
+    .show-page-container {
     }
 }
 
@@ -251,5 +254,5 @@ h6 {
 .vertically-align-force {
   position: relative;
   top: 50%;
-  transform: translateY(+50%);
+  transform: translateY(-50%);
 }

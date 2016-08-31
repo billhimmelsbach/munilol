@@ -1,22 +1,24 @@
-<div class="flash-message-container">
-  <%= flash_messages %>
-</div>
-<div class="brand-image show-mobile">
-  <img class = "img-responsive" src="https://i.imgur.com/EtptcPf.png">
-</div>
-<div class= "index-container col-xs-12 container-fluid well">
-  <div class = "row">
-    <div class="alert alert-danger" role"alert">
-      <h5 id = "alert_message" style= "color:red; text-align: center;" data-turbolinks-permanent> </h5>
-    </div>
+<div class="col-xs-12">
+  <div class="flash-message-container">
+    <%= flash_messages %>
   </div>
-    <% article_sort_by_vote(@articles).each do |article| %>
-      <%= link_to article_path(article) do %>
-        <div class="column col-xs-12 col-s-6 col-md-6 col-lg-4" style="padding: 3px">
-          <div class="card card-inverse image-index" style="background-image: url('<%=article.image %>')">
+  <div class="brand-image show-mobile">
+    <img class = "img-responsive" src="https://i.imgur.com/EtptcPf.png">
+  </div>
+  <div class= "index-container col-xs-12 container-fluid well">
+    <div class = "row">
+      <div class="alert alert-danger" role"alert">
+        <h5 id = "alert_message" style= "color:red; text-align: center;" data-turbolinks-permanent> </h5>
+      </div>
+    </div>
+      <% article_sort_by_vote(@articles).each do |article| %>
+        <%= link_to article_path(article) do %>
+          <div class="column col-xs-12 col-s-6 col-md-6 col-lg-4" style="padding: 3px">
+            <div class="card card-inverse image-index" style="background-image: url('<%=article.image %>')">
+            </div>
           </div>
-        </div>
-      <% end %>
-  <% end %>
-  <br />
+        <% end %>
+    <% end %>
+    <br />
+  </div>
 </div>
