@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by_id(params[:id])
+    @user = User.find(params[:id])
     # @user = User.friendly.find(params[:id].to_s.downcase)
     @articles = Article.where(user_id: params[:id])
     @articles = @user.articles.order("created_at desc")
@@ -27,12 +27,12 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find_by_id(params[:id])
+    @user = User.find(params[:id])
     auth_fail("edit other people's user information!", @user) if !auth_route(@user)
   end
 
   def update
-    @user = User.find_by_id(params[:id])
+    @user = User.find(params[:id])
     if auth_route(@user)
       if @user.update(user_params)
         flash[:success] = "Your profile was successfully updated"
@@ -46,7 +46,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find_by_id(params[:id])
+    @user = User.find(params[:id])
     if auth_route(@user)
       Comment.delete_all(:user => @user.id)
       Article.delete_all(:user => @user.id)

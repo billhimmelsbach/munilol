@@ -12,6 +12,8 @@ class Article < ActiveRecord::Base
 
   before_save :default_values
 
+  extend FriendlyId
+  friendly_id :title, use: [:slugged, :finders]
 
   private
 
