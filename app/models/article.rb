@@ -2,6 +2,8 @@ class Article < ActiveRecord::Base
   #TODO add default article code
 
   has_uploadcare_file :file
+  
+  before_validation :default_values
 
   validates :title, length: {in: 2..75}, presence: true
   validates :content, length: {in: 2..2000}, presence: true
@@ -9,8 +11,6 @@ class Article < ActiveRecord::Base
   belongs_to :muni
   belongs_to :user
   has_many :comments
-
-  before_save :default_values
 
   extend FriendlyId
   friendly_id :title, use: [:slugged, :finders]
