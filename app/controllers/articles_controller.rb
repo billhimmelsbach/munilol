@@ -18,8 +18,6 @@ class ArticlesController < ApplicationController
     @comment.user_id = current_user.id
     @comment.article_id = @article.id
     @comment.save
-    p "COMMENT AFTER CREATION"
-    p @comment
   end
 
   def new
@@ -32,9 +30,6 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     @article.user_id = session[:user_id]
     @muni = Muni.find(@article.muni_id)
-    if @article.image == ""
-      @article.image = "https://upload.wikimedia.org/wikipedia/en/thumb/b/b2/SFMuni_Worm.svg/1280px-SFMuni_Worm.svg.png"
-    end
     if @article.save
       @muni.articles.push(@article)
       flash[:success] = "Your article titled \"#{@article.title}\" was successfully created"
