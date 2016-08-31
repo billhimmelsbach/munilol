@@ -25,6 +25,10 @@
     </div>
   </div>
   <div class= "index-container col-xs-12 container-fluid well">
+    <% if @user.articles.distinct.count < 1 || nil %>
+        <p> Are you telling me you haven't seen anything funny on the Muni yet? </p>
+        <p> <%= link_to "Click here", new_article_path %> to share now! </p>
+        <% end %>
     <% article_sort_by_vote(@user.articles).each do |article| %>
     <%= link_to article_path(article) do %>
     <div class="column col-xs-12 col-s-6 col-md-6 col-lg-4" style="padding: 3px">
