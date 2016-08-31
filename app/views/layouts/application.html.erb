@@ -68,9 +68,6 @@
       <p>Learn more about the <%= link_to "team!", about_path %></p>
     </footer>
     <div class="col-xs-12 navbar navbar-fixed-bottom bottom-nav-div">
-      <div class="top-navbar">
-
-      </div>
       <div class="row" id="bottomNav">
         <% if current_user %>
           <div class="col-xs-3 text-center">
@@ -94,17 +91,22 @@
             <% end %>
           </div>
         <% else %>
-          <div class="col-xs-4 text-center">
+          <div class="col-xs-3 text-center">
+            <%= link_to :back do %><br>
+              <i class="glyphicon glyphicon-chevron-left"></i>
+            <% end %>
+          </div>
+          <div class="col-xs-3 text-center">
+            <%= link_to root_path do %><br>
+              <i class="glyphicon glyphicon-home"></i>
+            <% end %>
+          </div>
+          <div class="col-xs-3 text-center">
             <%= link_to new_session_path do %><br>
               <i class="glyphicon glyphicon-plus"></i>
             <% end %>
           </div>
-          <div class="col-xs-4 text-center">
-            <%= link_to new_user_path do %><br>
-              <i class="glyphicon glyphicon-user"></i>
-            <% end %>
-          </div>
-          <div class="col-xs-4 text-center">
+          <div class="col-xs-3 text-center">
             <%= link_to new_session_path do %><br>
               <i class="glyphicon glyphicon-log-in"></i>
             <% end %>
