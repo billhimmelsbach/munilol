@@ -4,7 +4,8 @@ USERS = [
     last_name: "Allen",
     email: "NathanAllen@WDI30.com",
     password_digest: "$2a$10$ZOznVN9PnbO2eww2ARycPu.P4nFJ092edGENVpofzmM6ISZrzzGM.",
-    image: "https://ucarecdn.com/1386c488-f2db-4b63-959f-32656a7e35c6/"
+    image: "https://ucarecdn.com/1386c488-f2db-4b63-959f-32656a7e35c6/",
+    full_name:"NathanAllen"
   },
   {
     first_name: "Justin",
