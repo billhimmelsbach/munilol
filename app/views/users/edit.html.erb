@@ -1,4 +1,30 @@
 <h2><strong>Edit Your Profile</strong></h2>
 <br></br>
 
-<%= render "user_form" %>
+<div class="row">
+  <%= render "user_form" %>
+</div>
+
+<div class="text-center">
+  <% if current_user != nil && current_user.id == @user.id %>
+    <div class="row userbuttons">
+      <button class="ruby-link btn btn-danger inline btn-primary btn-md inline" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Deactivate Account</button>
+    </div>
+    <div class="row">
+      <div class="collapse" id="collapseExample">
+        <div class="well col-xs-4 col-xs-offset-4">
+          <h5 class="inline">
+            Are you sure you want to deactivate your account?
+          </h5>
+          <button class="ruby-link btn-danger btn-primary btn-sm inline">
+            <%= link_to "Deactivate", destroy_user_path(@user), method: :delete, :class=>"ruby-link"%>
+          </button>
+          <button class="btn-success btn-primary btn-sm inline" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<br></br>
