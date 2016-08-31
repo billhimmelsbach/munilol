@@ -5,7 +5,7 @@
       <div class ="col-md-8 col-xs-9 col-md-offset-2 col-xs-offset-0">
         <div class="panel-image"><br>
           <br>
-          <img class="img-responsive img-rounded" <img src="<%= @article.image %>" data-toggle="modal" data-target="#myModal" style="width:auto; height:350px; margin: 0 auto; margin-top: -20px; cursor: pointer;" >
+          <img class="img-responsive img-rounded" <img src="<%= @article.image %>" data-toggle="modal" data-target="#myModal" style="width:auto; height:auto; margin: 0 auto; cursor: pointer;" >
         </div>
       </div>
       <div class="col-xs-3 col-sm-2 col-lg-1" style="height:50vh">
@@ -16,7 +16,7 @@
                 <%= f.hidden_field :vote, :value => 1 %>
                 <%= f.submit :type => :image, :class => "#{"grayed " if @comment.vote <= 0}up-vote img-responsive", :src => "https://i.imgur.com/QHTUl49.png"%>
               <% end %>
-            <h1 class="vote-total text-center" data-vote="<%= @comment.vote %>"><%= @vote_total %></h1>
+              <h1 class="vote-total text-center" style="margin:1vh" data-vote="<%= @comment.vote %>"><%= @vote_total %></h1>
               <%= form_for @comment, url: update_comment_path(@article.id), :remote => true  do |f| %>
                 <%= f.hidden_field :vote, :value => -1 %>
                 <%= f.submit :type => :image, :class => "#{"grayed " if @comment.vote >= 0}down-vote img-responsive", :src => "https://i.imgur.com/NPKsG2K.png"%>
@@ -26,10 +26,10 @@
       </div>
     </div>
     <div class="panel-body">
-      <h4 class="text-center"><%= @article.title %></h4>
-      <p><%= link_to @article.muni.name, muni_path(@article.muni), method: :get %></p>
-      <p>posted <%= time_ago_in_words(@article.created_at) %> ago</p>
+      <h4 class="text-center" style="text-decoration:underline"><strong><%= @article.title %></strong></h4>
+      <p style="font-style:italic"> posted <%= time_ago_in_words(@article.created_at) %> ago </p>
       <p><%= @article.content %></p>
+      <p><%= link_to @article.muni.name, muni_path(@article.muni), method: :get %></p>
     </div>
     <% if current_user != nil && current_user.id == @article.user.id %>
       <div class="buttonrow">
