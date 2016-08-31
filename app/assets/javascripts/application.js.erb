@@ -21,6 +21,8 @@
 //   // idempotent function
 // });
 // function displayAlert
+//
+var alert_message;
 var api_called = 0;
 var alert = function() {
   $.ajax({url: "http://api.511.org/transit/servicealerts?format=json&api_key=<%= ENV['511_KEY'] %>", success: function(result){
@@ -30,6 +32,8 @@ var alert = function() {
           console.log(entity._alert._description_text._translation[0]._text);
           alert = entity._alert._description_text._translation[0]._text;
           $("#alert_message").append(alert);
+          console.log("AJAX!");
+          alert_message = alert;
           api_called++;
         }
       });
@@ -53,9 +57,6 @@ $(document).on('turbolinks:load', function(){
   if (($( ".vote-total" ).data( "vote" )) == -1) {
     voteTotal++;
   }
-  // if (($( ".vote-total" ).data( "vote" )) == (1 || -1)) {
-  //   voteIncrement = 2
-  // }
 
   var onUpVote = function() {
     console.log('ajax:success! UP');
@@ -93,6 +94,17 @@ $(document).on('turbolinks:load', function(){
       window.location = goto;
     }
   }
+  console.log("ALERT MESSAGE");
+  console.log($("#alert_message").text());
+  if ($("#alert_message").text()==" ") {
+    // console.log("NOTHING");
+    $("#alert_message").append(alert_message);
+  }
+  // if ($('select')[1]!== undefined) {
+  //   console.log("test");
+  //   $('select')[1].remove();
+  // }
+  // $('select-navbar').append(select2);
   $("select").select2({
     placeholder: "See your Muni Route",
   });

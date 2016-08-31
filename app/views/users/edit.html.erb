@@ -1,20 +1,23 @@
-<h2><strong>Edit Profile</strong></h2>
+<h2>
+    <strong>Edit Profile</strong>
+</h2>
 <br></br>
-<div class = "col-md-4 col-md-offset-4">
-  <div class = "EditProfile">
-    <%= bootstrap_form_for @user do |f| %>
-      <%= f.text_field :first_name, placeholder: 'First Name' %>
-      <%= f.text_field :last_name, placeholder: 'Last Name' %>
-      <%= f.email_field :email, placeholder: 'Email' %>
-      <%= f.password_field :password, placeholder: 'Password' %>
-      <%= f.url_field :image, placeholder: 'Image Url' %>
-      <%= f.uploadcare_uploader :image, :data => {:images_only => true}%>
-      <br>
-      <div class = "CreateButton">
-        <%= f.submit "Save Changes" %>
-      </div>
-    <% end %>
-    <%= button_to "Cancel", :back, method: :get, :class=>"ruby-link btn btn-info btn-default btn-md" %>
-    <br></br>
-  </div>
+<div class="col-md-4 col-md-offset-4">
+    <div class="EditProfile">
+        <%= bootstrap_form_for @user do |f| %>
+        <%= f.text_field :first_name, placeholder: 'First Name' %>
+        <%= f.text_field :last_name, placeholder: 'Last Name' %>
+        <%= f.email_field :email, placeholder: 'Email' %>
+        <%= f.password_field :password, placeholder: 'Password' %><br>
+        <%= f.uploadcare_uploader :image, :data => {:images_only => true} %>
+        <br></br>
+        <div class="CreateButton">
+            <%= f.submit "Save Changes" %>
+        </div>
+        <% end %>
+        <div class="CancelButton">
+            <%= button_to "Cancel", :back, method: :get, :class=>"ruby-link btn btn-info btn-default btn-md" %>
+        </div>
+        <br></br>
+    </div>
 </div>

@@ -6,6 +6,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <meta name="turbolinks-cache-control" content="no-cache">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
@@ -18,89 +19,91 @@
   </script>
 </head>
 <body>
-  <div class = "nav-div">
-    <header>
-      <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="col-xs-12 navbar-header" style="padding-left:-10px">
-          <div class="col-xs-3 pull-left">
-            <a href="/" class="navbar-brand"><img class = "img-responsive" src="https://i.imgur.com/4X0lgTb.png"></a>
-          </div>
-          <div class="col-xs-9 pull-right">
-            <ul class="nav navbar-nav v-align pull-right">
-              <li style="margin-top: 12px;">
-                <select class="js-example-basic-single" style="width: 100%;">
-                  <% @munis.each do |muni| %>
-                  <option></option>
-                  <option value="<%= muni_path(muni.id) %>"><%= muni.name %></option>
+  <div class = "col-xs-12">
+    <div class = "nav-div">
+      <header>
+        <nav class="navbar navbar-default navbar-fixed-top">
+          <div class="col-xs-12 navbar-header" style="padding-left:-10px">
+            <div class="col-xs-3 pull-left">
+              <a href="/" class="navbar-brand"><img class = "img-responsive" src="https://i.imgur.com/4X0lgTb.png"></a>
+            </div>
+            <div class="col-xs-9 pull-right">
+              <ul class="nav navbar-nav v-align pull-right">
+                <li style="margin-top: 12px;">
+                  <select class="js-example-basic-single" style="width: 100%;">
+                    <% @munis.each do |muni| %>
+                    <option></option>
+                    <option value="<%= muni_path(muni.id) %>"><%= muni.name %></option>
+                    <% end %>
+                  </select>
+                </li>
+                <li>
+                  <% if current_user %>
+                    <%= link_to "New Article", new_article_path, :class => "pull-right btn blue-grey lighten-3" %>
+                  <% else %>
+                    <%= link_to "New Article", new_session_path, :class => "pull-right btn blue-grey lighten-3" %>
                   <% end %>
-                </select>
-              </li>
-              <li>
+                </li>
                 <% if current_user %>
-                  <%= link_to "New Article", new_article_path, :class => "pull-right btn blue-grey lighten-3" %>
+                  <li><%= link_to current_user.first_name + "\'s Profile", user_path(current_user)%> </li>
+                  <li><%= link_to "Log Out", logout_path %></li>
                 <% else %>
-                  <%= link_to "New Article", new_session_path, :class => "pull-right btn blue-grey lighten-3" %>
+                  <li><%= link_to "Sign up", new_user_path %></li>
+                  <li><%= link_to "Log In", new_session_path %></li>
                 <% end %>
-              </li>
-              <% if current_user %>
-                <li><%= link_to current_user.first_name + "\'s Profile", user_path(current_user)%> </li>
-                <li><%= link_to "Log Out", logout_path %></li>
-              <% else %>
-                <li><%= link_to "Sign up", new_user_path %></li>
-                <li><%= link_to "Log In", new_session_path %></li>
-              <% end %>
-            </ul>
+              </ul>
+            </div>
           </div>
+        </nav>
+      </header>
+    </div>
+    <main>
+      <div class ="row">
+        <div class = "col-xs-12">
+          <%= yield %>
         </div>
-      </nav>
-    </header>
-  </div>
-  <main>
-    <div class ="row">
-      <div class = "col-xs-12">
-        <%= yield %>
+      </div>
+    </main>
+    <footer class="text-center">
+      <p>Learn more about the <%= link_to "team!", about_path %></p>
+    </footer>
+    <div class="col-xs-12 navbar navbar-fixed-bottom bottom-nav-div">
+      <div class="row" id="bottomNav">
+        <% if current_user %>
+          <div class="col-xs-4 text-center">
+            <%= link_to new_article_path do %><br>
+              <i class="glyphicon glyphicon-plus"></i>
+            <% end %>
+          </div>
+          <div class="col-xs-4 text-center">
+            <%= link_to user_path(current_user) do %><br>
+              <i class="glyphicon glyphicon-user"></i>
+            <% end %>
+          </div>
+          <div class="col-xs-4 text-center">
+            <%= link_to logout_path do %><br>
+              <i class="glyphicon glyphicon-log-out"></i>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="col-xs-4 text-center">
+            <%= link_to new_session_path do %><br>
+              <i class="glyphicon glyphicon-plus"></i>
+            <% end %>
+          </div>
+          <div class="col-xs-4 text-center">
+            <%= link_to new_user_path do %><br>
+              <i class="glyphicon glyphicon-off"></i>
+            <% end %>
+          </div>
+          <div class="col-xs-4 text-center">
+            <%= link_to new_session_path do %><br>
+              <i class="glyphicon glyphicon-log-in"></i>
+            <% end %>
+          </div>
+        <% end %>
       </div>
     </div>
-  </main>
-  <footer class="text-center">
-    <p>Learn more about the <%= link_to "team!", about_path %></p>
-  </footer>
-  <div class="col-xs-12 navbar navbar-fixed-bottom bottom-nav-div">
-    <div class="row" id="bottomNav">
-      <% if current_user %>
-        <div class="col-xs-4 text-center">
-          <%= link_to new_article_path do %><br>
-            <i class="glyphicon glyphicon-plus"></i>
-          <% end %>
-        </div>
-        <div class="col-xs-4 text-center">
-          <%= link_to user_path(current_user) do %><br>
-            <i class="glyphicon glyphicon-user"></i>
-          <% end %>
-        </div>
-        <div class="col-xs-4 text-center">
-          <%= link_to logout_path do %><br>
-            <i class="glyphicon glyphicon-log-out"></i>
-          <% end %>
-        </div>
-      <% else %>
-        <div class="col-xs-4 text-center">
-          <%= link_to new_session_path do %><br>
-            <i class="glyphicon glyphicon-plus"></i>
-          <% end %>
-        </div>
-        <div class="col-xs-4 text-center">
-          <%= link_to new_user_path do %><br>
-            <i class="glyphicon glyphicon-user"></i>
-          <% end %>
-        </div>
-        <div class="col-xs-4 text-center">
-          <%= link_to new_session_path do %><br>
-            <i class="glyphicon glyphicon-log-in"></i>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-</body>
+  </body>
+</div>
 </html>
