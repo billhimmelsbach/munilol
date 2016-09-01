@@ -3,20 +3,20 @@
 </div>
 <br>
 <% if current_user != nil && current_user.id == @user.id %>
-<div class="dropdownprofile">
-  <div class="cog glyphicon glyphicon-cog"></div>
-  <div class="dropdown-content">
-    <%= link_to current_user.first_name + "\'s Profile", user_path(current_user) %>
-    <%= link_to "Profile Settings", edit_user_path(current_user) %>
-    <%= link_to "Log Out", logout_path %>
+  <div class="dropdownprofile">
+    <div class="cog glyphicon glyphicon-cog"></div>
+    <div class="dropdown-content">
+      <%= link_to current_user.first_name + "\'s Profile", user_path(current_user) %>
+      <%= link_to "Profile Settings", edit_user_path(current_user) %>
+      <%= link_to "Log Out", logout_path %>
+    </div>
   </div>
-</div>
 <% end %>
 <br>
 <div class="ProfilePhoto">
   <img src="<%= @user.image%>" class="product_img img-responsive img-circle">
 </div>
-<h2><%=  @user.first_name %>
+<h2><%= @user.first_name %>
   <%= @user.last_name %>'s Profile Page
 </h2>
 <h4>Date Joined:
@@ -24,13 +24,8 @@
 </h4>
 <div class="index-container col-xs-12 container-fluid well">
   <% if @user.articles.distinct.count < 1 || nil %>
-    <p>
-      Are you telling me you haven't seen anything funny on the Muni yet?
-    </p>
-    <p>
-      <%= link_to "Click here", new_article_path %>
-      to share now!
-    </p>
+    <p>Are you telling me you haven't seen anything funny on the Muni yet?</p>
+    <p><%= link_to "Click here", new_article_path %> to share now!</p>
   <% end %>
   <% article_sort_by_vote(@articles).each do |article| %>
     <%= link_to article_path(article) do %>

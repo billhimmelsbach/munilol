@@ -6,7 +6,6 @@ class SessionsController < ApplicationController
   end
 
   def create
-
     @user = User.confirm(user_params)
     if @user
       login(@user)
@@ -29,5 +28,4 @@ private
   def user_params
     params.require(:user).permit(:email, :password)
   end
-
 end

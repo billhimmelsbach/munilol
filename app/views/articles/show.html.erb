@@ -3,26 +3,24 @@
   <div class="panel panel-default">
     <div class = "col-xs-12">
       <div class ="col-md-8 col-xs-9 col-md-offset-2 col-xs-offset-0">
-        <div class="panel-image"><br>
-          <br>
+        <div class="panel-image"><br><br>
           <img class="img-responsive img-rounded" <img src="<%= @article.image %>" data-toggle="modal" data-target="#myModal" style="width:auto; height:350px; margin: 0 auto; margin-top: -20px; cursor: pointer;" >
         </div>
       </div>
-      <div class="col-xs-3 col-sm-2 col-lg-1" style="height:50vh">
-        <br>
-          <div class="vertically-align-force">
-            <% if current_user != nil %>
-              <%= form_for @comment, url: update_comment_path(@article.id), :remote => true do |f| %>
-                <%= f.hidden_field :vote, :value => 1 %>
-                <%= f.submit :type => :image, :class => "#{"grayed " if @comment.vote <= 0}up-vote img-responsive", :src => "https://i.imgur.com/QHTUl49.png"%>
-              <% end %>
-            <h1 class="vote-total text-center" data-vote="<%= @comment.vote %>"><%= @vote_total %></h1>
-              <%= form_for @comment, url: update_comment_path(@article.id), :remote => true  do |f| %>
-                <%= f.hidden_field :vote, :value => -1 %>
-                <%= f.submit :type => :image, :class => "#{"grayed " if @comment.vote >= 0}down-vote img-responsive", :src => "https://i.imgur.com/NPKsG2K.png"%>
-              <% end %>
+      <div class="col-xs-3 col-sm-2 col-lg-1" style="height:50vh"><br>
+        <div class="vertically-align-force">
+          <% if current_user != nil %>
+            <%= form_for @comment, url: update_comment_path(@article.id), :remote => true do |f| %>
+              <%= f.hidden_field :vote, :value => 1 %>
+              <%= f.submit :type => :image, :class => "#{"grayed " if @comment.vote <= 0}up-vote img-responsive", :src => "https://i.imgur.com/QHTUl49.png"%>
             <% end %>
-          </div>
+            <h1 class="vote-total text-center" data-vote="<%= @comment.vote %>"><%= @vote_total %></h1>
+            <%= form_for @comment, url: update_comment_path(@article.id), :remote => true  do |f| %>
+              <%= f.hidden_field :vote, :value => -1 %>
+              <%= f.submit :type => :image, :class => "#{"grayed " if @comment.vote >= 0}down-vote img-responsive", :src => "https://i.imgur.com/NPKsG2K.png"%>
+            <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
     <div class="panel-body">
@@ -32,30 +30,26 @@
       <p><%= @article.content %></p>
     </div>
     <% if current_user != nil && current_user.id == @article.user.id %>
-      <div class="buttonrow">
-        <%= link_to "Edit Article", edit_article_path, method: :get, :class=>"ruby-link btn btn-info btn-primary btn-md inline" %>
-        <button class="ruby-link btn btn-danger inline btn-primary btn-md inline" type="button" data-toggle="collapse" data-target="#delete" aria-expanded="false" aria-controls="collapseExample">Delete Article</button><br>
+    <div class="buttonrow">
+    <%= link_to "Edit Article", edit_article_path, method: :get, :class=>"ruby-link btn btn-info btn-primary btn-md inline" %>
+      <button class="ruby-link btn btn-danger inline btn-primary btn-md inline" type="button" data-toggle="collapse" data-target="#delete" aria-expanded="false" aria-controls="collapseExample">Delete Article</button><br>
         <div class = "row">
           <div class="collapse" id="delete"><br>
             <div class="well col-xs-6 col-xs-offset-3">
               <h5 class="inline"> Are you sure you want to delete your article? </h5>
-              <button class="ruby-link btn-danger btn-primary btn-sm inline">
-                <%= link_to "Delete Article", destroy_article_path, method: :delete, :class=>"ruby-link"%>
-              </button>
-              <button class = "btn-success btn-primary btn-sm inline" data-toggle="collapse" data-target="#delete" aria-expanded="false" aria-controls="collapseExample">
+                <button class="ruby-link btn-danger btn-primary btn-sm inline">
+                  <%= link_to "Delete Article", destroy_article_path, method: :delete, :class=>"ruby-link"%>
+                </button>
+                <button class = "btn-success btn-primary btn-sm inline" data-toggle="collapse" data-target="#delete" aria-expanded="false" aria-controls="collapseExample">
                 Cancel
-              </button>
+                </button>
             </div>
           </div>
         </div>
-      </div>
-    <% end %>
-    <br>
+    </div>
+    <% end %><br>
     <div class="panel-footer text-center">
       <%= social_share_button_tag(@article.title, :image => "https://munilol.herokuapp.com/#{article_path(@article)}", desc: "#{@article.title}") %>
-
-      <!-- <a href="#facebook"><span class="fa fa-facebook"></span></a>
-      <a href="#twitter"><span class="fa fa-twitter"></span></a> -->
     </div>
   </div>
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
