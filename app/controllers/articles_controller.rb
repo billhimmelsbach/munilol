@@ -1,9 +1,11 @@
 class ArticlesController < ApplicationController
   include AuthHelper
+  include ApplicationHelper
 #TODO should I remove the contextual reasons why a user isn't able to do an action on a route?
 
   def index
-    @articles = Article.paginate(:page => params[:page], :per_page => 9)
+    @articles = Article.all
+    @articles = article_sort_by_vote_and_paginate(@articles)
     @munis = Muni.all
     render :index
   end
@@ -12,7 +14,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @vote_total = @article.comments.sum(:vote)
     return if current_user.nil?
-    @comment = Comment.where(:article_id=>params[:id]).where(:user_id=>current_user.id)[0]
+    @comment = Comment.where(:article_id=>@article.id).where(:user_id=>current_user.id)[0]
     @comment = Comment.new if @comment.nil?
     @comment.user_id = current_user.id
     @comment.article_id = @article.id
