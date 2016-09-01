@@ -3,8 +3,7 @@ class ArticlesController < ApplicationController
 #TODO should I remove the contextual reasons why a user isn't able to do an action on a route?
 
   def index
-
-    @articles = Article.paginate(:page => params[:page], :per_page => 5)
+    @articles = Article.paginate(:page => params[:page], :per_page => 6)
     @articles = @articles.order("created_at desc")
     @munis = Muni.all
     render :index
