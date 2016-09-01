@@ -413,6 +413,8 @@ ARTICLES = [
   }
 ]
 
+number_of_initial_articles = ARTICLES.count
+
 IMAGE_DATA= [
   "https://ucarecdn.com/ba8a2930-8d01-4c4c-82ff-24dd545d4c46/",
   "https://ucarecdn.com/31d96850-b864-4665-9e43-3d7f8888ad98/",
@@ -477,6 +479,9 @@ COMMENTS = [
   }
 ]
 
+
+
+
 FFAKER_COMMENTS = [];
 5000.times do
   FFAKER_COMMENTS << {
@@ -486,8 +491,23 @@ FFAKER_COMMENTS = [];
   }
 end
 
+# Set to inital user to begin rigging votes for demo purposes
+vote_counter=1
+FFAKER_VOTE_RIGGER_DEMO_ONLY = [];
+number_of_initial_articles.times do
+  20.times do
+    FFAKER_VOTE_RIGGER_DEMO_ONLY << {
+      vote: 1,
+      user_id: 10,
+      article_id: vote_counter,
+    }
+  end
+  vote_counter += 1
+end
+
 p Comment.create(COMMENTS)
 p Comment.create(FFAKER_COMMENTS)
+p Comment.create(FFAKER_VOTE_RIGGER_DEMO_ONLY)
 c = Comment.all
 
 puts "Seeded #{c.count} comments."
