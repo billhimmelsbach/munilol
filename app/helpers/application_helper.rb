@@ -23,5 +23,4 @@ module ApplicationHelper
     end
     articles.sort { |x,y| y.vote_total <=> x.vote_total}
   end
-
 end

@@ -8,5 +8,4 @@ module AuthHelper
     flash[:error] = "You can't " + reason_for_failure
     redirect_to redirect_path
   end
-
 end
