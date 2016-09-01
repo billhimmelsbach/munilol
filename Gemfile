@@ -20,6 +20,8 @@ gem 'friendly_id', '~> 5.1.0'
 
 gem 'uploadcare-rails'
 
+gem 'will_paginate', '~> 3.1.0'
+
 gem 'social-share-button'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
