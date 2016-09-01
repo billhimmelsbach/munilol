@@ -17,14 +17,9 @@
 //= require turbolinks
 //= require_tree .
 
-// $(document).on('page:change', function(event) {
-//   // idempotent function
-// });
-// function displayAlert
-//
 var alert_message;
 var api_called = 0;
-var alert = function() {
+var alertMessage = function() {
   $.ajax({url: "https://api.511.org/transit/servicealerts?format=json&api_key=<%= ENV['511_KEY'] %>", success: function(result){
       console.log("works!");
       result._entity.forEach(function(entity) {
@@ -39,21 +34,28 @@ var alert = function() {
       });
   }});
 }
+
 $(document).on('ready', function(){
-  console.log("go!");
   if (api_called == 0) {
     console.log("eject");
-    alert();
+    alertMessage();
   }
 });
+
 $(document).on('turbolinks:load', function(){
   var $upvote = $('.up-vote').closest('form');
   var $downvote = $('.down-vote').closest('form');
   var voteTotal = +($('.vote-total').text());
   var voteIncrement = 1;
+
+  if (api_called == 1) {
+    $('.alert-message-container').remove();
+  }
+
   if (($( ".vote-total" ).data( "vote" )) == 1) {
     voteTotal--;
   }
+
   if (($( ".vote-total" ).data( "vote" )) == -1) {
     voteTotal++;
   }
@@ -67,6 +69,7 @@ $(document).on('turbolinks:load', function(){
     $('.vote-total').text(voteTotal+voteIncrement);
     $downvote.on('ajax:success', onDownVote)
   }
+
   var onDownVote = function() {
     console.log('ajax:success! DOWN');
     $downvote.off();
@@ -79,6 +82,7 @@ $(document).on('turbolinks:load', function(){
 
   $upvote.on('ajax:success', onUpVote);
   $downvote.on('ajax:success', onDownVote);
+
   if ($( ".vote-total" ).data( "vote" )==1) {
     console.log("CURRENT UPVOTE");
     $upvote.off();
@@ -88,102 +92,19 @@ $(document).on('turbolinks:load', function(){
     $downvote.off();
   }
 
-  console.log("TURBO");
   function redirect(goto){
     if (goto !== '') {
       window.location = goto;
     }
   }
-  console.log("ALERT MESSAGE");
-  console.log($("#alert_message").text());
-  if ($("#alert_message").text()==" ") {
-    // console.log("NOTHING");
-    $("#alert_message").append(alert_message);
-  }
-  // if ($('select')[1]!== undefined) {
-  //   console.log("test");
-  //   $('select')[1].remove();
-  // }
-  // $('select-navbar').append(select2);
+
   $("select").select2({
     placeholder: "See your Muni Route",
   });
+
   $(".select-navbar").change(function() {
     var goto = this.value;
     console.log(goto);
     redirect(goto);
   });
 });
-//   $.ajax({url: "http://api.511.org/transit/servicealerts?format=json&api_key=<%= ENV['511_KEY'] %>", success: function(result){
-//       console.log("works!");
-//       result._entity.forEach(function(entity) {
-//         if (entity._alert._informed_entity[0]._agency_id == "MA") {
-//           console.log(entity._alert._description_text._translation[0]._text);
-//           alert = entity._alert._description_text._translation[0]._text;
-//           $("#alert_message").append(alert);
-//         }
-//       });
-//    }});
-// });
-
-// function redirect(goto){
-//   if (goto !== '') {
-//       window.location = goto;
-//   }
-// }
-// //
-// // var selectEl = document.getElementById('redirectSelect');
-// //
-// // selectEl.onchange = function(){
-// //     var goto = this.value;
-// //     redirect(goto);
-// //
-// // };
-//
-//
-// $(document).on('ready', function() {
-//   console.log("ready");
-//
-//   $("select").select2({
-//     placeholder: "See your Muni Route",
-//   });
-//
-//   $("select").change(function() {
-//     var goto = this.value;
-//     console.log(goto);
-//     redirect(goto);
-//   });
-//
-// });
-//
-// $(document).on('page:change', function() {
-//   console.log("ready");
-//
-//   $("select").select2({
-//     placeholder: "See your Muni Route",
-//   });
-//
-//   $("select").change(function() {
-//     var goto = this.value;
-//     console.log(goto);
-//     redirect(goto);
-//   });
-//
-// });
-// //
-// // var go = function() {
-// //   console.log("ready");
-// //
-// //   $("select").select2({
-// //     placeholder: "See your Muni Route",
-// //   });
-// //
-// //   $("select").change(function() {
-// //     var goto = this.value;
-// //     console.log(goto);
-// //     redirect(goto);
-// //   });
-// // };
-// //
-// // $(document).ready(go());
-// // $(document).on('page:load', go());
