@@ -1,3 +1,10 @@
+require 'ffaker'
+
+User.destroy_all
+Article.destroy_all
+Comment.destroy_all
+Muni.destroy_all
+
 USERS = [
   {
     first_name: "Nathan",
@@ -69,9 +76,26 @@ USERS = [
     password: "test",
     image: "https://ucarecdn.com/1386c488-f2db-4b63-959f-32656a7e35c6/"
   },
-
-
 ]
+
+FFAKER_USERS =[]
+15.times do
+  FFAKER_USERS << {
+    first_name: FFaker::Name.first_name,
+    last_name: FFaker::Name.last_name,
+    email: FFaker::Internet.safe_email,
+    password: "test",
+    image: FFaker::Avatar.image,
+  }
+end
+
+p User.create(USERS)
+p User.create(FFAKER_USERS)
+u = User.all
+puts "Seeded #{u.count} users."
+puts "-----------"
+
+user_id_upper_limit = u.count;
 
 MUNIS = [
   {
@@ -272,6 +296,15 @@ MUNIS = [
   },
 ]
 
+p Muni.create(MUNIS)
+m = Muni.all
+
+puts "Seeded #{m.count} munis."
+puts "-----------"
+
+muni_id_upper_limit = m.count;
+
+
 ARTICLES = [
   {
     title: "Crow-M-G!!! Bird flies into Muni bus",
@@ -378,8 +411,50 @@ ARTICLES = [
     user_id: 3,
     muni_id: 8,
   }
-
 ]
+
+number_of_initial_articles = ARTICLES.count
+
+IMAGE_DATA= [
+  "https://ucarecdn.com/ba8a2930-8d01-4c4c-82ff-24dd545d4c46/",
+  "https://ucarecdn.com/31d96850-b864-4665-9e43-3d7f8888ad98/",
+  "https://ucarecdn.com/59d4b1b7-2722-4dd5-83b2-72c8d862a692/",
+  "https://ucarecdn.com/909f4cbf-4f18-4111-9bb9-c4ad840c3be0/",
+  "https://ucarecdn.com/d9cc31c3-dc16-4641-96ce-cdc35f46e557/",
+  "https://ucarecdn.com/9f333498-3f2a-4302-bb12-07ef98606aa0/",
+  "https://ucarecdn.com/c2d57ade-c63a-41a6-a29d-7e4ba77a630f/",
+  "https://ucarecdn.com/bd227ecd-c432-4184-91a4-050102cb090f/",
+  "https://ucarecdn.com/1452af1d-b4f7-4e3f-900f-f23bed5f2844/",
+  "https://ucarecdn.com/96848bac-444b-44b5-a83c-512aff276aef/",
+  "https://ucarecdn.com/67a14ac8-299e-47a4-b149-56ff14708f0d/",
+  "https://ucarecdn.com/ddb053c2-f406-490c-be0d-210d621bbd00/",
+  "https://ucarecdn.com/4b03aa26-37fc-4afb-a654-3561b590eebc/",
+  "https://ucarecdn.com/a7998acc-ac25-41f8-9b99-7d204d2d3c9c/",
+  "https://ucarecdn.com/d7e66182-62ab-460c-b000-5ebc72c57bd6/",
+]
+
+FFAKER_ARTICLES = []
+
+250.times do
+  FFAKER_ARTICLES << {
+    title: FFaker::HipsterIpsum.phrase[1..rand(30..60)],
+    image: IMAGE_DATA.sample,
+    content: FFaker::HipsterIpsum.paragraph,
+    user_id: rand(1..user_id_upper_limit),
+    muni_id: rand(1..muni_id_upper_limit),
+  }
+end
+
+p Article.create(ARTICLES)
+p Article.create(FFAKER_ARTICLES)
+a = Article.all
+
+puts "Seeded #{a.count} articles."
+
+puts "-----------"
+
+article_id_upper_limit = a.count;
+
 
 COMMENTS = [
   {
@@ -405,7 +480,37 @@ COMMENTS = [
 ]
 
 
-p User.create(USERS)
-p Muni.create(MUNIS)
-p Article.create(ARTICLES)
+
+
+FFAKER_COMMENTS = [];
+5000.times do
+  FFAKER_COMMENTS << {
+    vote: [-1, 0, 1].sample,
+    user_id: rand(1..user_id_upper_limit),
+    article_id: rand(1..article_id_upper_limit),
+  }
+end
+
+# Set to inital user to begin rigging votes for demo purposes
+vote_counter=1
+FFAKER_VOTE_RIGGER_DEMO_ONLY = [];
+number_of_initial_articles.times do
+  20.times do
+    FFAKER_VOTE_RIGGER_DEMO_ONLY << {
+      vote: 1,
+      user_id: 10,
+      article_id: vote_counter,
+    }
+  end
+  vote_counter += 1
+end
+
 p Comment.create(COMMENTS)
+p Comment.create(FFAKER_COMMENTS)
+p Comment.create(FFAKER_VOTE_RIGGER_DEMO_ONLY)
+c = Comment.all
+
+puts "Seeded #{c.count} comments."
+puts "-----------"
+
+puts "FINISHED!"

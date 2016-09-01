@@ -1,8 +1,9 @@
 class MunisController < ApplicationController
   include AuthHelper
+  include ApplicationHelper
 
   def show
     @muni = Muni.find(params[:id])
-    @articles = @muni.articles.paginate(:page => params[:page], :per_page => 9)
+    @articles = article_sort_by_vote_and_paginate(@muni.articles)
   end
 end

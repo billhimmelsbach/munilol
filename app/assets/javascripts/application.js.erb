@@ -94,6 +94,7 @@ $(document).on('turbolinks:load', function(){
 
   $(".select-navbar").change(function() {
     var goto = this.value;
+    // var goto = goto.replace(/%2f/g, "-").toLowerCase();
     console.log(goto);
     redirect(goto);
   });

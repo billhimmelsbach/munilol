@@ -33,7 +33,7 @@
                   <select class="select-navbar js-example-basic-single" style="width: 100%;">
                     <% @munis.each do |muni| %>
                     <option></option>
-                    <option value="<%= muni_path(muni.id) %>"><%= muni.name %></option>
+                    <option value="<%= muni_path(muni.slug) %>"><%= muni.name %></option>
                     <% end %>
                   </select>
                 </li>
