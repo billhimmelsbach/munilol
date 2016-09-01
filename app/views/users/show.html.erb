@@ -6,10 +6,10 @@
 <% if current_user != nil && current_user.id == @user.id %>
   <div class="dropdownprofile">
     <div class="cog glyphicon glyphicon-cog"></div>
-    <div class="dropdown-content">
-      <%= link_to current_user.first_name + "\'s Profile", user_path(current_user) %>
-      <%= link_to "Profile Settings", edit_user_path(current_user) %>
-      <%= link_to "Log Out", logout_path %>
+    <div class="dropdown-content"><br><br>
+      <%= link_to current_user.first_name + "\'s Profile", user_path(current_user) %><br><br>
+      <%= link_to "Profile Settings", edit_user_path(current_user) %><br><br>
+      <%= link_to "Log Out", logout_path %><br>
     </div>
   </div>
 <% end %>
