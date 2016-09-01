@@ -2,8 +2,19 @@
   <div class="flash-message-container">
     <%= flash_messages %>
   </div>
+  <div class="newuserimage">
+    <% if current_user == nil %>
+      <img class="newmain img-responsive" src="http://i.imgur.com/f5nkiF7.png?1">
+    <% end %>
+  </div>
   <div class="brand-image show-mobile">
-    <img class = "img-responsive" src="https://i.imgur.com/EtptcPf.png">
+    <img class="img-responsive" src="https://i.imgur.com/EtptcPf.png">
+  </div>
+  <div class="newusertext">
+    <% if current_user == nil %>
+      <h1 class="text-center splash-title">Munilol</h1>
+      <h2 class="text-center splash-title2">Public Transit At Its Finest</h2>
+    <% end %>
   </div>
   <div class= "index-container col-xs-12 container-fluid well">
     <div class = "alert-message-container row">
