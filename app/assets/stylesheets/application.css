@@ -246,6 +246,15 @@ h6 {
 
     .show-page-container {
     }
+    .pagination {
+      margin-bottom:15vh;
+    }
+    .pagination a {
+      font-size: 2em;
+    }
+    .pagination span {
+      font-size: 2em;
+    }
 }
 
 .bottom-nav-div, .show-mobile {
