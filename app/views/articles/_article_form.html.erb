@@ -5,14 +5,14 @@
       <%= f.text_area :content, placeholder: 'Content' %>
       <%= f.collection_select :muni_id, Muni.order(:name),:id,:name%><br>
       <%= f.uploadcare_uploader :image, :data => {:images_only => true, :image_shrink => "1000x1000", :clearable => true }%>
-      <br></br>
+      <br><br>
       <div class = "EditButton">
         <%= f.submit @article.new_record? ? "Create Post" : "Update Post"%>
       </div>
     <% end %>
     <div class = "CancelButton">
-    <%= button_to "Cancel", :back, method: :get, :class=>"ruby-link btn btn-info btn-default btn-md inline" %>
+      <%= button_to "Cancel", :back, method: :get, :class=>"ruby-link btn btn-info btn-default btn-md inline" %>
     </div>
-    <br></br>
+    <br><br>
   </div>
 </div>

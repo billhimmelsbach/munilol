@@ -3,6 +3,6 @@ class MunisController < ApplicationController
 
   def show
     @muni = Muni.find(params[:id])
-    @articles = @muni.articles.order("created_at desc")
+    @articles = @muni.articles.paginate(:page => params[:page], :per_page => 9)
   end
 end
