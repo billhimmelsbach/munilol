@@ -19,7 +19,10 @@
         </div>
       <% end %>
     <% end %>
+  </div>
+    <div class="text-center">
+      <%= will_paginate @collection, renderer: BootstrapPagination::Rails %>
+    </div>
     <br>
-    <%= will_paginate @articles %>
   </div>
 </div>
