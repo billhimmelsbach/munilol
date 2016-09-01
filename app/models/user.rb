@@ -1,14 +1,10 @@
 class User < ActiveRecord::Base
-  #TODO set default user picture
   has_secure_password
   extend FriendlyId
 
   before_validation :default_values
 
-
   friendly_id :full_name, use: [:slugged, :finders]
-
-
 
   validates :email, uniqueness: true, length: { in: 2..150}, presence: true
   validates :first_name, length: { in: 2..50}, presence: true
@@ -32,9 +28,4 @@ class User < ActiveRecord::Base
     @user = User.where("email ILIKE ?", params[:email]).first
     @user.try(:authenticate, params[:password])
   end
-
-  # def should_generate_new_friendly_id?
-  #   slug.blank? || username_changed?
-  # end
-
 end
