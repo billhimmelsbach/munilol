@@ -1,4 +1,4 @@
-<h1 class="text-center"> <%=@muni.name%> </h1><br>
+<h1 class="text-center"> <%=@muni.name%></h1><br>
 <div class= "index-container col-xs-12 container-fluid well">
   <% article_sort_by_vote(@articles).each do |article| %>
     <%= link_to article_path(article) do %>
@@ -11,5 +11,4 @@
 </div>
 <div class="text-center">
   <%= will_paginate @articles, renderer: BootstrapPagination::Rails %>
-</div>
-<br>
+</div><br>
