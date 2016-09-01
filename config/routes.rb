@@ -26,5 +26,5 @@ Rails.application.routes.draw do
 
   patch "/comments/:id", to: "comments#update", as: "update_comment"
 
-  get "*unmatched_route", to: "application#not_found"
+  # get "*unmatched_route", to: "application#not_found"
 end
