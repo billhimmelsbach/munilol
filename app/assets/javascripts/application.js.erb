@@ -21,14 +21,14 @@ var alert_message;
 var api_called = 0;
 var alertMessage = function() {
   $.ajax({url: "https://api.511.org/transit/servicealerts?format=json&api_key=<%= ENV['511_KEY'] %>", success: function(result){
-      result._entity.forEach(function(entity) {
-        if (entity._alert._informed_entity[0]._agency_id == "MA") {
-          alert = entity._alert._description_text._translation[0]._text;
-          $("#alert_message").append(alert);
-          alert_message = alert;
-          api_called++;
-        }
-      });
+    result._entity.forEach(function(entity) {
+      if (entity._alert._informed_entity[0]._agency_id == "MA") {
+        alert = entity._alert._description_text._translation[0]._text;
+        $("#alert_message").append(alert);
+        alert_message = alert;
+        api_called++;
+      }
+    });
   }});
 }
 
@@ -78,6 +78,7 @@ $(document).on('turbolinks:load', function(){
   if ($( ".vote-total" ).data( "vote" )==1) {
     $upvote.off();
   }
+
   if ($( ".vote-total" ).data( "vote" )==-1) {
     $downvote.off();
   }
@@ -94,7 +95,6 @@ $(document).on('turbolinks:load', function(){
 
   $(".select-navbar").change(function() {
     var goto = this.value;
-    // var goto = goto.replace(/%2f/g, "-").toLowerCase();
     console.log(goto);
     redirect(goto);
   });
