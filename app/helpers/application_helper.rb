@@ -23,4 +23,8 @@ module ApplicationHelper
     end
     articles.sort { |x,y| y.vote_total <=> x.vote_total}
   end
+
+  def article_sort_by_vote_and_paginate(articles)
+    articles = article_sort_by_vote(articles).paginate(:page => params[:page], :per_page => 9)
+  end
 end
