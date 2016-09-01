@@ -20,7 +20,7 @@
 var alert_message;
 var api_called = 0;
 var alertMessage = function() {
-  $.ajax({url: "https://api.511.org/transit/servicealerts?format=json&api_key=<%= ENV['511_KEY'] %>", success: function(result){
+  $.ajax({url: "https://api.511.org/transit/servicealerts?format=json&api_key=", success: function(result){
       result._entity.forEach(function(entity) {
         if (entity._alert._informed_entity[0]._agency_id == "MA") {
           alert = entity._alert._description_text._translation[0]._text;
@@ -30,10 +30,10 @@ var alertMessage = function() {
         }
       });
   }});
-}
+};
 
 $(document).on('ready', function(){
-  if (api_called == 0) {
+  if (api_called === 0) {
     alertMessage();
   }
 });
@@ -43,6 +43,13 @@ $(document).on('turbolinks:load', function(){
   var $downvote = $('.down-vote').closest('form');
   var voteTotal = +($('.vote-total').text());
   var voteIncrement = 1;
+
+  $(".cog").click(function() {
+    console.log("test");
+    $(".dropdown-content").css("display", "block");
+  });
+
+
 
   if (api_called == 1) {
     $('.alert-message-container').remove();
@@ -61,8 +68,8 @@ $(document).on('turbolinks:load', function(){
     $('.up-vote').removeClass('grayed');
     $('.down-vote').addClass('grayed');
     $('.vote-total').text(voteTotal+voteIncrement);
-    $downvote.on('ajax:success', onDownVote)
-  }
+    $downvote.on('ajax:success', onDownVote);
+  };
 
   var onDownVote = function() {
     $downvote.off();
@@ -70,7 +77,7 @@ $(document).on('turbolinks:load', function(){
     $('.up-vote').addClass('grayed');
     $upvote.on('ajax:success', onUpVote);
     $('.vote-total').text(voteTotal-voteIncrement);
-  }
+  };
 
   $upvote.on('ajax:success', onUpVote);
   $downvote.on('ajax:success', onDownVote);
@@ -94,7 +101,7 @@ $(document).on('turbolinks:load', function(){
 
   $(".select-navbar").change(function() {
     var goto = this.value;
-    // var goto = goto.replace(/%2f/g, "-").toLowerCase();
+
     console.log(goto);
     redirect(goto);
   });
