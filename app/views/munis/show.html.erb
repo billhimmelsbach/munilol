@@ -1,4 +1,4 @@
-<h1 class="text-center"> <%=@muni.name%></h1><br>
+<h1 class="text-center muni-name"> <%=@muni.name%></h1>
 <div class= "index-container col-xs-12 container-fluid well">
   <% article_sort_by_vote(@articles).each do |article| %>
     <%= link_to article_path(article) do %>
