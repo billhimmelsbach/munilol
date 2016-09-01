@@ -20,9 +20,4 @@
       <% end %>
     <% end %>
   </div>
-    <div class="text-center">
-      <%= will_paginate @articles, renderer: BootstrapPagination::Rails %>
-    </div>
-    <br>
-  </div>
-</div>
+<%= render :partial => "layouts/paginate"%>
