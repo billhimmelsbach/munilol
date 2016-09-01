@@ -10,8 +10,4 @@ class ApplicationController < ActionController::Base
   def set_munis
     @munis ||= Muni.all
   end
-
-  def not_found
-    render :not_found
-  end
 end
