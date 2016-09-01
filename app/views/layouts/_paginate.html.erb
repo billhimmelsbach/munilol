@@ -1,6 +1,10 @@
 <div class="col-xs-12">
-  <div class="text-center pagination-user">
+  <div class="text-center pagination-user pagination-user-desktop">
     <%= will_paginate @articles, renderer: BootstrapPagination::Rails %>
   </div>
 </div>
-<br>
+<div class="col-xs-12">
+  <div class="text-center pagination-user pagination-user-mobile show-mobile">
+    <%= will_paginate @articles, renderer: BootstrapPagination::Rails, :page_links => false %>
+  </div>
+</div>
