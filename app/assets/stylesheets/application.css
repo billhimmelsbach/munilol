@@ -168,17 +168,24 @@ h6 {
     .nav-div {
         display:none;
     }
+
     html {
       margin-top: -100px
     }
+
     .bottom-nav-div, .show-mobile, .cog {
       display: block !important;
       visibility: visible !important;
-
     }
+
     html,
     body {
       height: 100%;
+    }
+
+    .show-mobile {
+      padding-top: 3vh;
+      padding-bottom: 3vh;
     }
 
     #wrap {
