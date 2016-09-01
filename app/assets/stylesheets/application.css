@@ -171,7 +171,7 @@ h6 {
     html {
       margin-top: -100px
     }
-    .bottom-nav-div, .show-mobile, .cog {
+    .bottom-nav-div, .show-mobile, .cog, .newusertext {
       display: block !important;
       visibility: visible !important;
     }
@@ -234,6 +234,7 @@ h6 {
     .brand-image {
       overflow:hidden !important;
       height:auto !important;
+      margin-bottom: -5vh;
     }
     .flash-message-container {
       padding: 5px !important;
