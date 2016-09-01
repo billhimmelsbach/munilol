@@ -1,28 +1,30 @@
-# munilol
-Munilololololol
 # Munilol: Public Transit At Its Finest
 
-* Every one of the thousands of commuters who pack themselves into the overcrowded Muni public transit system have a crazy story that has to be seen to be believed. Munilol provides a mobile friendly online community that features the most hilarious Muni photos, allowing users to vote on which photos deserve to make it to the front page. Munilol: upload, share, lol. *
+Every one of the thousands of commuters who pack themselves into the overcrowded Muni public transit system have a crazy story that has to be seen to be believed. Munilol provides a mobile friendly online community that features the most hilarious Muni photos, allowing users to vote on which photos deserve to make it to the front page. Munilol: upload, share, lol.
 
 ## Wireframes and ERDs
 
 ### Wireframes
 
-![wireframes for vagabond:](http://i.imgur.com/FIXYjNR.png, http://i.imgur.com/feowmcK.png, http://i.imgur.com/RwCrlUI.png, http://i.imgur.com/DLrpM0H.png, http://i.imgur.com/Ip90xwy.png, http://i.imgur.com/EAE58kE.png, http://i.imgur.com/AfVE860.png, http://i.imgur.com/RDG7dlz.png, http://i.imgur.com/x1YO4qY.png, http://i.imgur.com/sPojALM.png,  "wireframes for Munilol")
+![wireframes for Munilol:](http://i.imgur.com/FIXYjNR.png)(http://i.imgur.com/feowmcK.png)(http://i.imgur.com/RwCrlUI.png)(http://i.imgur.com/DLrpM0H.png)(http://i.imgur.com/Ip90xwy.png)(http://i.imgur.com/EAE58kE.png)(http://i.imgur.com/AfVE860.png)(http://i.imgur.com/RDG7dlz.png)(http://i.imgur.com/x1YO4qY.png)(http://i.imgur.com/sPojALM.png)
+
 ### ERD
 
-![ERD for Munilol:](.png "ERD for Munilol")
+![ERD for Munilol:](http://i.imgur.com/t4HCFeb.jpg "ERD for Munilol")
 
 ## Technologies Used
 
-* Ruby on Rails
-* Postgresql
-* Bootstrap
-* HTML/CSS
-* bCrypt Secure Authorization / Authentication
-* Javascript
-* AJAX
-* 511 API Integration
+* **Ruby on Rails**
+* **Postgresql**
+* **Bootstrap**
+* **HTML/CSS**
+* **bCrypt Secure Authorization / Authentication**
+* **Javascript & jQuery**
+* **AJAX**
+* **511 API Integration**
+* **User-Friendly URLs**
+* **Upload-Care**
+* **Paginate**
 
 ## Future Features
 * Full utilization of the rails asset pipeline instead of hotlinking
@@ -33,7 +35,7 @@ Munilololololol
 * Add more mobile centric design: jQuery Mobile, gestures
 * Make muni show pages more of a community hub
 
-## Links to Developer’s Github:octocat:
-* [David Kim] (https://github.com/natapoli90)
+## Links to Developer’s Github :octocat:
 * [Bill Himmelsbach] (https://github.com/billhimmelsbach)
 * [Daniel Oh] (https://github.com/danieloh91)
+* [David Kim] (https://github.com/WDIDavidKim)
