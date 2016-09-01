@@ -1,19 +1,19 @@
 <div class="col-md-4 col-md-offset-4">
-    <div class="EditProfile">
-        <%= bootstrap_form_for @user do |f| %>
-        <%= f.text_field :first_name, placeholder: 'First Name' %>
-        <%= f.text_field :last_name, placeholder: 'Last Name' %>
-        <%= f.email_field :email, placeholder: 'Email' %>
-        <%= f.password_field :password, placeholder: 'Password' %><br>
-        <%= f.uploadcare_uploader :image, :data => {:images_only => true, :crop => "500x500 minimum", :image_shrink => "500x500", :clearable => true } %>
-        <br><br>
-        <div class="CreateButton">
-            <%= f.submit @user.new_record? ? "Create Account" : "Update Profile"  %>
-        </div>
-        <% end %>
-        <div class="CancelButton">
-            <%= button_to "Cancel", :back, method: :get, :class=>"ruby-link btn btn-info btn-default btn-md" %>
-        </div>
-        <br><br>
+  <div class="EditProfile">
+      <%= bootstrap_form_for @user do |f| %>
+      <%= f.text_field :first_name, placeholder: 'First Name' %>
+      <%= f.text_field :last_name, placeholder: 'Last Name' %>
+      <%= f.email_field :email, placeholder: 'Email' %>
+      <%= f.password_field :password, placeholder: 'Password' %><br>
+      <%= f.uploadcare_uploader :image, :data => {:images_only => true, :crop => "500x500 minimum", :image_shrink => "500x500", :clearable => true } %>
+      <br><br>
+    <div class="CreateButton">
+      <%= f.submit @user.new_record? ? "Create Account" : "Update Profile"  %>
     </div>
+    <% end %>
+    <div class="CancelButton">
+      <%= button_to "Cancel", :back, method: :get, :class=>"ruby-link btn btn-info btn-default btn-md" %>
+    </div>
+    <br><br>
+  </div>
 </div>
