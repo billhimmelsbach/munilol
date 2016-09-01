@@ -2,12 +2,13 @@
   <%= flash_messages %>
 </div>
 <br>
+
 <div class="dropdownprofile">
   <div class="cog glyphicon glyphicon-cog"></div>
   <div class="dropdown-content">
-    <a href="#">Link 1</a>
-    <a href="#">Link 2</a>
-    <a href="#">Link 3</a>
+    <%= link_to current_user.first_name + "\'s Profile", user_path(current_user) %>
+    <%= link_to "Profile Settings", edit_user_path(current_user) %>
+    <%= link_to "Log Out", logout_path %>
   </div>
 </div>
 
