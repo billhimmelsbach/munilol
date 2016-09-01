@@ -21,13 +21,10 @@ var alert_message;
 var api_called = 0;
 var alertMessage = function() {
   $.ajax({url: "https://api.511.org/transit/servicealerts?format=json&api_key=<%= ENV['511_KEY'] %>", success: function(result){
-      console.log("works!");
       result._entity.forEach(function(entity) {
         if (entity._alert._informed_entity[0]._agency_id == "MA") {
-          console.log(entity._alert._description_text._translation[0]._text);
           alert = entity._alert._description_text._translation[0]._text;
           $("#alert_message").append(alert);
-          console.log("AJAX!");
           alert_message = alert;
           api_called++;
         }
@@ -37,7 +34,6 @@ var alertMessage = function() {
 
 $(document).on('ready', function(){
   if (api_called == 0) {
-    console.log("eject");
     alertMessage();
   }
 });
@@ -61,22 +57,18 @@ $(document).on('turbolinks:load', function(){
   }
 
   var onUpVote = function() {
-    console.log('ajax:success! UP');
     $upvote.off();
     $('.up-vote').removeClass('grayed');
     $('.down-vote').addClass('grayed');
-    console.log(voteTotal);
     $('.vote-total').text(voteTotal+voteIncrement);
     $downvote.on('ajax:success', onDownVote)
   }
 
   var onDownVote = function() {
-    console.log('ajax:success! DOWN');
     $downvote.off();
     $('.down-vote').removeClass('grayed');
     $('.up-vote').addClass('grayed');
     $upvote.on('ajax:success', onUpVote);
-    console.log(voteTotal);
     $('.vote-total').text(voteTotal-voteIncrement);
   }
 
@@ -84,11 +76,9 @@ $(document).on('turbolinks:load', function(){
   $downvote.on('ajax:success', onDownVote);
 
   if ($( ".vote-total" ).data( "vote" )==1) {
-    console.log("CURRENT UPVOTE");
     $upvote.off();
   }
   if ($( ".vote-total" ).data( "vote" )==-1) {
-    console.log("CURRENT DOWNVOTE");
     $downvote.off();
   }
 
