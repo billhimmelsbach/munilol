@@ -43,10 +43,16 @@ $(document).on('turbolinks:load', function(){
   var $downvote = $('.down-vote').closest('form');
   var voteTotal = +($('.vote-total').text());
   var voteIncrement = 1;
-
+  var click_event = 0;
   $(".cog").click(function() {
-    console.log("test");
-    $(".dropdown-content").css("display", "block");
+      console.log("test");
+      $(".dropdownprofile .dropdown-content").show();
+      // $(".dropdown-content a").show();
+  });
+
+  $(".ProfilePhoto").click(function() {
+      console.log("test");
+      $(".dropdownprofile .dropdown-content").hide();
   });
 
 
