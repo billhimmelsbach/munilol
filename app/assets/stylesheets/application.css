@@ -259,6 +259,9 @@ h6 {
     .pagination span {
       font-size: 1.5em;
     }
+    .pagination-user-desktop {
+      display:none;
+    }
 }
 
 .bottom-nav-div, .show-mobile {
@@ -371,4 +374,7 @@ h6 {
 }
 .splash-title2 {
   font-size: 2em;
+}
+.pagination-user-mobile {
+  display: none;
 }
