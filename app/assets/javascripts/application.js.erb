@@ -24,7 +24,7 @@
 //
 var alert_message;
 var api_called = 0;
-var alert = function() {
+var alertMessage = function() {
   $.ajax({url: "https://api.511.org/transit/servicealerts?format=json&api_key=<%= ENV['511_KEY'] %>", success: function(result){
       console.log("works!");
       result._entity.forEach(function(entity) {
@@ -40,10 +40,9 @@ var alert = function() {
   }});
 }
 $(document).on('ready', function(){
-  console.log("go!");
   if (api_called == 0) {
     console.log("eject");
-    alert();
+    alertMessage();
   }
 });
 $(document).on('turbolinks:load', function(){
