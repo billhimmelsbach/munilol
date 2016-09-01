@@ -161,7 +161,7 @@ h6 {
   visibility: hidden !important;
 }
 
-.dropdownprofile {
+.dropdownprofile, .cog{
   display: none;
 }
 @media only screen and (max-width: 770px) {
@@ -171,7 +171,7 @@ h6 {
     html {
       margin-top: -100px
     }
-    .bottom-nav-div, .show-mobile, .dropdownprofile {
+    .bottom-nav-div, .show-mobile, .cog {
       display: block !important;
       visibility: visible !important;
 
@@ -346,9 +346,4 @@ h6 {
 /* Show the dropdown menu on hover */
 .dropdownprofile:hover .dropdown-content {
     display: block;
-}
-
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdownprofile:hover .dropbtn {
-    background-color: #3e8e41;
 }
