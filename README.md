@@ -6,7 +6,7 @@ Every one of the thousands of commuters who pack themselves into the overcrowded
 
 ### Wireframes
 
-![wireframes for Munilol:](http://i.imgur.com/FIXYjNR.png)(http://i.imgur.com/feowmcK.png)(http://i.imgur.com/RwCrlUI.png)(http://i.imgur.com/DLrpM0H.png)(http://i.imgur.com/Ip90xwy.png)(http://i.imgur.com/EAE58kE.png)(http://i.imgur.com/AfVE860.png)(http://i.imgur.com/RDG7dlz.png)(http://i.imgur.com/x1YO4qY.png)(http://i.imgur.com/sPojALM.png)
+![wireframes for Munilol:](http://i.imgur.com/FIXYjNR.png, http://i.imgur.com/feowmcK.png, http://i.imgur.com/RwCrlUI.png, http://i.imgur.com/DLrpM0H.png, http://i.imgur.com/Ip90xwy.png, http://i.imgur.com/EAE58kE.png, http://i.imgur.com/AfVE860.png, http://i.imgur.com/RDG7dlz.png, http://i.imgur.com/x1YO4qY.png, http://i.imgur.com/sPojALM.png)
 
 ### ERD
 
