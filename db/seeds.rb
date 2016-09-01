@@ -307,6 +307,13 @@ muni_id_upper_limit = m.count;
 
 ARTICLES = [
   {
+    title: "WEB DEVELOPER FAIL!!!1112",
+    content: "$('.tall-hippie-vegan').addClass('sleepy broke ratchet')",
+    image: "http://i.imgur.com/toTDlwO.jpg",
+    user_id: 4,
+    muni_id: 1,
+  },
+  {
     title: "Crow-M-G!!! Bird flies into Muni bus",
     content: "Muni rider Cynthia had a rather unexpected fellow passenger over the weekend.",
     image: "https://ucarecdn.com/ba8a2930-8d01-4c4c-82ff-24dd545d4c46/",
@@ -324,7 +331,7 @@ ARTICLES = [
     title: "Poop-cleaning neighbors still need Muni’s help",
     content: "The management at the apartment building at Post and Leavenworth has gone above and beyond in keeping their block nice and not-too-smelly, extending even to the Muni stop in front of the building. But when the Muni stop poop bandit hits your block, it’s just all too much. Here is their PSA sign that doubles as a cry for help.",
     image: "https://ucarecdn.com/59d4b1b7-2722-4dd5-83b2-72c8d862a692/",
-    user_id: 3,
+    user_id: 4,
     muni_id: 2,
   },
   {
@@ -380,7 +387,7 @@ ARTICLES = [
     title: "Public transit mayo eater inspires vomit",
     content: "Just when I thought I had seen it all.  Quick story: Mayonnaise is disgusting. It is acceptable only in tuna and chicken salad. It is certain not acceptable to eat that barfotastic crap straight from the jar. To say nothing of doing this on Muni.",
     image: "https://ucarecdn.com/67a14ac8-299e-47a4-b149-56ff14708f0d/",
-    user_id: 1,
+    user_id: 4,
     muni_id: 2,
   },
   {
