@@ -3,7 +3,7 @@
   <div class="panel panel-default">
     <div class = "col-xs-12">
       <div class ="col-md-8 col-xs-9 col-md-offset-2 col-xs-offset-0">
-        <div class="panel-image"><br><br>
+        <div class="panel-image wwicon-center"><br><br>
           <img class="img-responsive img-rounded" <img src="<%= @article.image %>" data-toggle="modal" data-target="#myModal" style="width:auto; height:350px; margin: 0 auto; margin-top: -20px; cursor: pointer;" >
         </div>
       </div>
@@ -25,14 +25,13 @@
     </div>
     <div class="panel-body">
       <h4 class="text-center" style="text-decoration:underline"><strong><%= @article.title %></strong></h4>
-      <p style="font-style:italic"> posted <%= time_ago_in_words(@article.created_at) %> ago by <%= link_to @article.user.first_name, user_path(@article.user) %></p>
+      <p style="font-style:italic"> posted <%= time_ago_in_words(@article.created_at) %> ago by <%= link_to @article.user.first_name, user_path(@article.user) %> on the <%= link_to @article.muni.name, muni_path(@article.muni), method: :get %></p>
       <p><%= @article.content %></p>
-      <p><%= link_to @article.muni.name, muni_path(@article.muni), method: :get %></p>
     </div>
     <% if current_user != nil && current_user.id == @article.user.id %>
-    <div class="buttonrow">
-    <%= link_to "Edit Article", edit_article_path, method: :get, :class=>"ruby-link btn btn-info btn-primary btn-md inline" %>
-      <button class="ruby-link btn btn-danger inline btn-primary btn-md inline" type="button" data-toggle="collapse" data-target="#delete" aria-expanded="false" aria-controls="collapseExample">Delete Article</button><br>
+      <div class="buttonrow">
+        <%= link_to "Edit Article", edit_article_path, method: :get, :class=>"ruby-link btn btn-info btn-primary btn-md inline" %>
+        <button class="ruby-link btn btn-danger inline btn-primary btn-md inline" type="button" data-toggle="collapse" data-target="#delete" aria-expanded="false" aria-controls="collapseExample">Delete Article</button><br>
         <div class = "row">
           <div class="collapse" id="delete"><br>
             <div class="well col-xs-6 col-xs-offset-3">
@@ -46,7 +45,7 @@
             </div>
           </div>
         </div>
-    </div>
+      </div>
     <% end %><br>
     <div class="panel-footer text-center">
       <%= social_share_button_tag(@article.title, :image => "https://munilol.herokuapp.com/#{article_path(@article)}", desc: "#{@article.title}") %>
@@ -65,4 +64,3 @@
     </div>
   </div>
 </div>
-<!-- </div> -->
