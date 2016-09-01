@@ -216,15 +216,6 @@ h6 {
         float:none;
     }
 
-    .glyphicon {
-    }
-
-    /*.navbar-absolute {
-        position: absolute;
-        margin: 0;
-        padding-right: 40px;
-    }*/
-
     #bottomNav a {
         font-size:15pt;
         color:#ddd;
@@ -245,6 +236,16 @@ h6 {
     }
 
     .show-page-container {
+    }
+
+    .pagination {
+      margin-bottom:15vh;
+    }
+    .pagination a {
+      font-size: 1.5em;
+    }
+    .pagination span {
+      font-size: 1.5em;
     }
 }
 
