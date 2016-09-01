@@ -3,20 +3,19 @@
 </div>
 <div class="profilerow pull-right">
   <% if current_user %>
-  <ul class="nav navbar-nav navbar-right mobile-bar pull-right">
-    <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span i class="glyphicon glyphicon-cog pull-right"></span></a>
-      <ul class="dropdown-menu">
-        <li><%= link_to current_user.first_name + "\'s Profile", user_path(current_user)%></li>
-        <li class="divider"></li>
-        <li><%= link_to "Profile Settings", edit_user_path(current_user) %></li>
-        <li class="divider"></li>
-        <li><%= link_to "Log Out", logout_path %></li>
-      </ul>
-         </li>
-       </ul>
-     </ul>
-<% end %>
+    <ul class="nav navbar-nav navbar-right mobile-bar pull-right">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span i class="glyphicon glyphicon-cog pull-right"></span></a>
+        <ul class="dropdown-menu">
+          <li><%= link_to current_user.first_name + "\'s Profile", user_path(current_user)%></li>
+          <li class="divider"></li>
+          <li><%= link_to "Profile Settings", edit_user_path(current_user) %></li>
+          <li class="divider"></li>
+          <li><%= link_to "Log Out", logout_path %></li>
+        </ul>
+      </li>
+    </ul>
+  <% end %>
 </div>
 
 <br>
@@ -29,23 +28,26 @@
 <h4>Date Joined:
   <%= @user.created_at.localtime.strftime("%B #{@user.created_at.day.ordinalize}, %Y") %>
 </h4>
-  <div class="index-container col-xs-12 container-fluid well">
-    <% if @user.articles.distinct.count < 1 || nil %>
-      <p>
-        Are you telling me you haven't seen anything funny on the Muni yet?
-      </p>
-      <p>
-        <%= link_to "Click here", new_article_path %>
-        to share now!
-      </p>
+<div class="index-container col-xs-12 container-fluid well">
+  <% if @user.articles.distinct.count < 1 || nil %>
+    <p>
+      Are you telling me you haven't seen anything funny on the Muni yet?
+    </p>
+    <p>
+      <%= link_to "Click here", new_article_path %>
+      to share now!
+    </p>
+  <% end %>
+  <% article_sort_by_vote(@articles).each do |article| %>
+    <%= link_to article_path(article) do %>
+      <div class="column col-xs-12 col-s-6 col-md-6 col-lg-4" style="padding: 3px">
+        <div class="card card-inverse image-index" style="background-image: url('<%=article.image %>')"></div>
+      </div>
     <% end %>
-    <% article_sort_by_vote(@user.articles).each do |article| %>
-      <%= link_to article_path(article) do %>
-        <div class="column col-xs-12 col-s-6 col-md-6 col-lg-4" style="padding: 3px">
-          <div class="card card-inverse image-index" style="background-image: url('<%=article.image %>')"></div>
-        </div>
-      <% end %>
-    <% end %>
-    <br/>
-  </div>
+  <% end %>
+  <br/>
 </div>
+<div class="text-center">
+  <%= will_paginate @articles, renderer: BootstrapPagination::Rails %>
+</div>
+<br>
