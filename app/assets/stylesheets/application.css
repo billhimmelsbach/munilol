@@ -174,8 +174,12 @@ h6 {
     .bottom-nav-div, .show-mobile, .cog {
       display: block !important;
       visibility: visible !important;
-
     }
+
+    .newuserimage {
+      display: none;
+    }
+
     html,
     body {
       height: 100%;
@@ -283,62 +287,61 @@ h6 {
 
 
 .dropdown-menu>li>a {
-    color:black !important;
+  color:black !important;
 }
 
 .dropdown ul.dropdown-menu:before {
-    content: "";
-    border-bottom: 10px solid #fff;
-    border-right: 10px solid transparent;
-    border-left: 10px solid transparent;
-    position: absolute;
-    top: -10px;
-    right: 16px;
-    z-index: 10;
+  content: "";
+  border-bottom: 10px solid #fff;
+  border-right: 10px solid transparent;
+  border-left: 10px solid transparent;
+  position: absolute;
+  top: -10px;
+  right: 16px;
+  z-index: 10;
 }
 
 .dropdown ul.dropdown-menu:after {
-    content: "";
-    border-bottom: 12px solid #ccc;
-    border-right: 12px solid transparent;
-    border-left: 12px solid transparent;
-    position: absolute;
-    top: -12px;
-    right: 14px;
-    z-index: 10;
-
+  content: "";
+  border-bottom: 12px solid #ccc;
+  border-right: 12px solid transparent;
+  border-left: 12px solid transparent;
+  position: absolute;
+  top: -12px;
+  right: 14px;
+  z-index: 10;
 }
 
 .dropbtn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
 }
 
 /* The container <div> - needed to position the dropdown content */
 .dropdownprofile {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 }
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
 /* Links inside the dropdown */
 .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
 }
 
 /* Change color of dropdown links on hover */
@@ -346,5 +349,9 @@ h6 {
 
 /* Show the dropdown menu on hover */
 .dropdownprofile:hover .dropdown-content {
-    display: block;
+  display: block;
+}
+
+.newmain {
+  height: 25vh;
 }
