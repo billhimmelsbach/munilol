@@ -1,7 +1,6 @@
 class ArticlesController < ApplicationController
   include AuthHelper
   include ApplicationHelper
-#TODO should I remove the contextual reasons why a user isn't able to do an action on a route?
 
   def index
     @articles = Article.all

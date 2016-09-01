@@ -4,7 +4,6 @@
 html, body{
   height: 100%;
   padding-top: 60px;
-
 }
 
 .card-inverse {
@@ -31,12 +30,12 @@ html, body{
 }
 
 .panel-image label {
-    display: block;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    height: 100%;
-    width: 100%;
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
 }
 
 .panel-heading ~ .panel-image img.panel-image-preview {
@@ -76,11 +75,11 @@ p {
 }
 
 .portfolio .thumbnail {
-    position: relative;
+  position: relative;
 }
 
 .portfolio .thumbnail:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .portfolio .caption {
