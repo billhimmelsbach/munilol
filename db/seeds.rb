@@ -1,3 +1,10 @@
+require 'ffaker'
+
+User.destroy_all
+Article.destroy_all
+Comment.destroy_all
+Muni.destroy_all
+
 USERS = [
   {
     first_name: "Nathan",
@@ -69,9 +76,23 @@ USERS = [
     password: "test",
     image: "https://ucarecdn.com/1386c488-f2db-4b63-959f-32656a7e35c6/"
   },
-
-
 ]
+
+FFAKER_USERS =[]
+15.times do
+  user_data << {
+    first_name: FFaker::Name.first_name,
+    last_name: FFaker::Name.last_name,
+    email: FFaker::Internet.safe_email,
+    password: "test",
+    image: user_image.shuffle.sample,
+  }
+end
+p User.create(USERS)
+p User.create(FFAKER_USERS)
+u = User.all
+puts "Seeded #{u.count} users."
+puts "-----------"
 
 MUNIS = [
   {
@@ -272,6 +293,13 @@ MUNIS = [
   },
 ]
 
+p Muni.create(MUNIS)
+m = muni.all
+
+puts "Seeded #{m.count} munis."
+puts "-----------"
+
+
 ARTICLES = [
   {
     title: "Crow-M-G!!! Bird flies into Muni bus",
@@ -404,8 +432,24 @@ COMMENTS = [
   }
 ]
 
+30.times do
+  FFAKER_ARTICLES << {
+    first_name: FFaker::Name.first_name,
+    last_name: FFaker::Name.last_name,
+    email: FFaker::Internet.safe_email,
+    password: "test",
+    image: user_image.shuffle.sample,
+  }
+end
 
-p User.create(USERS)
-p Muni.create(MUNIS)
 p Article.create(ARTICLES)
 p Comment.create(COMMENTS)
+
+
+  {
+    title: "Crow-M-G!!! Bird flies into Muni bus",
+    content: "Muni rider Cynthia had a rather unexpected fellow passenger over the weekend.",
+    image: "https://ucarecdn.com/ba8a2930-8d01-4c4c-82ff-24dd545d4c46/",
+    user_id: 1,
+    muni_id: 1,
+  },
