@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @articles = Article.where(user_id: params[:id]).order("created_at desc").paginate(:page => params[:page], :per_page => 9)
+    @articles = @user.articles.order("created_at desc").paginate(:page => params[:page], :per_page => 1)
     render :show
   end
 

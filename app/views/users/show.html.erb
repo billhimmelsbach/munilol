@@ -40,7 +40,9 @@
   <% end %>
   <br/>
 </div>
-<div class="pagination text-center">
-  <%= will_paginate @articles, renderer: BootstrapPagination::Rails %>
+<div class="col-xs-12">
+  <div class="text-center pagination-user">
+    <%= will_paginate @articles, renderer: BootstrapPagination::Rails %>
+  </div>
 </div>
 <br>
