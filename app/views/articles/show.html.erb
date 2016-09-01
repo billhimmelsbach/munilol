@@ -24,10 +24,9 @@
       </div>
     </div>
     <div class="panel-body">
-      <h4 class="text-center" style="text-decoration:underline"><strong><%= @article.title %></strong></h4>
-      <p style="font-style:italic"> posted <%= time_ago_in_words(@article.created_at) %> ago by <%= link_to @article.user.first_name, user_path(@article.user) %></p>
+      <h3 class="text-center" style="text-decoration:underline"><strong><%= @article.title %></strong></h3>
+      <p style="font-style:italic"> posted <%= time_ago_in_words(@article.created_at) %> ago by <%= link_to @article.user.first_name, user_path(@article.user) %> while riding the <%= link_to @article.muni.name, muni_path(@article.muni), method: :get %></p>
       <p><%= @article.content %></p>
-      <p><%= link_to @article.muni.name, muni_path(@article.muni), method: :get %></p>
     </div>
     <% if current_user != nil && current_user.id == @article.user.id %>
     <div class="buttonrow">
