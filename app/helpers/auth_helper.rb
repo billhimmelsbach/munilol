@@ -1,6 +1,8 @@
 module AuthHelper
 
   def auth_route(user)
+    # TODO: !current_user.nil? is a cleaner way to write
+    #       current_user != nil
     current_user != nil && current_user.id == user.id
   end
 

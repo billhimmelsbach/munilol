@@ -1,3 +1,5 @@
+# Holy moly. This is a fantastic amount of seed data.
+
 require 'ffaker'
 
 User.destroy_all
@@ -85,6 +87,7 @@ FFAKER_USERS =[]
     last_name: FFaker::Name.last_name,
     email: FFaker::Internet.safe_email,
     password: "test",
+    # TODO: No comma after last item in hash
     image: FFaker::Avatar.image,
   }
 end
@@ -95,6 +98,7 @@ u = User.all
 puts "Seeded #{u.count} users."
 puts "-----------"
 
+# TODO: No semicolons! This is Ruby.
 user_id_upper_limit = u.count;
 
 MUNIS = [
@@ -293,6 +297,7 @@ MUNIS = [
   {
     name: "91 - Owl",
     description: "ipsem Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+  # TODO: No comma after last item in array
   },
 ]
 
@@ -302,15 +307,18 @@ m = Muni.all
 puts "Seeded #{m.count} munis."
 puts "-----------"
 
+# TODO: No semicolons! This is Ruby.
 muni_id_upper_limit = m.count;
 
-
+# TODO: All of these images could be added to your app's assets to boost stability
 ARTICLES = [
   {
     title: "WEB DEVELOPER FAIL!!!1112",
     content: "$('.tall-hippie-vegan').addClass('sleepy broke ratchet')",
     image: "http://i.imgur.com/toTDlwO.jpg",
     user_id: 4,
+    # TODO: No comma after last item in hash. Needs to be fixed for all items
+    #       in this array.
     muni_id: 1,
   },
   {
@@ -437,6 +445,7 @@ IMAGE_DATA= [
   "https://ucarecdn.com/ddb053c2-f406-490c-be0d-210d621bbd00/",
   "https://ucarecdn.com/4b03aa26-37fc-4afb-a654-3561b590eebc/",
   "https://ucarecdn.com/a7998acc-ac25-41f8-9b99-7d204d2d3c9c/",
+  # TODO: No comma after last item in array
   "https://ucarecdn.com/d7e66182-62ab-460c-b000-5ebc72c57bd6/",
 ]
 
@@ -448,6 +457,7 @@ FFAKER_ARTICLES = []
     image: IMAGE_DATA.sample,
     content: FFaker::HipsterIpsum.paragraph,
     user_id: rand(1..user_id_upper_limit),
+    # TODO: No comma after last item in hash.
     muni_id: rand(1..muni_id_upper_limit),
   }
 end
@@ -494,6 +504,7 @@ FFAKER_COMMENTS = [];
   FFAKER_COMMENTS << {
     vote: [-1, 0, 1].sample,
     user_id: rand(1..user_id_upper_limit),
+    # TODO: No comma after last item in hash.
     article_id: rand(1..article_id_upper_limit),
   }
 end
@@ -506,6 +517,7 @@ number_of_initial_articles.times do
     FFAKER_VOTE_RIGGER_DEMO_ONLY << {
       vote: 1,
       user_id: 10,
+      # TODO: No comma after last item in hash.
       article_id: vote_counter,
     }
   end

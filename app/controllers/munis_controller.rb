@@ -1,4 +1,5 @@
 class MunisController < ApplicationController
+  # TODO: Are you using AuthHelper in this controller?
   include AuthHelper
   include ApplicationHelper
 

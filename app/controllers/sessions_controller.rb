@@ -23,6 +23,7 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
+# TODO: Indent access modifiers
 private
 
   def user_params

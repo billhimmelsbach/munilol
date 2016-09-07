@@ -2,11 +2,15 @@
 <html>
 <head>
   <title>Munilol</title>
+  <!-- TODO: Group your imported javascripts together and stylesheets together.
+   External packages should go above all custom sheets -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <meta name="turbolinks-cache-control" content="no-cache">
+  <!-- TODO: Looks like you have bootstrap installed locally but are using CDNs for
+  other packages. You should serve all assets in a consistent manner. -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
@@ -19,10 +23,14 @@
   </script>
 </head>
 <body>
+  <!-- TODO: Keep consistent spacing when applying attributes to HTML elements
+  ex. Keep consistent between <div class = "nav-div"> (spaces) and
+  <div class="nav-div"> (no spaces) Style matters! -->
   <div class = "col-xs-12">
     <div class = "nav-div">
       <header>
         <nav class="navbar navbar-default navbar-fixed-top">
+          <!-- TODO: Move inline styles to stylesheets -->
           <div class="col-xs-12 navbar-header" style="padding-left:-10px">
             <div class="col-xs-3 pull-left">
               <a href="/" class="navbar-brand"><img class = "img-responsive" src="https://i.imgur.com/4X0lgTb.png"></a>
@@ -49,6 +57,7 @@
                     <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, <%= current_user.first_name %>! <span class="glyphicon glyphicon-user pull-right"></span></a>
                         <ul class="dropdown-menu">
+                          <!-- TODO: What about names that end with s? -->
                           <li><%= link_to current_user.first_name + "\'s Profile", user_path(current_user)%></li>
                           <li class="divider"></li>
                           <li><%= link_to "Profile Settings", edit_user_path(current_user) %></li>

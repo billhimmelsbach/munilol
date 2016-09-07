@@ -26,3 +26,8 @@ Rails.application.routes.draw do
 
   patch "/comments/:id", to: "comments#update", as: "update_comment"
 end
+
+# TODO: In many cases, Ruby styleguides will suggest using single quoted strings
+#       instead of double quotes when you don't need string interpolation or
+#       special symbols. This is an application-wide suggestion (just that- a
+#       suggestion. This is not mandatory.).

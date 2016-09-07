@@ -7,6 +7,10 @@ class UsersController < ApplicationController
   end
 
   def create
+    # TODO: This method needs a more descriptive name. Maybe create_user? It's
+    #       not immediately clear what it does without scrolling down. Also,
+    #       why is this necessary? You should just write @user = User.new(user_params)
+    #       in the create method. I'm not aware of any reason to break this out into a private method.
     set_user
     if @user.save
       login(@user)
@@ -26,6 +30,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    # TODO: Refactor to use 'unless' instead of ! and if
     auth_fail("edit other people's user information!", @user) if !auth_route(@user)
   end
 
