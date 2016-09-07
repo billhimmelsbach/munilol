@@ -39,3 +39,7 @@ Every one of the thousands of commuters who pack themselves into the overcrowded
 * [Bill Himmelsbach] (https://github.com/billhimmelsbach)
 * [Daniel Oh] (https://github.com/danieloh91)
 * [David Kim] (https://github.com/WDIDavidKim)
+
+// In your README, you should also include setup instructions for other
+// developers who want to run your project locally. (i.e. sign up for API key,
+// create ENV file, etc.)
