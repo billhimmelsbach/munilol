@@ -1,7 +1,7 @@
 module ApplicationHelper
   # Great naming conventions in these helpers!
 
-# TODO: Use parenthesis when a method takes parameters
+# TODO: Use parenthesis when a method takes parameters. Is this function ever called?
   def bootstrap_class_for flash_type
     { success: "alert-success", error: "alert-danger", alert: "alert-warning", notice: "alert-info" }[flash_type.to_sym] || flash_type.to_s
   end
@@ -15,6 +15,7 @@ module ApplicationHelper
     nil
   end
 
+# TODO: This method is also defined in application_helper
   def auth_fail
     flash[:error] = "You cannot edit other people's posts!"
     redirect_to post_path

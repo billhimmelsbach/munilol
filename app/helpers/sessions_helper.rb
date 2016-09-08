@@ -9,7 +9,7 @@ module SessionsHelper
   end
 
 # TODO: I suspect that logged_in? and logged_in could be consolidated into
-#       one function
+#       one function fairly easily. 
   def logged_in?
 # TODO: Write if !current_user or unless current_user instead of comparing to nil
 #       You could also use current_user.nil?
