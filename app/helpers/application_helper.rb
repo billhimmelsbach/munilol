@@ -16,15 +16,4 @@ module ApplicationHelper
     flash[:error] = "You cannot edit other people's posts!"
     redirect_to post_path
   end
-
-  def article_sort_by_vote(articles)
-    articles.each do |article|
-      article.vote_total = article.comments.sum(:vote)
-    end
-    articles.sort { |x,y| y.vote_total <=> x.vote_total}
-  end
-
-  def article_sort_by_vote_and_paginate(articles)
-    articles = article_sort_by_vote(articles).paginate(:page => params[:page], :per_page => 9)
-  end
 end

@@ -4,15 +4,12 @@ class ArticlesController < ApplicationController
 #TODO should I remove the contextual reasons why a user isn't able to do an action on a route?
 
   def index
-    @articles = Article.all
-    @articles = article_sort_by_vote_and_paginate(@articles)
+    @articles = Article.with_vote_counts.paginate(:page => params[:page], :per_page => 9)
     @munis = Muni.all
-    render :index
   end
 
   def show
     @article = Article.find(params[:id])
-    @vote_total = @article.comments.sum(:vote)
     return if current_user.nil?
     @comment = Comment.where(:article_id=>@article.id).where(:user_id=>current_user.id)[0]
     @comment = Comment.new if @comment.nil?

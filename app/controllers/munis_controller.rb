@@ -4,6 +4,6 @@ class MunisController < ApplicationController
 
   def show
     @muni = Muni.find(params[:id])
-    @articles = article_sort_by_vote_and_paginate(@muni.articles)
+    @articles = @muni.articles.with_vote_counts.paginate(:page => params[:page], :per_page => 9)
   end
 end
